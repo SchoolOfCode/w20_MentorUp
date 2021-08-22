@@ -8,7 +8,7 @@ import {
   Typography,
   Button,
 } from "@material-ui/core";
-import React from "react";
+import Logo from "../../assets/logo.svg";
 
 function Header() {
   return (
@@ -20,7 +20,7 @@ function Header() {
             color="inherit"
             aria-label="menu"
           ></IconButton>
-          <MenuIcon />
+          {/* <Logo /> */}
           <Typography variant="h6">News</Typography>
           <Button color="inherit">Login</Button>
         </Toolbar>
