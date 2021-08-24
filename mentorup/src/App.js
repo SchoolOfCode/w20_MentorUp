@@ -7,6 +7,8 @@ import Homepage from "./components/Homepage/Homepage";
 import Landing from "./components/Landing/Landing";
 import ContactForm from "./components/contact-form/contact";
 import "./App.css";
+import "firebase/firestore";
+import { useFirestoreDocData, useFirestore } from "reactfire";
 
 function App() {
   return (
@@ -16,7 +18,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Homepage}></Route>
           <Route path="/landing" component={Landing}></Route>
-          <Route path="/contact" component={ContactForm}></Route>
+          <Route path="/contact/:mentorID" component={ContactForm}></Route>
         </Switch>
       </div>
     </Router>
