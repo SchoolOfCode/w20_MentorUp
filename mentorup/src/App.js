@@ -1,14 +1,12 @@
 import React from "react";
-import { Button } from "@material-ui/core";
 
 import "./App.css";
+import MatchWithMentor from "./components/MatchWithMentor/MatchWithMentor";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <Button color="primary">Hello World</Button>
-      </header>
+      <MatchWithMentor></MatchWithMentor>
     </div>
   );
 }
