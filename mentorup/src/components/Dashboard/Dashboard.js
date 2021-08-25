@@ -1,8 +1,6 @@
-import { Typography, Button, Grid, Paper } from "@material-ui/core";
 import React from "react";
-import Header from "../Header/Header";
+import { Typography, Button, Grid, Paper, Box } from "@material-ui/core";
 import { useEffect, useState } from "react";
-import MentorProfile from "./MentorProfile/MentorProfile";
 
 const Dashboard = () => {
   const [imageSrc, setImageSrc] = useState("");
@@ -33,7 +31,6 @@ const Dashboard = () => {
   }, []);
   return (
     <div>
-      <Header />
       <Typography variant="h1" m={2}>
         Welcome Toby!
       </Typography>
@@ -43,7 +40,7 @@ const Dashboard = () => {
       <Grid container direction="row" justifyContent="center" alignItems="center" spacing={4}>
         {mentorProfiles.map((mentor) => {
           return (
-            <Grid item md={3}>
+            <Grid item xs={3}>
               <Paper>
                 <img src={mentor.imageSrc} alt="Mentor"></img>
                 <Typography variant="h6">{mentor.name}</Typography>
@@ -52,9 +49,11 @@ const Dashboard = () => {
           );
         })}
       </Grid>
-      <Button variant="contained" color="primary" m={2}>
-        Find a new mentor
-      </Button>
+      <Box m={2}>
+        <Button variant="contained" color="primary">
+          Find a new mentor
+        </Button>
+      </Box>
     </div>
   );
 };
