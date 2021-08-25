@@ -9,7 +9,7 @@ import {
 function Helpselection() {
   return (
     <Box component="div" width={300} display="flex" flexDirection="column">
-      <Typography variant="h6"> What do you need help with?</Typography>
+      <Typography variant="h5"> What do you need help with?</Typography>
 
       <TextField id="subject" label="Select a subject" select>
         <MenuItem value="Pitching">Preparing a pitch</MenuItem>
