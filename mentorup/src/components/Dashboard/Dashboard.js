@@ -1,12 +1,27 @@
-import { Avatar, Box, CardMedia, Typography, Image } from "@material-ui/core";
+import { Typography, Button, Grid, Paper } from "@material-ui/core";
 import React from "react";
 import Header from "../Header/Header";
 import { useEffect, useState } from "react";
+import MentorProfile from "./MentorProfile/MentorProfile";
 
 const Dashboard = () => {
   const [imageSrc, setImageSrc] = useState("");
-  const randomString = "ladflka";
+  const randomString = "aalskdjf";
   const apiSrc = `https://avatars.dicebear.com/api/gridy/${randomString}.svg`;
+  const mentorProfiles = [
+    {
+      name: "Megan",
+      imageSrc: imageSrc,
+    },
+    {
+      name: "George",
+      imageSrc: imageSrc,
+    },
+    {
+      name: "Chris",
+      imageSrc: imageSrc,
+    },
+  ];
 
   useEffect(() => {
     async function getImage() {
@@ -16,22 +31,30 @@ const Dashboard = () => {
     }
     getImage();
   }, []);
-
   return (
     <div>
       <Header />
-      <Box border={1} width={1 / 4} p={2} m={3} display="inline-block">
-        <img src={imageSrc} alt="Mentor"></img>
-        <Typography variant="h6">Claire</Typography>
-      </Box>
-      <Box border={1} width={1 / 4} p={2} m={3} display="inline-block">
-        <img src={imageSrc} alt="Mentor"></img>
-        <Typography variant="h6">Geoff</Typography>
-      </Box>
-      <Box border={1} width={1 / 4} p={2} m={3} display="inline-block">
-        <img src={imageSrc} alt="Mentor"></img>
-        <Typography variant="h6">Henry</Typography>
-      </Box>
+      <Typography variant="h1" m={2}>
+        Welcome Toby!
+      </Typography>
+      <Typography variant="h3" m={2}>
+        Your mentors
+      </Typography>
+      <Grid container direction="row" justifyContent="center" alignItems="center" spacing={4}>
+        {mentorProfiles.map((mentor) => {
+          return (
+            <Grid item md={3}>
+              <Paper>
+                <img src={mentor.imageSrc} alt="Mentor"></img>
+                <Typography variant="h6">{mentor.name}</Typography>
+              </Paper>
+            </Grid>
+          );
+        })}
+      </Grid>
+      <Button variant="contained" color="primary" m={2}>
+        Find a new mentor
+      </Button>
     </div>
   );
 };
