@@ -1,34 +1,33 @@
-import { useState, useEffect } from "react";
+const generateRandomString = () => Math.random().toString(20).substring(2, 8);
 
-function generateRandomString(length) {
-  return Math.random().toString(20).substring(2, 8);
-}
-
-const [imageSrc, setImageSrc] = useState("");
-const randomString = generateRandomString(8);
-const apiSrc = `https://avatars.dicebear.com/api/gridy/${randomString}.svg`;
 const mentorProfiles = [
   {
-    name: "Megan",
-    imageSrc: imageSrc,
+    avatar: `https://avatars.dicebear.com/api/gridy/${generateRandomString()}.svg`,
+    businessStage: "active",
+    email: "catclaclou@hotmail.fr",
+    expertise: ["marketing"],
+    industry: "flowers",
+    username: "testMentor1",
+    yearsInBusiness: 3,
   },
   {
-    name: "George",
-    imageSrc: imageSrc,
+    avatar: `https://avatars.dicebear.com/api/gridy/${generateRandomString()}.svg`,
+    businessStage: "active",
+    email: "catclaclou@hotmail.fr",
+    expertise: ["finance", "consulting"],
+    industry: "consulting",
+    username: "testMentor2",
+    yearsInBusiness: 7,
   },
   {
-    name: "Chris",
-    imageSrc: imageSrc,
+    avatar: `https://avatars.dicebear.com/api/gridy/${generateRandomString()}.svg`,
+    businessStage: "inactive",
+    email: "catclaclou@hotmail.fr",
+    expertise: ["finance", "marketing"],
+    industry: "finance",
+    username: "testMentor3",
+    yearsInBusiness: 1,
   },
 ];
-
-useEffect(() => {
-  async function getImage() {
-    const image = await fetch(apiSrc);
-    setImageSrc(image.url);
-    console.log(image.url);
-  }
-  getImage();
-}, []);
 
 export default mentorProfiles;
