@@ -36,39 +36,45 @@ function ContactForm() {
 
   console.log("The data is: " + data.email);
 
-  return <p>The email is {data.email}!</p>;
-
-  // return (
-  //   <div>
-
-  //     <p>Hello there, this is a contact form</p>
-  //     <form className={classes.root} noValidate autoComplete="off">
-  //       <div>
-  //         <TextField
-  //           required
-  //           id="outlined-required"
-  //           label="Email (required)"
-  //           defaultValue="Type your email here"
-  //           variant="outlined"
-  //         />
-  //       </div>
-  //       <div>
-  //         <TextField
-  //           required
-  //           id="outlined-multiline-static"
-  //           label="Message (required)"
-  //           multiline
-  //           rows={10}
-  //           defaultValue="Please enter your message here"
-  //           variant="outlined"
-  //         />
-  //       </div>
-  //     </form>
-  //     <Button variant="contained" color="primary">
-  //       Submit
-  //     </Button>
-  //   </div>
-  // );
+  return (
+    <div>
+      {/*
+      MVP1 code below:
+      <form className={classes.root} noValidate autoComplete="off">
+        <div>
+          <TextField
+            required
+            id="outlined-required"
+            label="Email (required)"
+            defaultValue="Type your email here"
+            variant="outlined"
+          />
+        </div>
+        <div>
+          <TextField
+            required
+            id="outlined-multiline-static"
+            label="Message (required)"
+            multiline
+            rows={10}
+            defaultValue="Please enter your message here"
+            variant="outlined"
+          />
+        </div>
+      </form>
+       <Button variant="contained" color="primary" onClick={}>
+        Send
+      </Button> */}
+      <h3>
+        {" "}
+        To contact your mentor, press the button below to be redirected to your
+        email client
+      </h3>
+      <Button variant="contained" color="primary" href={`mailto:${data.email}`}>
+        Send email
+      </Button>
+    </div>
+  );
 }
 
 export default ContactForm;
