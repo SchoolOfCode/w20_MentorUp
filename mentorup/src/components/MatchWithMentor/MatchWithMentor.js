@@ -2,6 +2,7 @@ import { Card, CardMedia, Typography, makeStyles, Button } from "@material-ui/co
 import React from "react";
 import cx from "clsx";
 import heroimage from "../../assets/heroimage.jpg";
+import mentorProfiles from "../../assets/mentor";
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
@@ -28,7 +29,7 @@ const MatchWithMentor = () => {
         <CardMedia
           className={cx(classes.media, classes.root)}
           component="img"
-          image={heroimage}
+          image={mentorProfiles[0].avatar}
           title="Random Photo"
         ></CardMedia>
         <Button
