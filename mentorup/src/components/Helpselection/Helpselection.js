@@ -1,7 +1,6 @@
 import React from "react";
 import {
   Grid,
-  Box,
   MenuItem,
   TextField,
   Button,
@@ -21,11 +20,6 @@ const useStyles = makeStyles((theme) => ({
   },
   ciao: {
     marginBottom: theme.spacing(3),
-  },
-  buttonResponsive: {
-    [theme.breakpoints.down("sm")]: {
-      width: "100%",
-    },
   },
   hover: {
     "&:hover, &:focus": {
@@ -56,37 +50,37 @@ function Helpselection() {
         item
         container
         direction="column"
+        spacing={4}
         // justifyContent="center"
         // alignItems="space-between"
       >
-        <Typography variant="h5" className={classes.ciao}>
-          What do you need help with?
-        </Typography>
-        <TextField
-          className={classes.ciao}
-          id="subject"
-          label="Select a subject"
-          select
-          fullWidth
-          spacing={2}
-        >
-          <MenuItem value="Select">Select an item</MenuItem>
-          <MenuItem value="Pitching" className={classes.hover}>
-            Preparing a pitch
-          </MenuItem>
-          <MenuItem value="Business Plan" className={classes.hover}>
-            Business Plan
-          </MenuItem>
-          <MenuItem value="Dogs and Cats" className={classes.hover}>
-            Dogs and Cats
-          </MenuItem>
-          <MenuItem value="Airplaines" className={classes.hover}>
-            Airplaines
-          </MenuItem>
-        </TextField>
-        <Button variant="contained" color="primary" fullWidth>
-          Next
-        </Button>
+        <Grid item>
+          <Typography variant="h5" align="center">
+            What do you need help with?
+          </Typography>
+        </Grid>
+        <Grid item>
+          <TextField id="subject" label="Select a subject" select fullWidth>
+            <MenuItem value="Select">Select an item</MenuItem>
+            <MenuItem value="Pitching" className={classes.hover}>
+              Preparing a pitch
+            </MenuItem>
+            <MenuItem value="Business Plan" className={classes.hover}>
+              Business Plan
+            </MenuItem>
+            <MenuItem value="Dogs and Cats" className={classes.hover}>
+              Dogs and Cats
+            </MenuItem>
+            <MenuItem value="Airplaines" className={classes.hover}>
+              Airplaines
+            </MenuItem>
+          </TextField>
+        </Grid>
+        <Grid item>
+          <Button variant="contained" color="primary" fullWidth>
+            Next
+          </Button>
+        </Grid>
       </Grid>
     </Grid>
   );
