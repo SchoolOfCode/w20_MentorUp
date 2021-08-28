@@ -6,10 +6,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Grid } from "@material-ui/core";
 import { Avatar } from "@material-ui/core";
 import { spacing } from "@material-ui/system";
-
 import { useParams } from "react-router-dom";
 import "firebase/firestore";
-import { useFirestoreDocData, useFirestore } from "reactfire";
+import { useFirestoreDocData, useFirestore, useUser } from "reactfire";
 
 //default material ui theme example TO CHANGE
 const useStyles = makeStyles((theme) => ({
@@ -27,6 +26,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function ContactForm() {
+  const { data: user } = useUser();
+
+  console.log("user is: " + user.displayName);
+
   const classes = useStyles();
   let { mentorID } = useParams();
 
@@ -37,13 +40,9 @@ function ContactForm() {
   // subscribe to a document for realtime updates. just one line!
   const { status, data } = useFirestoreDocData(mentorRef);
 
-  console.log("The status is: " + status);
-
   if (status === "loading") {
     return <p>Loading...</p>;
   }
-
-  console.log("The data is: " + data.email);
 
   return (
     <div>
@@ -93,7 +92,6 @@ function ContactForm() {
        <Button variant="contained" color="primary" onClick={}>
         Send
       </Button> */}
-
       <h3 mx="auto">
         {" "}
         To contact your mentor, press the button below to be redirected to your
