@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "@material-ui/core";
 
 import "./App.css";
-import Helpselection from "./assets/components/Helpselection/Helpselection";
+import Helpselection from "./components/Helpselection/Helpselection";
 
 function App() {
   return (

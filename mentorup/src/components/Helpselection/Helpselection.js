@@ -29,8 +29,8 @@ const useStyles = makeStyles((theme) => ({
   },
   hover: {
     "&:hover, &:focus": {
-      background: "rgba(241,222,250,0.275)",
-      color: "#663399",
+      background: "#3F51B5",
+      color: "#000",
       "&:before": {
         background: "#8a4baf",
         transform: "scale(1)",
@@ -43,11 +43,10 @@ function Helpselection() {
   return (
     <Grid
       style={{
-        backgroundColor: "orange",
-        border: "2px solid green",
         margin: "0 auto",
       }}
       sm={6}
+      md={3}
       container
       direction="column"
       justifyContent="center"
@@ -56,7 +55,6 @@ function Helpselection() {
       <Grid
         item
         container
-        style={{ backgroundColor: "aqua" }}
         direction="column"
         justifyContent="center"
         alignItems="center"
@@ -65,7 +63,6 @@ function Helpselection() {
           What do you need help with?
         </Typography>
         <TextField
-          backgroundColor="red"
           className={classes.ciao}
           // className={classes.root}
           id="subject"
@@ -74,16 +71,20 @@ function Helpselection() {
           fullWidth
         >
           <MenuItem value="Select">Select an item</MenuItem>
-          <MenuItem value="Pitching">Preparing a pitch</MenuItem>
-          <MenuItem value="Business Plan">Business Plan</MenuItem>
-          <MenuItem value="Dogs and Cats">Dogs and Cats</MenuItem>
-          <MenuItem value="Airplaines">Airplaines</MenuItem>
+          <MenuItem value="Pitching" className={classes.hover}>
+            Preparing a pitch
+          </MenuItem>
+          <MenuItem value="Business Plan" className={classes.hover}>
+            Business Plan
+          </MenuItem>
+          <MenuItem value="Dogs and Cats" className={classes.hover}>
+            Dogs and Cats
+          </MenuItem>
+          <MenuItem value="Airplaines" className={classes.hover}>
+            Airplaines
+          </MenuItem>
         </TextField>
-        <Button
-          variant="contained"
-          color="primary"
-          className={classes.buttonResponsive}
-        >
+        <Button variant="contained" color="primary" fullWidth>
           Next
         </Button>
       </Grid>
