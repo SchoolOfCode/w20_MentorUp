@@ -1,6 +1,7 @@
-import { Button, Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import React from "react";
-function Landing() {
+
+function Homepage() {
   return (
     <div>
       <Typography variant="h5">
@@ -9,14 +10,8 @@ function Landing() {
       <Typography variant="h6">
         Tristique nunc phasellus consectetur.
       </Typography>
-      <Button variant="contained" color="primary">
-        Sign Up
-      </Button>
-      <Button variant="outlined" color="secondary">
-        Log In
-      </Button>
     </div>
   );
 }
 
-export default Landing;
+export default Homepage;
