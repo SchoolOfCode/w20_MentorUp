@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import firebase from "firebase";
 import heroimage from "../../assets/heroimage.jpg";
-import { sizing } from "@material-ui/system";
 
 // Configure FirebaseUI.
 const uiConfig = {
