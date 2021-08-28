@@ -29,10 +29,10 @@ const useStyles = makeStyles((theme) => ({
   },
   hover: {
     "&:hover, &:focus": {
-      background: "rgba(241,222,250,0.275)",
-      color: "#663399",
+      background: "#3F51B5",
+      color: "#000",
       "&:before": {
-        background: "#8a4baf",
+        background: "#5767BE",
         transform: "scale(1)",
       },
     },
@@ -43,8 +43,6 @@ function Helpselection() {
   return (
     <Grid
       style={{
-        backgroundColor: "orange",
-        border: "2px solid green",
         margin: "0 auto",
       }}
       sm={6}
@@ -56,10 +54,9 @@ function Helpselection() {
       <Grid
         item
         container
-        style={{ backgroundColor: "aqua" }}
         direction="column"
-        justifyContent="center"
-        alignItems="center"
+        // justifyContent="center"
+        // alignItems="space-between"
       >
         <Typography variant="h5" className={classes.ciao}>
           What do you need help with?
@@ -67,17 +64,25 @@ function Helpselection() {
         <TextField
           backgroundColor="red"
           className={classes.ciao}
-          // className={classes.root}
           id="subject"
           label="Select a subject"
           select
           fullWidth
+          spacing={2}
         >
           <MenuItem value="Select">Select an item</MenuItem>
-          <MenuItem value="Pitching">Preparing a pitch</MenuItem>
-          <MenuItem value="Business Plan">Business Plan</MenuItem>
-          <MenuItem value="Dogs and Cats">Dogs and Cats</MenuItem>
-          <MenuItem value="Airplaines">Airplaines</MenuItem>
+          <MenuItem className={classes.hover} value="Pitching">
+            Preparing a pitch
+          </MenuItem>
+          <MenuItem className={classes.hover} value="Business Plan">
+            Business Plan
+          </MenuItem>
+          <MenuItem className={classes.hover} value="Dogs and Cats">
+            Dogs and Cats
+          </MenuItem>
+          <MenuItem className={classes.hover} value="Airplaines">
+            Airplaines
+          </MenuItem>
         </TextField>
         <Button
           variant="contained"
