@@ -5,6 +5,7 @@ import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid } from "@material-ui/core";
 import { Avatar } from "@material-ui/core";
+import { spacing } from "@material-ui/system";
 
 import { useParams } from "react-router-dom";
 import "firebase/firestore";
@@ -15,13 +16,14 @@ const useStyles = makeStyles((theme) => ({
   root: {
     "& .MuiTextField-root": {
       margin: theme.spacing(1),
-      width: "75ch",
     },
     display: "flex",
     "& > *": {
       margin: theme.spacing(1),
+      maxWidth: "90%",
     },
   },
+  spacing: 8,
 }));
 
 function ContactForm() {
@@ -45,6 +47,25 @@ function ContactForm() {
 
   return (
     <div>
+      <h1 mx="auto">Mentor's information and contact</h1>
+      <Grid
+        container
+        direction="column"
+        justifyContent="space-around"
+        alignItems="center"
+      >
+        <Avatar
+          alt="Avatar of the mentor"
+          src={data.avatar}
+          className={classes.large}
+        />
+        <p>Username: {data.username}</p>
+        <p>Industry: {data.industry}</p>
+        <p>Business Stage: {data.businessStage}</p>
+        <p>Years in business: {data.yearsInBusiness}</p>
+        <p>Expertise: {data.expertise}</p>
+      </Grid>
+
       {/*
       MVP1 code below:
       <form className={classes.root} noValidate autoComplete="off">
@@ -72,24 +93,8 @@ function ContactForm() {
        <Button variant="contained" color="primary" onClick={}>
         Send
       </Button> */}
-      <Grid
-        container
-        direction="column"
-        justifyContent="space-around"
-        alignItems="center"
-      >
-        <Avatar
-          alt="Avatar of the mentor"
-          src={data.avatar}
-          className={classes.large}
-        />
-        <p>Username: {data.username}</p>
-        <p>Industry: {data.industry}</p>
-        <p>Business Stage: {data.businessStage}</p>
-        <p>Expertise: {data.expertise}</p>
-      </Grid>
 
-      <h3>
+      <h3 mx="auto">
         {" "}
         To contact your mentor, press the button below to be redirected to your
         email client
