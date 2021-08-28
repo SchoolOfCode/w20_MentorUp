@@ -22,13 +22,18 @@ function Header() {
             aria-label="menu"
           ></IconButton>
           {/* <Logo /> */}
-          <Typography variant="h6">News</Typography>
-          <Button color="inherit">Login</Button>
+          <Typography variant="h6">MentorUP</Typography>
+          <Link to="/landing">
+            <Button color="inherit">Login/Sign-up</Button>
+          </Link>
           <Link to="/contact">
             <Button color="inherit">Contact Form</Button>
           </Link>
-          <Link to="/landing">
-            <Button color="inherit">Landing</Button>
+          <Link to="/dashboard">
+            <Button color="inherit">Dashboard</Button>
+          </Link>
+          <Link to="/match-with-mentor">
+            <Button color="inherit">Match with a Mentor</Button>
           </Link>
         </Toolbar>
       </AppBar>

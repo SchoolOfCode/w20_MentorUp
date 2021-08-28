@@ -1,6 +1,7 @@
 import React from "react";
 import { Typography, Button, Grid, Paper, Box } from "@material-ui/core";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   const [imageSrc, setImageSrc] = useState("");
@@ -37,7 +38,13 @@ const Dashboard = () => {
       <Typography variant="h3" m={2}>
         Your mentors
       </Typography>
-      <Grid container direction="row" justifyContent="center" alignItems="center" spacing={4}>
+      <Grid
+        container
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+        spacing={4}
+      >
         {mentorProfiles.map((mentor) => {
           return (
             <Grid item xs={3}>
@@ -50,9 +57,11 @@ const Dashboard = () => {
         })}
       </Grid>
       <Box m={2}>
-        <Button variant="contained" color="primary">
-          Find a new mentor
-        </Button>
+        <Link to="/match-with-mentor">
+          <Button variant="contained" color="primary">
+            Find a new mentor
+          </Button>
+        </Link>
       </Box>
     </div>
   );

@@ -5,10 +5,12 @@ function Homepage() {
   return (
     <div>
       <Typography variant="h5">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Welcome to MentorUp, the platform that will match you with a mentor to
+        kickstart your business.{" "}
       </Typography>
       <Typography variant="h6">
-        Tristique nunc phasellus consectetur.
+        You will be matched with a mentor that has an expertise in your field of
+        need and whom business is in a similar stage as yours.
       </Typography>
     </div>
   );

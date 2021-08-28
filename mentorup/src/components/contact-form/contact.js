@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 function ContactForm() {
   const { data: user } = useUser();
 
-  console.log("user is: " + user.displayName);
+  // console.log("user is: " + user.displayName);
 
   const classes = useStyles();
   let { mentorID } = useParams();

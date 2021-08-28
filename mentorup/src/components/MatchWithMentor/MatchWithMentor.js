@@ -1,8 +1,16 @@
-import { Card, CardMedia, Typography, makeStyles, Button } from "@material-ui/core";
+import {
+  Card,
+  CardMedia,
+  Typography,
+  makeStyles,
+  Button,
+} from "@material-ui/core";
 import React from "react";
 import cx from "clsx";
 import heroimage from "../../assets/heroimage.jpg";
 import mentorProfiles from "../../assets/mentor";
+import { Link } from "react-router-dom";
+
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
@@ -32,15 +40,17 @@ const MatchWithMentor = () => {
           image={mentorProfiles[0].avatar}
           title="Random Photo"
         ></CardMedia>
-        <Button
-          className={cx(classes.media, classes.root)}
-          style={{ width: "90%" }}
-          m={2}
-          variant="contained"
-          color="primary"
-        >
-          Contact
-        </Button>
+        <Link to="/contact/6ljttPxPJmziAmtdNSfr">
+          <Button
+            className={cx(classes.media, classes.root)}
+            style={{ width: "90%" }}
+            m={2}
+            variant="contained"
+            color="primary"
+          >
+            Contact Mentor
+          </Button>
+        </Link>
       </Card>
     </div>
   );
