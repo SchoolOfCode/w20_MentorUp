@@ -1,9 +1,10 @@
 // Import FirebaseAuth and firebase.
 import { Button, Typography } from "@material-ui/core";
-
 import React, { useEffect, useState } from "react";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import firebase from "firebase";
+import heroimage from "../../assets/heroimage.jpg";
+import { sizing } from "@material-ui/system";
 
 // Configure FirebaseUI.
 const uiConfig = {
@@ -43,6 +44,7 @@ function Landing() {
           uiConfig={uiConfig}
           firebaseAuth={firebase.auth()}
         />
+        <img src={heroimage} alt="bottom illustration" maxWidth="50%"></img>
       </div>
     );
   }

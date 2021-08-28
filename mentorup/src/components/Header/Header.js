@@ -27,6 +27,9 @@ function Header() {
           <Link to="/contact">
             <Button color="inherit">Contact Form</Button>
           </Link>
+          <Link to="/landing">
+            <Button color="inherit">Landing</Button>
+          </Link>
         </Toolbar>
       </AppBar>
     </div>
