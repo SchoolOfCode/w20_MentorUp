@@ -1,5 +1,5 @@
 // Import FirebaseAuth and firebase.
-import { Button, Typography } from "@material-ui/core";
+import { Button, Grid, Typography } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import firebase from "firebase";
@@ -44,7 +44,15 @@ function Landing() {
           uiConfig={uiConfig}
           firebaseAuth={firebase.auth()}
         />
-        <img src={heroimage} alt="bottom illustration" maxWidth="50%"></img>
+        <Grid
+          container
+          direction="column"
+          justifyContent="center"
+          alignItems="center"
+          width="100%"
+        >
+          <img src={heroimage} alt="bottom illustration" width="50%"></img>
+        </Grid>
       </div>
     );
   }
