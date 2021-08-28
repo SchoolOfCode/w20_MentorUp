@@ -22,6 +22,21 @@ const useStyles = makeStyles((theme) => ({
   ciao: {
     marginBottom: theme.spacing(3),
   },
+  buttonResponsive: {
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+    },
+  },
+  hover: {
+    "&:hover, &:focus": {
+      background: "rgba(241,222,250,0.275)",
+      color: "#663399",
+      "&:before": {
+        background: "#8a4baf",
+        transform: "scale(1)",
+      },
+    },
+  },
 }));
 function Helpselection() {
   const classes = useStyles();
@@ -58,12 +73,17 @@ function Helpselection() {
           select
           fullWidth
         >
+          <MenuItem value="Select">Select an item</MenuItem>
           <MenuItem value="Pitching">Preparing a pitch</MenuItem>
           <MenuItem value="Business Plan">Business Plan</MenuItem>
           <MenuItem value="Dogs and Cats">Dogs and Cats</MenuItem>
           <MenuItem value="Airplaines">Airplaines</MenuItem>
         </TextField>
-        <Button variant="contained" color="primary">
+        <Button
+          variant="contained"
+          color="primary"
+          className={classes.buttonResponsive}
+        >
           Next
         </Button>
       </Grid>
