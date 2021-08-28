@@ -1,10 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
 import { Button } from "@material-ui/core";
 import Header from "./components/Header/Header";
 import Homepage from "./components/Homepage/Homepage";
 import Landing from "./components/Landing/Landing";
+import PickYourMentor from "./components/PickYourMentor/PickYourMentor";
+import Dashboard from "./components/Dashboard/Dashboard";
 import ContactForm from "./components/contact-form/contact";
 import "./App.css";
 import "firebase/firestore";
