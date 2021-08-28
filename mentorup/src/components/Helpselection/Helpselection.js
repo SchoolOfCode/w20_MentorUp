@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
       background: "#3F51B5",
       color: "#000",
       "&:before": {
-        background: "#8a4baf",
+        background: "#5767BE",
         transform: "scale(1)",
       },
     },
@@ -56,19 +56,19 @@ function Helpselection() {
         item
         container
         direction="column"
-        justifyContent="center"
-        alignItems="center"
+        // justifyContent="center"
+        // alignItems="space-between"
       >
         <Typography variant="h5" className={classes.ciao}>
           What do you need help with?
         </Typography>
         <TextField
           className={classes.ciao}
-          // className={classes.root}
           id="subject"
           label="Select a subject"
           select
           fullWidth
+          spacing={2}
         >
           <MenuItem value="Select">Select an item</MenuItem>
           <MenuItem value="Pitching" className={classes.hover}>
