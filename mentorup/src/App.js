@@ -16,6 +16,7 @@ function App() {
     <Router>
       <div className="App">
         <Header />
+          <Landing />
         <Switch>
           <Route exact path="/" component={Homepage}></Route>
           <Route path="/landing" component={Landing}></Route>
