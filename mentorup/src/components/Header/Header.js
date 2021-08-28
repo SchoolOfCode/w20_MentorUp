@@ -9,6 +9,7 @@ import {
   Button,
 } from "@material-ui/core";
 import Logo from "../../assets/logo.svg";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -23,6 +24,9 @@ function Header() {
           {/* <Logo /> */}
           <Typography variant="h6">News</Typography>
           <Button color="inherit">Login</Button>
+          <Link to="/contact">
+            <Button color="inherit">Contact Form</Button>
+          </Link>
         </Toolbar>
       </AppBar>
     </div>
