@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Button, Grid } from "@material-ui/core";
+import { Button, Grid, Typography } from "@material-ui/core";
 import Header from "./components/Header/Header";
 import Homepage from "./components/Homepage/Homepage";
 import Landing from "./components/Landing/Landing";
@@ -34,7 +34,7 @@ function App() {
           alignItems="center"
           width="100%"
         >
-          <img src={heroimage} alt="bottom illustration" width="50%"></img>
+          <Typography vairant="h2">Hello</Typography>
         </Grid>
       </div>
     </Router>
