@@ -47,6 +47,9 @@ function Header() {
           <Link to="/language-selection">
             <Button color="inherit">Language Selection</Button>
           </Link>
+          <Link to="/industry-selection">
+            <Button color="inherit">Industry Selection</Button>
+          </Link>
         </Toolbar>
       </AppBar>
     </div>

@@ -2,7 +2,6 @@ import React from "react";
 
 import "./App.css";
 
-
 import Industryselection from "./components/IndustrySelection/IndustrySelection";
 
 import ElevatorPitch from "./components/ElevatorPitch/ElevatorPitch";
@@ -45,6 +44,10 @@ function App() {
             path="/language-selection"
             component={LanguageSelection}
           ></Route>
+          <Route
+            path="/industry-selection"
+            component={Industryselection}
+          ></Route>
         </Switch>
 
         <Grid
@@ -58,7 +61,6 @@ function App() {
         </Grid>
       </div>
     </Router>
-
   );
 }
 
