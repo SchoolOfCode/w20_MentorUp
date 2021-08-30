@@ -8,7 +8,6 @@ import BSLSelection from "./components/BSLSelection/BSLSelection";
 
 import LanguageSelection from "./components/LanguageSelection/LanguageSelection";
 
-
 import Helpselection from "./components/Helpselection/Helpselection";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Button, Grid } from "@material-ui/core";
@@ -26,7 +25,6 @@ import heroimage from "./assets/heroimage.jpg";
 
 function App() {
   return (
-
     <Router>
       <div className="App">
         <Header />
@@ -38,6 +36,12 @@ function App() {
           <Route path="/dashboard" component={Dashboard}></Route>
           <Route path="/match-with-mentor" component={MatchWithMentor}></Route>
           <Route path="/help-selection" component={Helpselection}></Route>
+          <Route path="/bsl-selection" component={BSLSelection}></Route>
+          <Route path="/elevator-pitch" component={ElevatorPitch}></Route>
+          <Route
+            path="/language-selection"
+            component={LanguageSelection}
+          ></Route>
         </Switch>
 
         <Grid

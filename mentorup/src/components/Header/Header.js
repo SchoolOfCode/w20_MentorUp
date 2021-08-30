@@ -36,7 +36,16 @@ function Header() {
             <Button color="inherit">Match with a Mentor</Button>
           </Link>
           <Link to="/help-selection">
-            <Button color="inherit">HelpSelection</Button>
+            <Button color="inherit">Help Selection</Button>
+          </Link>
+          <Link to="/bsl-selection">
+            <Button color="inherit">BSL Selection</Button>
+          </Link>
+          <Link to="/elevator-pitch">
+            <Button color="inherit">Elevator Pitch</Button>
+          </Link>
+          <Link to="/language-selection">
+            <Button color="inherit">Language Selection</Button>
           </Link>
         </Toolbar>
       </AppBar>
