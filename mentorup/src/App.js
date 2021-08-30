@@ -1,14 +1,12 @@
 import React from "react";
-import { Button } from "@material-ui/core";
 
 import "./App.css";
+import LanguageSelection from "./components/LanguageSelection/LanguageSelection";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <Button color="primary">Hello World</Button>
-      </header>
+      <LanguageSelection />
     </div>
   );
 }
