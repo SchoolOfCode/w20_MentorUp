@@ -45,11 +45,23 @@ function MentorOrMentee() {
               value="mentee"
               control={<Radio />}
               label="I need a mentor"
+              labelPlacement="start"
+              style={{
+                justifyContent: "space-between",
+                margin: "0",
+                padding: "16px",
+              }}
             />
             <FormControlLabel
               value="mentor"
               control={<Radio />}
               label="I want to be a mentor"
+              labelPlacement="start"
+              style={{
+                justifyContent: "space-between",
+                margin: "0",
+                padding: "16px",
+              }}
             />
           </RadioGroup>
           <Button variant="contained" color="primary" fullWidth>
