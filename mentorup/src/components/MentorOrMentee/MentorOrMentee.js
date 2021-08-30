@@ -13,16 +13,16 @@ function MentorOrMentee() {
     <div>
       <Typography variant="h5">Create your profile</Typography>
       <FormControl component="fieldset">
-        <FormLabel component="legend">Gender</FormLabel>
         <RadioGroup aria-label="gender" name="gender1">
-          <FormControlLabel value="female" control={<Radio />} label="Female" />
-          <FormControlLabel value="male" control={<Radio />} label="Male" />
-          <FormControlLabel value="other" control={<Radio />} label="Other" />
           <FormControlLabel
-            value="disabled"
-            disabled
+            value="mentee"
             control={<Radio />}
-            label="(Disabled option)"
+            label="I need a mentor"
+          />
+          <FormControlLabel
+            value="mentor"
+            control={<Radio />}
+            label="I want to be a mentor"
           />
         </RadioGroup>
       </FormControl>
