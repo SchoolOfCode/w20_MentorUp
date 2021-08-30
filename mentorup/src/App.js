@@ -1,9 +1,9 @@
-import Helpselection from "./components/Helpselection/Helpselection";
+import SubjectSelection from "./components/SubjectSelection";
 
 function App() {
   return (
     <div>
-      <Helpselection />
+      <SubjectSelection />
     </div>
   );
 }

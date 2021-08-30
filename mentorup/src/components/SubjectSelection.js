@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-function Helpselection() {
+function SubjectSelection() {
   const classes = useStyles();
   return (
     <Grid
@@ -86,4 +86,4 @@ function Helpselection() {
   );
 }
 
-export default Helpselection;
+export default SubjectSelection;
