@@ -1,6 +1,10 @@
 import React from "react";
 
 import "./App.css";
+
+import LanguageSelection from "./components/LanguageSelection/LanguageSelection";
+
+
 import Helpselection from "./components/Helpselection/Helpselection";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Button, Grid } from "@material-ui/core";
