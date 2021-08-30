@@ -28,6 +28,7 @@ function App() {
           <Route path="/contact/:mentorID" component={ContactForm}></Route>
           <Route path="/dashboard" component={Dashboard}></Route>
           <Route path="/match-with-mentor" component={MatchWithMentor}></Route>
+          <Route path="/help-selection" component={Helpselection}></Route>
         </Switch>
 
         <Grid

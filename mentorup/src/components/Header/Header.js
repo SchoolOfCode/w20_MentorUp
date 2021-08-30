@@ -35,6 +35,9 @@ function Header() {
           <Link to="/match-with-mentor">
             <Button color="inherit">Match with a Mentor</Button>
           </Link>
+          <Link to="/help-selection">
+            <Button color="inherit">HelpSelection</Button>
+          </Link>
         </Toolbar>
       </AppBar>
     </div>
