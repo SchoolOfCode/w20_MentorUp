@@ -1,6 +1,9 @@
 import React from "react";
 
 import "./App.css";
+
+import ElevatorPitch from "./components/ElevatorPitch/ElevatorPitch";
+
 import BSLSelection from "./components/BSLSelection/BSLSelection";
 
 import LanguageSelection from "./components/LanguageSelection/LanguageSelection";
@@ -48,7 +51,6 @@ function App() {
         </Grid>
       </div>
     </Router>
-
   );
 }
 
