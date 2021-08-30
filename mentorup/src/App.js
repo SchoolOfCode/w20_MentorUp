@@ -2,6 +2,9 @@ import React from "react";
 
 import "./App.css";
 
+
+import Industryselection from "./components/IndustrySelection/IndustrySelection";
+
 import ElevatorPitch from "./components/ElevatorPitch/ElevatorPitch";
 
 import BSLSelection from "./components/BSLSelection/BSLSelection";
@@ -55,6 +58,7 @@ function App() {
         </Grid>
       </div>
     </Router>
+
   );
 }
 
