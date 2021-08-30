@@ -1,6 +1,7 @@
 import React from "react";
 
 import "./App.css";
+import BSLSelection from "./components/BSLSelection/BSLSelection";
 
 import LanguageSelection from "./components/LanguageSelection/LanguageSelection";
 
@@ -22,6 +23,7 @@ import heroimage from "./assets/heroimage.jpg";
 
 function App() {
   return (
+
     <Router>
       <div className="App">
         <Header />
@@ -46,6 +48,7 @@ function App() {
         </Grid>
       </div>
     </Router>
+
   );
 }
 
