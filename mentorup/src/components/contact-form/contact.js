@@ -35,7 +35,7 @@ function ContactForm() {
 
   // easily access the Firestore library
 
-  const mentorRef = useFirestore().collection("mentors").doc(mentorID); //6ljttPxPJmziAmtdNSfr
+  const mentorRef = useFirestore().collection("userData").doc(mentorID); //6ljttPxPJmziAmtdNSfr
 
   // subscribe to a document for realtime updates. just one line!
   const { status, data } = useFirestoreDocData(mentorRef);
