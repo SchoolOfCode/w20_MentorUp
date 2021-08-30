@@ -50,9 +50,10 @@ function ElevatorPitch() {
             className={classes.field}
             variant="outlined"
             label="Write your elevator pitch here"
-          >
-            dedede
-          </TextField>
+            multiline
+            rows={4}
+          />
+
           <Button variant="contained" color="primary" fullWidth>
             Next
           </Button>
