@@ -1,6 +1,6 @@
 const functions = require("firebase-functions");
 const sgMail = require("@sendgrid/mail");
-sgMail.setApiKey("ImAString");
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 // The Firebase Admin SDK to access Firestore.
 const admin = require("firebase-admin");
@@ -24,7 +24,7 @@ exports.makeUppercase = functions.firestore
     // Grab the current value of what was written to Firestore.
     const helpRequest = snap.data().original;
 
-    let mentor = db.doc("helpRequests/" + helpRequest.mentorID).get();
+    let mentor = db.doc("userData/" + helpRequest.authenticationID).get();
 
     const msg = {
       to: mentor.email,
