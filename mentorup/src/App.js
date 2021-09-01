@@ -1,6 +1,7 @@
 import React from "react";
-
 import "./App.css";
+
+import MentorOrMentee from "./components/MentorOrMentee/MentorOrMentee";
 
 import Industryselection from "./components/IndustrySelection/IndustrySelection";
 
@@ -57,6 +58,8 @@ function App() {
           alignItems="center"
           width="100%"
         >
+                  <MentorOrMentee />
+
           <img src={heroimage} alt="bottom illustration" width="50%"></img>
         </Grid>
       </div>
