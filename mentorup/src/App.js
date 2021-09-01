@@ -35,6 +35,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Homepage}></Route>
           <Route path="/landing" component={Landing}></Route>
+          <Route path="/mentor-or-mentee" component={MentorOrMentee}></Route>
           <Route path="/contact/:mentorID" component={ContactForm}></Route>
           <Route path="/dashboard" component={Dashboard}></Route>
           <Route path="/match-with-mentor" component={MatchWithMentor}></Route>
@@ -58,8 +59,6 @@ function App() {
           alignItems="center"
           width="100%"
         >
-                  <MentorOrMentee />
-
           <img src={heroimage} alt="bottom illustration" width="50%"></img>
         </Grid>
       </div>
