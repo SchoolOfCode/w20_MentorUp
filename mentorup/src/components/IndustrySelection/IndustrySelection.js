@@ -45,6 +45,7 @@ function Helpselection() {
         margin: "0 auto",
       }}
       sm={6}
+      md={3}
       container
       direction="column"
       justifyContent="center"
