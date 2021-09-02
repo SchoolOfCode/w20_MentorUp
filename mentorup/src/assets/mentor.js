@@ -2,7 +2,7 @@ const generateRandomString = () => Math.random().toString(20).substring(2, 8);
 
 const mentorProfiles = [
   {
-    avatar: `https://avatars.dicebear.com/api/gridy/${generateRandomString()}.svg`,
+    avatar: `x`,
     businessStage: "active",
     email: "catclaclou@hotmail.fr",
     expertise: ["marketing"],
@@ -24,7 +24,7 @@ const mentorProfiles = [
     businessStage: "inactive",
     email: "catclaclou@hotmail.fr",
     expertise: ["finance", "marketing"],
-    industry: "finance",
+    industry: "flowers",
     username: "testMentor3",
     yearsInBusiness: 1,
   },
@@ -33,7 +33,7 @@ const mentorProfiles = [
     businessStage: "inactive",
     email: "catclaclou@hotmail.fr",
     expertise: ["finance", "marketing"],
-    industry: "Cheese Making",
+    industry: "flowers",
     username: "testMentor4",
     yearsInBusiness: 3,
   },
@@ -50,8 +50,8 @@ const mentorProfiles = [
     avatar: `https://avatars.dicebear.com/api/gridy/${generateRandomString()}.svg`,
     businessStage: "inactive",
     email: "catclaclou@hotmail.fr",
-    expertise: ["finance", "marketing"],
-    industry: "finance",
+    expertise: ["business plan", "marketing"],
+    industry: "cheese making",
     username: "testMentor6",
     yearsInBusiness: 2,
   },

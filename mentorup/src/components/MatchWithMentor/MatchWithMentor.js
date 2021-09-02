@@ -1,13 +1,6 @@
-import {
-  Card,
-  CardMedia,
-  Typography,
-  makeStyles,
-  Button,
-} from "@material-ui/core";
+import { Card, CardMedia, Typography, makeStyles, Button } from "@material-ui/core";
 import React from "react";
 import cx from "clsx";
-import heroimage from "../../assets/heroimage.jpg";
 import mentorProfiles from "../../assets/mentor";
 import { Link } from "react-router-dom";
 
@@ -25,19 +18,41 @@ const useStyles = makeStyles({
   },
 });
 
+const help = {
+  requirements: "finance",
+  industry: "flowers",
+};
+
+export function findMentor(listOfMentors) {
+  let mentorsWithRequirements = listOfMentors.filter((mentor) =>
+    mentor.expertise.includes(help.requirements)
+  );
+  if (mentorsWithRequirements.length > 1) {
+    const sameIndustry = mentorsWithRequirements.filter(
+      (mentor) => mentor.industry === help.industry
+    );
+    if (sameIndustry.length !== 0) {
+      mentorsWithRequirements = sameIndustry;
+    }
+  }
+  let matchedMentor =
+    mentorsWithRequirements[Math.floor(Math.random() * mentorsWithRequirements.length)];
+  return matchedMentor;
+}
 const MatchWithMentor = () => {
+  const myMentor = findMentor(mentorProfiles);
   const classes = useStyles();
-  return (
+  return myMentor ? (
     <div>
       <Typography variant="h4"> Your mentor is </Typography>
       <Card variant="outlined" className={classes.root}>
         <Typography className={cx(classes.root, classes.media)} variant="h5">
-          Toby Smith!
+          {myMentor.username}
         </Typography>
         <CardMedia
           className={cx(classes.media, classes.root)}
           component="img"
-          image={mentorProfiles[0].avatar}
+          image={myMentor.avatar}
           title="Random Photo"
         ></CardMedia>
         <Link to="/contact/6ljttPxPJmziAmtdNSfr">
@@ -53,6 +68,8 @@ const MatchWithMentor = () => {
         </Link>
       </Card>
     </div>
+  ) : (
+    <h1>No Mentors...</h1>
   );
 };
 
