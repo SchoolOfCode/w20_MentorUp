@@ -24,16 +24,34 @@ function Header() {
           {/* <Logo /> */}
           <Typography variant="h6">MentorUP</Typography>
           <Link to="/landing">
-            <Button color="inherit">Login/Sign-up</Button>
+            <Button>Login/Sign-up</Button>
+          </Link>
+          <Link to="/mentor-or-mentee">
+            <Button>Mentor Or Mentee</Button>
+          </Link>
+          <Link to="/bsl-selection">
+            <Button>BSL Selection</Button>
+          </Link>
+          <Link to="/language-selection">
+            <Button>Language Selection</Button>
+          </Link>
+          <Link to="/help-selection">
+            <Button>Help Selection</Button>
+          </Link>
+          <Link to="/industry-selection">
+            <Button>Industry Selection</Button>
+          </Link>
+          <Link to="/elevator-pitch">
+            <Button>Elevator Pitch</Button>
           </Link>
           <Link to="/contact">
-            <Button color="inherit">Contact Form</Button>
+            <Button>Contact Form</Button>
           </Link>
           <Link to="/dashboard">
-            <Button color="inherit">Dashboard</Button>
+            <Button>Dashboard</Button>
           </Link>
           <Link to="/match-with-mentor">
-            <Button color="inherit">Match with a Mentor</Button>
+            <Button>Match with a Mentor</Button>
           </Link>
         </Toolbar>
       </AppBar>
