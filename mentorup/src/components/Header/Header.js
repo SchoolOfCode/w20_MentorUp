@@ -4,11 +4,11 @@ import {
   AppBar,
   Toolbar,
   IconButton,
-  MenuIcon,
   Typography,
   Button,
 } from "@material-ui/core";
 import Logo from "../../assets/logo.svg";
+import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
 
 function Header() {
@@ -16,11 +16,9 @@ function Header() {
     <div>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-          ></IconButton>
+          <IconButton edge="start" color="inherit" aria-label="menu">
+            <MenuIcon />
+          </IconButton>
           {/* <Logo /> */}
           <Typography variant="h6">MentorUP</Typography>
           <Link to="/landing">
