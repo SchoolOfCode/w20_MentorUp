@@ -1,15 +1,15 @@
 import React from "react";
-import { Button } from "@material-ui/core";
 
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Button, Grid } from "@material-ui/core";
 import "./App.css";
-
+import Header from "./components/Header/Header";
+// import Header from "./components/Header";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Button color="primary">Hello World</Button>
-      </header>
-    </div>
+    <Router>
+      <Header />
+    </Router>
   );
 }
 
