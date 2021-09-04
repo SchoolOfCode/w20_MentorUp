@@ -46,54 +46,65 @@ function Header() {
           >
             <div>
               <Box textAlign="center" p={2} style={{ width: 250 }}>
-                components
+                <Typography variant="h6">MentorUP</Typography>
               </Box>
               <Divider />
               <List>
                 <ListItem>
-                  <ListItemText primary={"Hello"} />
+                  <Link to="/landing">
+                    <Button>Login/Sign-up</Button>
+                  </Link>
                 </ListItem>
                 <ListItem>
-                  <ListItemText primary={"Hello"} />
-                </ListItem>
-                <ListItem>
-                  <ListItemText primary={"Hello"} />
+                  <Link to="/mentor-or-mentee">
+                    <Button>Mentor Or Mentee</Button>
+                  </Link>
                 </ListItem>
               </List>
+              <ListItem>
+                <Link to="/bsl-selection">
+                  <Button>BSL Selection</Button>
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link to="/language-selection">
+                  <Button>Language Selection</Button>
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link to="/help-selection">
+                  <Button>Help Selection</Button>
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link to="/industry-selection">
+                  <Button>Industry Selection</Button>
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link to="/elevator-pitch">
+                  <Button>Elevator Pitch</Button>
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link to="/contact">
+                  <Button>Contact Form</Button>
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link to="/dashboard">
+                  <Button>Dashboard</Button>
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link to="/match-with-mentor">
+                  <Button>Match with a Mentor</Button>
+                </Link>
+              </ListItem>
             </div>
           </SwipeableDrawer>
           {/* <Logo /> */}
           <Typography variant="h6">MentorUP</Typography>
-          <Link to="/landing">
-            <Button>Login/Sign-up</Button>
-          </Link>
-          <Link to="/mentor-or-mentee">
-            <Button>Mentor Or Mentee</Button>
-          </Link>
-          <Link to="/bsl-selection">
-            <Button>BSL Selection</Button>
-          </Link>
-          <Link to="/language-selection">
-            <Button>Language Selection</Button>
-          </Link>
-          <Link to="/help-selection">
-            <Button>Help Selection</Button>
-          </Link>
-          <Link to="/industry-selection">
-            <Button>Industry Selection</Button>
-          </Link>
-          <Link to="/elevator-pitch">
-            <Button>Elevator Pitch</Button>
-          </Link>
-          <Link to="/contact">
-            <Button>Contact Form</Button>
-          </Link>
-          <Link to="/dashboard">
-            <Button>Dashboard</Button>
-          </Link>
-          <Link to="/match-with-mentor">
-            <Button>Match with a Mentor</Button>
-          </Link>
         </Toolbar>
       </AppBar>
     </div>
