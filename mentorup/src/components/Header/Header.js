@@ -1,24 +1,67 @@
 //Hamburger
 //Logo
+import { useState } from "react";
 import {
   AppBar,
   Toolbar,
   IconButton,
   Typography,
   Button,
+  SwipeableDrawer,
+  List,
+  ListItem,
+  ListItemText,
+  Divider,
+  Box,
 } from "@material-ui/core";
 import Logo from "../../assets/logo.svg";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
 
 function Header() {
+  const [open, setOpen] = useState(false);
   return (
     <div>
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" color="inherit" aria-label="menu">
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="open menu"
+            onClick={() => {
+              setOpen(true);
+            }}
+          >
             <MenuIcon />
           </IconButton>
+          <SwipeableDrawer
+            anchor="left"
+            open={open}
+            onClose={() => {
+              setOpen(false);
+            }}
+            onOpen={() => {
+              setOpen(true);
+            }}
+          >
+            <div>
+              <Box textAlign="center" p={2}>
+                components
+              </Box>
+              <Divider />
+              <List>
+                <ListItem>
+                  <ListItemText primary={"Hello"} />
+                </ListItem>
+                <ListItem>
+                  <ListItemText primary={"Hello"} />
+                </ListItem>
+                <ListItem>
+                  <ListItemText primary={"Hello"} />
+                </ListItem>
+              </List>
+            </div>
+          </SwipeableDrawer>
           {/* <Logo /> */}
           <Typography variant="h6">MentorUP</Typography>
           <Link to="/landing">
