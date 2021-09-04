@@ -1,12 +1,10 @@
-import { Button, Typography } from "@material-ui/core";
-import React, { useEffect } from "react";
-import Landing from "../Landing/Landing";
+import { Button } from "@material-ui/core";
+import React, { useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid } from "@material-ui/core";
 import { Avatar } from "@material-ui/core";
-import { spacing } from "@material-ui/system";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "firebase/firestore";
 import { useFirestoreDocData, useFirestore, useUser } from "reactfire";
 
@@ -27,81 +25,99 @@ const useStyles = makeStyles((theme) => ({
 
 function ContactForm() {
   const { data: user } = useUser();
-
-  // console.log("user is: " + user.displayName);
-
+  const firestore = useFirestore();
+  const helpRequests = firestore.collection("helpRequests");
   const classes = useStyles();
   let { mentorID } = useParams();
+  const [message, setMessage] = useState("");
+  const [showThanks, setShowThanks] = useState(false);
 
   // easily access the Firestore library
 
-  const mentorRef = useFirestore().collection("mentors").doc(mentorID); //6ljttPxPJmziAmtdNSfr
+  const mentorRef = useFirestore().collection("userData").doc(mentorID);
 
   // subscribe to a document for realtime updates. just one line!
   const { status, data } = useFirestoreDocData(mentorRef);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    await helpRequests.add({
+      mentorID: mentorID,
+      menteeID: user.uid,
+      message: message,
+    });
+
+    setShowThanks(true);
+  };
+
+  if (user === null) {
+    return (
+      <p>
+        You must be logged in to use this functionality, please login
+        <Link to="/landing"> here</Link>
+      </p>
+    );
+  }
 
   if (status === "loading") {
     return <p>Loading...</p>;
   }
 
-  return (
-    <div>
-      <h1 mx="auto">Mentor's information and contact</h1>
-      <Grid
-        container
-        direction="column"
-        justifyContent="space-around"
-        alignItems="center"
-      >
-        <Avatar
-          alt="Avatar of the mentor"
-          src={data.avatar}
-          className={classes.large}
-        />
-        <p>Username: {data.username}</p>
-        <p>Industry: {data.industry}</p>
-        <p>Business Stage: {data.businessStage}</p>
-        <p>Years in business: {data.yearsInBusiness}</p>
-        <p>Expertise: {data.expertise}</p>
-      </Grid>
-
-      {/*
-      MVP1 code below:
-      <form className={classes.root} noValidate autoComplete="off">
-        <div>
-          <TextField
-            required
-            id="outlined-required"
-            label="Email (required)"
-            defaultValue="Type your email here"
-            variant="outlined"
+  if (!showThanks) {
+    return (
+      <div>
+        <h1 mx="auto">Mentor's information and contact</h1>
+        <Grid
+          container
+          direction="column"
+          justifyContent="space-around"
+          alignItems="center"
+        >
+          <Avatar
+            alt="Avatar of the mentor"
+            src={data.avatar}
+            className={classes.large}
           />
-        </div>
-        <div>
-          <TextField
-            required
-            id="outlined-multiline-static"
-            label="Message (required)"
-            multiline
-            rows={10}
-            defaultValue="Please enter your message here"
-            variant="outlined"
-          />
-        </div>
-      </form>
-       <Button variant="contained" color="primary" onClick={}>
-        Send
-      </Button> */}
-      <h3 mx="auto">
-        {" "}
-        To contact your mentor, press the button below to be redirected to your
-        email client
-      </h3>
-      <Button variant="contained" color="primary" href={`mailto:${data.email}`}>
-        Send email
-      </Button>
-    </div>
-  );
+          <p>Username: {data.username}</p>
+          <p>Industry: {data.industry}</p>
+          <p>Business Stage: {data.businessStage}</p>
+          <p>Years in business: {data.yearsInBusiness}</p>
+          <p>Expertise: {data.helpTopic}</p>
+        </Grid>
+        <form
+          className={classes.root}
+          noValidate
+          autoComplete="off"
+          onSubmit={handleSubmit}
+        >
+          <div>
+            <TextField
+              required
+              id="outlined-multiline-static"
+              label="Message (required)"
+              multiline
+              rows={10}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              defaultValue="Please enter your message here"
+              variant="outlined"
+            />
+          </div>
+          <Button variant="contained" color="primary" type="submit">
+            Send
+          </Button>
+        </form>
+      </div>
+    );
+  } else {
+    return (
+      <p>
+        Thanks for submitting your request, the mentor will receive it and be in
+        contact shortly.
+      </p>
+    );
+  }
 }
 
 export default ContactForm;
