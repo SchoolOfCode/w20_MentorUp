@@ -45,7 +45,7 @@ function Header() {
             }}
           >
             <div>
-              <Box textAlign="center" p={2}>
+              <Box textAlign="center" p={2} style={{ width: 250 }}>
                 components
               </Box>
               <Divider />
