@@ -3,6 +3,7 @@ import { Button, Typography } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import firebase from "firebase";
+import { Link } from "react-router-dom";
 
 // Configure FirebaseUI.
 const uiConfig = {
@@ -44,23 +45,27 @@ function Landing() {
         />
       </div>
     );
+  } else {
+    return (
+      <div>
+        <h1>MentorUP</h1>
+        <p>
+          Welcome {firebase.auth().currentUser.displayName}! You are now
+          signed-in!
+        </p>
+        <p>
+          <Link to="/user-details">Please fill out your user details</Link>
+        </p>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => firebase.auth().signOut()}
+        >
+          Sign-out
+        </Button>
+      </div>
+    );
   }
-  return (
-    <div>
-      <h1>MentorUP</h1>
-      <p>
-        Welcome {firebase.auth().currentUser.displayName}! You are now
-        signed-in!
-      </p>
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={() => firebase.auth().signOut()}
-      >
-        Sign-out
-      </Button>
-    </div>
-  );
 }
 
 export default Landing;
