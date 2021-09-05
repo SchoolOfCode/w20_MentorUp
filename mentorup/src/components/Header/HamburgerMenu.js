@@ -18,6 +18,7 @@ function HamburgerMenu() {
   return (
     <div>
       <IconButton
+        data-testid="icon-button"
         edge="start"
         color="inherit"
         aria-label="open menu"
@@ -51,7 +52,7 @@ function HamburgerMenu() {
             }}
             elevation={4}
           >
-            <img src={logo} alt="logo" />
+            <Typography>Mentor Up</Typography>
           </Box>
           <Divider />
           <List>
