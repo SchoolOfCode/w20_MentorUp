@@ -9,7 +9,7 @@ import {
   Divider,
   Box,
 } from "@material-ui/core";
-import Logo from "../../assets/logo.svg";
+import logo from "../../assets/logo.svg";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
 
@@ -38,8 +38,20 @@ function HamburgerMenu() {
         }}
       >
         <div>
-          <Box textAlign="center" p={2} style={{ width: 250 }}>
-            <Typography variant="h6">MentorUP</Typography>
+          <Box
+            textAlign="center"
+            p={2}
+            style={{
+              width: 250,
+              height: "54px",
+              paddingTop: 16,
+              paddingBottom: 0,
+              paddingLeft: 0,
+              paddingRight: 0,
+            }}
+            elevation={4}
+          >
+            <img src={logo} alt="logo" />
           </Box>
           <Divider />
           <List>
