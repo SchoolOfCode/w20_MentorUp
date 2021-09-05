@@ -4,10 +4,10 @@ import HamburgerMenu from "./HamburgerMenu";
 import App from "../../App";
 
 test("expect hamburger menu to be rendered", async () => {
-  const { getByTestId, getByText } = render(<App />);
+  const { getByTestId, getByAltText, getByText } = render(<App />);
   fireEvent.click(getByTestId("icon-button"));
   await waitFor(() => {
-    getByText("Mentor Up");
+    getByAltText("mentorup logo");
   });
   expect(getByText("Login/Sign-up")).toBeVisible();
 });

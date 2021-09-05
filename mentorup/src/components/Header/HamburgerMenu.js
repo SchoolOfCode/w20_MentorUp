@@ -52,7 +52,7 @@ function HamburgerMenu() {
             }}
             elevation={4}
           >
-            <Typography>Mentor Up</Typography>
+            <img src={logo} alt="mentorup logo" />
           </Box>
           <Divider />
           <List>
