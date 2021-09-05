@@ -19,7 +19,7 @@ const useStyles = makeStyles({
 });
 
 const help = {
-  requirements: "finance",
+  requirements: "business plan",
   industry: "flowers",
 };
 
