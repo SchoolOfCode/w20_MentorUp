@@ -45,10 +45,7 @@ function HamburgerMenu() {
             style={{
               width: 250,
               height: "54px",
-              paddingTop: 16,
-              paddingBottom: 0,
-              paddingLeft: 0,
-              paddingRight: 0,
+              padding: "13px 0",
             }}
             elevation={4}
           >
