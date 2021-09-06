@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme) => ({
   header: {
     height: "80px",
     justifyContent: "center",
+    backgroundColor: "white",
   },
   logoCentre: {
     width: "calc(100% - 68px)",
