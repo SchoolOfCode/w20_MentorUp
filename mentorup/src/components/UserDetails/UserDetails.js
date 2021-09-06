@@ -51,10 +51,14 @@ function UserDetails() {
   const classes = useStyles();
 
   const helpTopics = [
-    "Preparing a pitch",
+    "Accounting",
     "Business Plan",
     "Building a React website",
+    "Capital & Investment",
+    "HR & Recruitment",
     "Networking",
+    "Marketing & Social Media",
+    "Preparing a pitch",
   ];
 
   // states
@@ -65,7 +69,7 @@ function UserDetails() {
   const [language, setLanguage] = useState("English");
   const [industry, setIndustry] = useState("Agriculture");
   const [yearsInBusiness, setYearsInBusiness] = useState(0);
-  const [menteeOrMentor, setMenteeOrMentor] = useState("Mentor");
+  const [menteeOrMentor, setMenteeOrMentor] = useState("Mentee");
   const [username, setUsername] = useState("");
   const [businessStage, setBusinessStage] = useState("Startup");
   const [existingFirebaseId, setExistingFirebaseId] = useState("");
@@ -186,30 +190,6 @@ function UserDetails() {
                 label="Enter your username"
               />
             </Grid>
-
-            <Grid item>
-              <Typography variant="h5" align="left">
-                Business Stage
-              </Typography>
-            </Grid>
-            <Grid item>
-              <TextField
-                fullWidth
-                required
-                select
-                value={businessStage}
-                onChange={(e) => setBusinessStage(e.target.value)}
-                id="business_stage"
-                label="What is your business stage?"
-              >
-                <MenuItem value="Startup" className={classes.hover}>
-                  Startup
-                </MenuItem>
-                <MenuItem value="Active" className={classes.hover}>
-                  Active
-                </MenuItem>
-              </TextField>
-            </Grid>
             <Grid item>
               <Typography variant="h5" align="left">
                 Are you a Mentor or Mentee?
@@ -234,19 +214,9 @@ function UserDetails() {
               </TextField>
             </Grid>
             <Grid item>
-              <TextField
-                fullWidth
-                required
-                type="number"
-                value={yearsInBusiness}
-                onChange={(e) => setYearsInBusiness(e.target.value)}
-                id="yearsinbusiness"
-                label="How many years have you been in business?"
-              />
-            </Grid>
-            <Grid item>
               <Typography variant="h5" align="left">
-                What do you need help with?
+                What do you need help with? If you are a Mentor, what topic can
+                you provide help on?
               </Typography>
             </Grid>
             <Grid item>
@@ -278,6 +248,97 @@ function UserDetails() {
               </Select>
             </Grid>
 
+            <Grid item>
+              <Typography variant="h5" align="left" className={classes.ciao}>
+                What industry is your business in?
+              </Typography>
+            </Grid>
+            <Grid item>
+              <TextField
+                className={classes.ciao}
+                id="industry"
+                label="Select an industry"
+                onChange={(e) => setIndustry(e.target.value)}
+                value={industry}
+                select
+                fullWidth
+              >
+                <MenuItem className={classes.hover} value="Agriculture">
+                  Agriculture
+                </MenuItem>
+
+                <MenuItem value="Automotive">Automotive</MenuItem>
+
+                <MenuItem className={classes.hover} value="Bars & Restaurants">
+                  Bars & Restaurants
+                </MenuItem>
+
+                <MenuItem value="Building">Building</MenuItem>
+
+                <MenuItem className={classes.hover} value="Business Services">
+                  Business Services{" "}
+                </MenuItem>
+
+                <MenuItem value="Education">Education</MenuItem>
+
+                <MenuItem value="Entertainment ">Entertainment</MenuItem>
+
+                <MenuItem value="Environment">Environment</MenuItem>
+
+                <MenuItem value="Health & Beauty">Health & Beauty</MenuItem>
+
+                <MenuItem className={classes.hover} value="Retail Sales">
+                  Retail Sales{" "}
+                </MenuItem>
+
+                <MenuItem value="Sport">Sport</MenuItem>
+
+                <MenuItem value="Tech">Tech</MenuItem>
+
+                <MenuItem value="Transport">Transport</MenuItem>
+
+                <MenuItem value="Other">Other</MenuItem>
+              </TextField>
+            </Grid>
+
+            <Grid item>
+              <Typography variant="h5" align="left">
+                Business Stage
+              </Typography>
+            </Grid>
+            <Grid item>
+              <TextField
+                fullWidth
+                required
+                select
+                value={businessStage}
+                onChange={(e) => setBusinessStage(e.target.value)}
+                id="business_stage"
+                label="What is your business stage?"
+              >
+                <MenuItem value="Pre-launch" className={classes.hover}>
+                  Pre-launch
+                </MenuItem>
+                <MenuItem value="Startup" className={classes.hover}>
+                  Startup
+                </MenuItem>
+                <MenuItem value="Active" className={classes.hover}>
+                  Active
+                </MenuItem>
+              </TextField>
+            </Grid>
+
+            <Grid item>
+              <TextField
+                fullWidth
+                required
+                type="number"
+                value={yearsInBusiness}
+                onChange={(e) => setYearsInBusiness(e.target.value)}
+                id="yearsinbusiness"
+                label="How many years have you been in business?"
+              />
+            </Grid>
             <Grid item>
               <Typography variant="h5" align="left">
                 Do you need a British Sign Language interpreter?
@@ -331,56 +392,65 @@ function UserDetails() {
                 fullWidth
               >
                 <MenuItem value="English" className={classes.hover}>
-                  English
-                </MenuItem>
-                <MenuItem value="French" className={classes.hover}>
-                  French
+                  🇬🇧 English
                 </MenuItem>
                 <MenuItem value="Arabic" className={classes.hover}>
                   Arabic
                 </MenuItem>
+                <MenuItem value="Bengali" className={classes.hover}>
+                  Bengali
+                </MenuItem>
+                <MenuItem value="French" className={classes.hover}>
+                  🇫🇷 French
+                </MenuItem>
+                <MenuItem value="German" className={classes.hover}>
+                  🇩🇪 German
+                </MenuItem>
+                <MenuItem value="Gujarati" className={classes.hover}>
+                  Gujarati
+                </MenuItem>
                 <MenuItem value="Hindi" className={classes.hover}>
-                  Hindi
+                  🇮🇳 Hindi
+                </MenuItem>
+                <MenuItem value="Italian" className={classes.hover}>
+                  🇮🇹 Italian
+                </MenuItem>
+                <MenuItem value="Lithuanian" className={classes.hover}>
+                  🇱🇹 Lithuanian
+                </MenuItem>
+                <MenuItem value="Persian" className={classes.hover}>
+                  🇮🇷 Persian/Farsi
+                </MenuItem>
+                <MenuItem value="Polish" className={classes.hover}>
+                  🇵🇱 Polish
+                </MenuItem>
+                <MenuItem value="Portuguese" className={classes.hover}>
+                  🇵🇹 Portuguese
                 </MenuItem>
                 <MenuItem value="Punjabi" className={classes.hover}>
                   Punjabi
                 </MenuItem>
+                <MenuItem value="Romanian" className={classes.hover}>
+                  🇷🇴 Romanian
+                </MenuItem>
+                <MenuItem value="Somali" className={classes.hover}>
+                  🇸🇴 Somali
+                </MenuItem>
                 <MenuItem value="Spanish" className={classes.hover}>
-                  Spanish
+                  🇪🇸 Spanish
                 </MenuItem>
-              </TextField>
-            </Grid>
-            <Grid item>
-              <Typography variant="h5" align="left" className={classes.ciao}>
-                What industry are you interested in?
-              </Typography>
-            </Grid>
-            <Grid item>
-              <TextField
-                className={classes.ciao}
-                id="industry"
-                label="Select an industry"
-                onChange={(e) => setIndustry(e.target.value)}
-                value={industry}
-                select
-                fullWidth
-              >
-                <MenuItem className={classes.hover} value="Agriculture">
-                  Agriculture
+                <MenuItem value="Tagalog" className={classes.hover}>
+                  🇵🇭 Tagalog/Filipino
                 </MenuItem>
-
-                <MenuItem className={classes.hover} value="Bars & Restaurants">
-                  Bars & Restaurants
+                <MenuItem value="Tamil" className={classes.hover}>
+                  Tamil
                 </MenuItem>
-
-                <MenuItem
-                  className={classes.hover}
-                  value="Cattle Ranchers/Livestock"
-                >
-                  Cattle Ranchers/Livestock
+                <MenuItem value="Turkish" className={classes.hover}>
+                  🇹🇷 Turkish
                 </MenuItem>
-
-                <MenuItem value="Entertainment ">Entertainment</MenuItem>
+                <MenuItem value="Urdu" className={classes.hover}>
+                  🇵🇰 Urdu
+                </MenuItem>
               </TextField>
             </Grid>
             <Button
