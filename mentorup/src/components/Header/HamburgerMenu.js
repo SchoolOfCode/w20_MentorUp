@@ -8,7 +8,7 @@ import {
   Divider,
   Box,
 } from "@material-ui/core";
-// import logo from "../../assets/logo.svg";
+import logo from "../../assets/logo.svg";
 import logoRed from "../../assets/logoRed.svg";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
@@ -26,7 +26,7 @@ function HamburgerMenu() {
           setOpen(true);
         }}
       >
-        <MenuIcon />
+        <MenuIcon style={{ fontSize: "1.9rem" }} />
       </IconButton>
       <SwipeableDrawer
         anchor="left"
@@ -49,7 +49,7 @@ function HamburgerMenu() {
             }}
             elevation={4}
           >
-            <img src={logoRed} alt="mentorup logo" />
+            <img src={logo} alt="mentorup logo" />
           </Box>
           <Divider />
           <List>

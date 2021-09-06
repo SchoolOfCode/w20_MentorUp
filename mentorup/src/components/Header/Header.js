@@ -3,13 +3,15 @@
 
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
 import logo from "../../assets/logo.svg";
+import logoBlue from "../../assets/logoBlue.svg";
 import HamburgerMenu from "./HamburgerMenu";
 import { makeStyles } from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
   header: {
     height: "80px",
     justifyContent: "center",
-    backgroundColor: "white",
+    backgroundColor: "#FFAB40",
+    color: "black",
   },
   logoCentre: {
     width: "calc(100% - 68px)",
