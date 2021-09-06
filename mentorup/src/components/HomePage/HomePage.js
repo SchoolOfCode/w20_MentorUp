@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
   },
   h1Override: {
     fontSize: "1.875rem",
+    fontWeight: "medium",
   },
 }));
 function HomePage() {
@@ -20,10 +21,10 @@ function HomePage() {
       <Grid container xs={12} sm={9} className={classes.mainLayout} spacing={2}>
         <Grid item>
           <Typography variant="h1" className={classes.h1Override} gutterBottom>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Kickstart your startup with a kickass mentor
           </Typography>
           <Typography variant="subtitle1">
-            Tristique nunc phasellus consectetur.
+            Get an experienced mentor in your same field of business!
           </Typography>
         </Grid>
         <Grid item>
