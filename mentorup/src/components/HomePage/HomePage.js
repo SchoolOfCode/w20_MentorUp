@@ -4,8 +4,7 @@ import { makeStyles } from "@material-ui/styles";
 import heroImage from "../../assets/heroimage.jpg";
 const useStyles = makeStyles((theme) => ({
   mainLayout: {
-    flexDirection: "column",
-    alignContent: "'flex-start',",
+    // flexDirection: "column",
     // backgroundColor: "green",
     padding: "16px",
   },
@@ -17,31 +16,55 @@ const useStyles = makeStyles((theme) => ({
 function HomePage() {
   const classes = useStyles();
   return (
-    <section style={{ padding: "16px" }}>
-      <Grid container xs={12} sm={9} className={classes.mainLayout} spacing={2}>
-        <Grid item>
-          <Typography variant="h1" className={classes.h1Override} gutterBottom>
-            Kickstart your startup with a kickass mentor
-          </Typography>
-          <Typography variant="subtitle1">
-            Get an experienced mentor in your same field of business!
-          </Typography>
+    <main style={{ padding: "16px" }}>
+      <section>
+        <Grid
+          container
+          //   sm={4}
+          //   md={6}
+          className={classes.mainLayout}
+          spacing={2}
+        >
+          <Grid item container xs={12} sm={4} style={{ alignItems: "center" }}>
+            <Grid item>
+              <Typography
+                variant="h1"
+                className={classes.h1Override}
+                gutterBottom
+              >
+                Kickstart your startup with a kickass mentor
+              </Typography>
+              <Typography variant="h6">
+                Get an experienced mentor in your same field of business! Get an
+                experienced mentor in your same field of business!
+              </Typography>
+            </Grid>
+            <Grid item container xs={12}>
+              <Grid item>
+                <Button variant="contained" color="primary" fullWidth>
+                  Sign up
+                </Button>
+              </Grid>
+              <Grid item>
+                <Button variant="outlined" color="primary" fullWidth>
+                  Log in
+                </Button>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item xs={12} sm={8}>
+            <img
+              src={heroImage}
+              alt="hero"
+              style={{ maxWidth: "400px", width: "100%" }}
+            />
+          </Grid>
         </Grid>
-        <Grid item>
-          <Button variant="contained" color="primary" fullWidth>
-            Sign up
-          </Button>
-        </Grid>
-        <Grid item>
-          <Button variant="outlined" color="primary" fullWidth>
-            Log in
-          </Button>
-        </Grid>
-        <Grid item>
-          <img src={heroImage} alt="hero image" style={{ maxWidth: "100%" }} />
-        </Grid>
-      </Grid>
-    </section>
+      </section>
+      <section>
+        <Grid container>Hello</Grid>
+      </section>
+    </main>
   );
 }
 
