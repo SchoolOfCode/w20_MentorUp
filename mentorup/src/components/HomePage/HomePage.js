@@ -16,8 +16,11 @@ function HomePage() {
   const classes = useStyles();
   return (
     <Grid container sm={9} className={classes.mainLayout}>
-      <Typography variant="h1" className={classes.h1Override}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.{" "}
+      <Typography variant="h1" className={classes.h1Override} gutterBottom>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </Typography>
+      <Typography variant="subtitle1">
+        Tristique nunc phasellus consectetur.
       </Typography>
     </Grid>
   );
