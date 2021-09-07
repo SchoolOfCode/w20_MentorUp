@@ -35,7 +35,7 @@ function HomePage() {
           className={classes.mainLayout}
           spacing={2}
         >
-          <Grid container xs={12} sm={4} className={classes.heroText}>
+          <Grid container xs={12} sm={12} md={6} className={classes.heroText}>
             <Grid item>
               <Typography
                 variant="h1"
@@ -72,7 +72,7 @@ function HomePage() {
               </Grid>
             </Grid>
           </Grid>
-          <Grid item xs={12} sm={8}>
+          <Grid item xs={12} sm={12} md={6}>
             <img
               src={heroImage}
               alt="hero"
