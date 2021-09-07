@@ -3,6 +3,8 @@ import React from "react";
 import cx from "clsx";
 import mentorProfiles from "../../assets/mentor";
 import { Link } from "react-router-dom";
+import "firebase/firestore";
+import { useFirestore, useUser, useFirestoreCollectionData } from "reactfire";
 
 const useStyles = makeStyles({
   root: {
@@ -19,13 +21,13 @@ const useStyles = makeStyles({
 });
 
 const help = {
-  requirements: "business plan",
-  industry: "flowers",
+  requirements: "Preparing a pitch",
+  industry: "Cattle Ranchers",
 };
 
 export function findMentor(listOfMentors) {
   let mentorsWithRequirements = listOfMentors.filter((mentor) =>
-    mentor.expertise.includes(help.requirements)
+    mentor.helpTopic.includes(help.requirements)
   );
   if (mentorsWithRequirements.length > 1) {
     const sameIndustry = mentorsWithRequirements.filter(
@@ -40,7 +42,10 @@ export function findMentor(listOfMentors) {
   return matchedMentor;
 }
 const MatchWithMentor = () => {
-  const myMentor = findMentor(mentorProfiles);
+  const firestore = useFirestore();
+  const mentorRef = firestore.collection("userData");
+  const { data: users } = useFirestoreCollectionData(mentorRef);
+  const myMentor = findMentor(users);
   const classes = useStyles();
   return myMentor ? (
     <div>

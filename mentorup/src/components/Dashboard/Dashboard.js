@@ -3,6 +3,7 @@ import { Typography, Button, Grid, Paper, Box } from "@material-ui/core";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "firebase/firestore";
+import firebase from "firebase";
 import { useFirestore, useUser, useFirestoreDocData, useFirestoreCollectionData } from "reactfire";
 
 const Dashboard = () => {
@@ -13,18 +14,17 @@ const Dashboard = () => {
   const mentorRef = firestore.collection("userData");
   const { data: help } = useFirestoreCollectionData(helpRequestsRef);
   const { data: users } = useFirestoreCollectionData(mentorRef);
-
+  console.log("Help: ", help, " Users: ", users);
   if (help) {
     const filteredHelp = help.filter((request) => request.menteeID === userUID);
+    console.log("Filtered Help", filteredHelp);
     if (users) {
-      const mentorsList = users.filter((user) => filteredHelp.includes(user.authenticationID));
-      console.log(mentorsList);
+      const mentorsList = users.filter((item) => filteredHelp.includes(item["NO_ID_FIELD"]));
+      console.log("Userful Mentors", mentorsList);
     }
   }
-
-  const [imageSrc, setImageSrc] = useState("");
   const randomString = "aalskdjf";
-  const apiSrc = `https://avatars.dicebear.com/api/gridy/${randomString}.svg`;
+  const imageSrc = `https://avatars.dicebear.com/api/gridy/${randomString}.svg`;
   const mentorProfiles = [
     {
       name: "Megan",
@@ -39,29 +39,26 @@ const Dashboard = () => {
       imageSrc: imageSrc,
     },
   ];
-
-  useEffect(() => {
-    async function getImage() {
-      const image = await fetch(apiSrc);
-      setImageSrc(image.url);
-    }
-    getImage();
-  }, []);
   return (
     <div data-testid="container-div">
       <Typography variant="h3" m={2}>
-        Welcome Toby!
+        {"Welcome \n"}
+        {firebase?.auth()?.currentUser?.displayName
+          ? firebase.auth().currentUser.displayName
+          : "Loading Name..."}
+        !
       </Typography>
       <Typography variant="h4" m={2}>
         Your mentors
       </Typography>
       <Grid container direction="row" justifyContent="center" alignItems="center" spacing={4}>
-        {mentorProfiles.map((mentor, index) => {
+        {users?.map((mentor, index) => {
+          if (index > 2) return null;
           return (
             <Grid item xs={3} key={index}>
               <Paper>
-                <img src={mentor.imageSrc} alt="Mentor"></img>
-                <Typography variant="h6">{mentor.name}</Typography>
+                <img src={mentor.avatar} alt="Mentor"></img>
+                <Typography variant="h6">{mentor.username}</Typography>
               </Paper>
             </Grid>
           );
