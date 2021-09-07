@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid, Typography, Button } from "@material-ui/core";
-import { makeStyles } from "@material-ui/styles";
+import { makeStyles } from "@material-ui/core";
 import heroImage from "../../assets/heroimage.jpg";
 const useStyles = makeStyles((theme) => ({
   mainLayout: {
@@ -11,6 +11,16 @@ const useStyles = makeStyles((theme) => ({
   h1Override: {
     fontSize: "1.875rem",
     fontWeight: "medium",
+  },
+  heroText: {
+    [theme.breakpoints.up("sm")]: {
+      padding: "24px 64px",
+      alignItems: "center",
+    },
+    [theme.breakpoints.up("md")]: {
+      padding: "96px 64px",
+      alignItems: "center",
+    },
   },
 }));
 function HomePage() {
@@ -25,7 +35,7 @@ function HomePage() {
           className={classes.mainLayout}
           spacing={2}
         >
-          <Grid item container xs={12} sm={4} style={{ alignItems: "center" }}>
+          <Grid container xs={12} sm={4} className={classes.heroText}>
             <Grid item>
               <Typography
                 variant="h1"
