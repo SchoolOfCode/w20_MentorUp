@@ -2,6 +2,10 @@ import React from "react";
 import { Grid, Typography, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 import heroImage from "../../assets/heroimage.jpg";
+import dummy1 from "../../assets/undraw_fall_thyk.svg";
+import dummy2 from "../../assets/undraw_my_app_re_gxtj.svg";
+import dummy3 from "../../assets/undraw_step_to_the_sun_nxqq.svg";
+import { spacing } from "@material-ui/system";
 const useStyles = makeStyles((theme) => ({
   mainLayout: {
     // flexDirection: "column",
@@ -94,7 +98,67 @@ function HomePage() {
         </Grid>
       </section>
       <section>
-        <Grid container>Hello</Grid>
+        <Grid
+          container
+          xs={12}
+          sm={12}
+          //   md={6}
+          justifyContent="center"
+          style={{ margin: "0 auto" }}
+          className={classes.heroText}
+          spacing={3}
+        >
+          <Grid item container xs={12} justifyContent="center">
+            <Typography variant="h4">How it works</Typography>
+          </Grid>
+          <Grid container>
+            <Grid
+              item
+              container
+              sm={12}
+              md={4}
+              justifyContent="center"
+              style={{ padding: "24px" }}
+            >
+              <Typography variant="h6">Step 1: Blabla</Typography>
+              <img
+                src={dummy1}
+                style={{ maxWidth: "100%", alignSelf: "center" }}
+                alt="dummy"
+              />
+            </Grid>
+            <Grid
+              item
+              container
+              sm={12}
+              md={4}
+              justifyContent="center"
+              style={{ padding: "24px" }}
+            >
+              <Typography variant="h6">Step 1: Blabla</Typography>
+              <img
+                src={dummy1}
+                style={{ maxWidth: "100%", alignSelf: "center" }}
+                alt="dummy"
+              />
+            </Grid>
+            <Grid
+              item
+              container
+              sm={12}
+              md={4}
+              justifyContent="center"
+              style={{ padding: "24px" }}
+            >
+              <Typography variant="h6">Step 1: Blabla</Typography>
+              <img
+                src={dummy1}
+                style={{ maxWidth: "100%", alignSelf: "center" }}
+                alt="dummy"
+              />
+            </Grid>
+          </Grid>
+        </Grid>
       </section>
     </main>
   );
