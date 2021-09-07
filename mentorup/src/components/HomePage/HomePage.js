@@ -104,7 +104,7 @@ function HomePage() {
           sm={12}
           //   md={6}
           justifyContent="center"
-          style={{ margin: "0 auto" }}
+          style={{ margin: "0 auto", background: "blanchedalmond" }}
           className={classes.heroText}
           spacing={3}
         >
