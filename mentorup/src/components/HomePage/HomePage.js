@@ -41,12 +41,22 @@ function HomePage() {
             </Grid>
             <Grid item container xs={12}>
               <Grid item>
-                <Button variant="contained" color="primary" fullWidth>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                  fullWidth
+                >
                   Sign up
                 </Button>
               </Grid>
               <Grid item>
-                <Button variant="outlined" color="primary" fullWidth>
+                <Button
+                  variant="outlined"
+                  size="large"
+                  color="primary"
+                  fullWidth
+                >
                   Log in
                 </Button>
               </Grid>
