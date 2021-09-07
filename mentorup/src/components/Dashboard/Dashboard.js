@@ -31,23 +31,17 @@ const Dashboard = () => {
     getImage();
   }, []);
   return (
-    <div>
-      <Typography variant="h1" m={2}>
+    <div data-testid="container-div">
+      <Typography variant="h3" m={2}>
         Welcome Toby!
       </Typography>
       <Typography variant="h3" m={2}>
         Your mentors
       </Typography>
-      <Grid
-        container
-        direction="row"
-        justifyContent="center"
-        alignItems="center"
-        spacing={4}
-      >
-        {mentorProfiles.map((mentor) => {
+      <Grid container direction="row" justifyContent="center" alignItems="center" spacing={4}>
+        {mentorProfiles.map((mentor, index) => {
           return (
-            <Grid item xs={3}>
+            <Grid item xs={3} key={index}>
               <Paper>
                 <img src={mentor.imageSrc} alt="Mentor"></img>
                 <Typography variant="h6">{mentor.name}</Typography>
