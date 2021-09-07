@@ -22,21 +22,33 @@ const useStyles = makeStyles((theme) => ({
       alignItems: "center",
     },
   },
+  "@global": {
+    // You should target [class*="MuiButton-root"] instead if you nest themes.
+    ".MuiTypography-h1": {
+      [theme.breakpoints.up("xs")]: {
+        fontSize: "2.375rem",
+      },
+      [theme.breakpoints.up("sm")]: {
+        fontSize: "2.9167rem",
+      },
+    },
+  },
 }));
 function HomePage() {
   const classes = useStyles();
   return (
     <main style={{ padding: "16px" }}>
       <section>
-        <Grid
-          container
-          //   sm={4}
-          //   md={6}
-          className={classes.mainLayout}
-          spacing={2}
-        >
-          <Grid container xs={12} sm={12} md={6} className={classes.heroText}>
-            <Grid item>
+        <Grid container className={classes.mainLayout} spacing={2}>
+          <Grid
+            container
+            xs={12}
+            sm={12}
+            md={6}
+            spacing={2}
+            className={classes.heroText}
+          >
+            <Grid item container>
               <Typography
                 variant="h1"
                 className={classes.h1Override}
@@ -72,11 +84,11 @@ function HomePage() {
               </Grid>
             </Grid>
           </Grid>
-          <Grid item xs={12} sm={12} md={6}>
+          <Grid item container xs={12} sm={12} md={6}>
             <img
               src={heroImage}
               alt="hero"
-              style={{ maxWidth: "400px", width: "100%" }}
+              style={{ maxWidth: "100%", alignSelf: "center" }}
             />
           </Grid>
         </Grid>
