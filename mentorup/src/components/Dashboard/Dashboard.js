@@ -2,8 +2,26 @@ import React from "react";
 import { Typography, Button, Grid, Paper, Box } from "@material-ui/core";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import "firebase/firestore";
+import { useFirestore, useUser, useFirestoreDocData, useFirestoreCollectionData } from "reactfire";
 
 const Dashboard = () => {
+  const { data: user } = useUser();
+  const firestore = useFirestore();
+  const userUID = "G77IDapZAJU5z4vZHwf4pY3fLH12";
+  const helpRequestsRef = firestore.collection("helpRequests");
+  const mentorRef = firestore.collection("userData");
+  const { data: help } = useFirestoreCollectionData(helpRequestsRef);
+  const { data: users } = useFirestoreCollectionData(mentorRef);
+
+  if (help) {
+    const filteredHelp = help.filter((request) => request.menteeID === userUID);
+    if (users) {
+      const mentorsList = users.filter((user) => filteredHelp.includes(user.authenticationID));
+      console.log(mentorsList);
+    }
+  }
+
   const [imageSrc, setImageSrc] = useState("");
   const randomString = "aalskdjf";
   const apiSrc = `https://avatars.dicebear.com/api/gridy/${randomString}.svg`;
@@ -26,7 +44,6 @@ const Dashboard = () => {
     async function getImage() {
       const image = await fetch(apiSrc);
       setImageSrc(image.url);
-      console.log(image.url);
     }
     getImage();
   }, []);
@@ -35,7 +52,7 @@ const Dashboard = () => {
       <Typography variant="h3" m={2}>
         Welcome Toby!
       </Typography>
-      <Typography variant="h3" m={2}>
+      <Typography variant="h4" m={2}>
         Your mentors
       </Typography>
       <Grid container direction="row" justifyContent="center" alignItems="center" spacing={4}>
