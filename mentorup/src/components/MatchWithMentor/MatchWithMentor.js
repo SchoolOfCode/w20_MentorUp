@@ -38,6 +38,7 @@ export function findMentor(listOfMentors, helpNeeded) {
 }
 const MatchWithMentor = () => {
   const { data: user } = useUser();
+  if (user) console.log("User HelpTopics", user.uid);
   const firestore = useFirestore();
   const mentorRef = firestore
     .collection("userData")
