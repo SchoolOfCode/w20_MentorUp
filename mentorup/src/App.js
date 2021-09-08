@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 
 import MentorOrMentee from "./components/MentorOrMentee/MentorOrMentee";
@@ -16,6 +16,7 @@ import "./App.css";
 import "firebase/firestore";
 import heroimage from "./assets/heroimage.jpg";
 import UserDetails from "./components/UserDetails/UserDetails";
+import UsernameAndAvatar from "./components/UsernameAndAvatar/UsernameAndAvatar";
 
 function App() {
   return (
@@ -27,21 +28,19 @@ function App() {
           <Route exact path="/" component={Homepage}></Route>
           <Route path="/landing" component={Landing}></Route>
           <Route path="/mentor-or-mentee" component={MentorOrMentee}></Route>
+          <Route path="/username-avatar" component={UsernameAndAvatar}></Route>
           <Route path="/contact/:mentorID" component={ContactForm}></Route>
           <Route path="/dashboard" component={Dashboard}></Route>
           <Route path="/match-with-mentor" component={MatchWithMentor}></Route>
           <Route path="/elevator-pitch" component={ElevatorPitch}></Route>
           <Route path="/user-details" component={UserDetails}></Route>
+          <Route path="/language-selection" component={LanguageSelection}></Route>
+          <Route path="/industry-selection" component={Industryselection}></Route>
+
         </Switch>
 
-        <Grid
-          container
-          direction="column"
-          justifyContent="center"
-          alignItems="center"
-          width="100%"
-        >
-          {/* <img src={heroimage} alt="bottom illustration" width="50%"></img> */}
+        <Grid container direction="column" justifyContent="center" alignItems="center" width="100%">
+          <img src={heroimage} alt="bottom illustration" width="50%"></img>
         </Grid>
       </div>
     </Router>

@@ -38,7 +38,6 @@ function ContactForm() {
 
   // subscribe to a document for realtime updates. just one line!
   const { status, data } = useFirestoreDocData(mentorRef);
-
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -68,29 +67,15 @@ function ContactForm() {
     return (
       <div>
         <h1 mx="auto">Mentor's information and contact</h1>
-        <Grid
-          container
-          direction="column"
-          justifyContent="space-around"
-          alignItems="center"
-        >
-          <Avatar
-            alt="Avatar of the mentor"
-            src={data.avatar}
-            className={classes.large}
-          />
+        <Grid container direction="column" justifyContent="space-around" alignItems="center">
+          <Avatar alt="Avatar of the mentor" src={data.avatar} className={classes.large} />
           <p>Username: {data.username}</p>
           <p>Industry: {data.industry}</p>
           <p>Business Stage: {data.businessStage}</p>
           <p>Years in business: {data.yearsInBusiness}</p>
           <p>Expertise: {data.helpTopic}</p>
         </Grid>
-        <form
-          className={classes.root}
-          noValidate
-          autoComplete="off"
-          onSubmit={handleSubmit}
-        >
+        <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
           <div>
             <TextField
               required
@@ -121,8 +106,7 @@ function ContactForm() {
   } else {
     return (
       <p>
-        Thanks for submitting your request, the mentor will receive it and be in
-        contact shortly.
+        Thanks for submitting your request, the mentor will receive it and be in contact shortly.
       </p>
     );
   }

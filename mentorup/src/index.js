@@ -6,7 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import "@fontsource/roboto";
 import { FirebaseAppProvider } from "reactfire";
 
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyAskJ-GQp_WSP1XugdxLFYEdXi1g58xL3s",
   authDomain: "mentorup-f74a4.firebaseapp.com",
   projectId: "mentorup-f74a4",

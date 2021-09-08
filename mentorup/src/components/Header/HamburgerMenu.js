@@ -55,6 +55,16 @@ function HamburgerMenu() {
             </Link>
           </ListItem>
           <ListItem>
+            <Link to="/username-avatar">
+              <Button>Avatar and Username</Button>
+            </Link>
+          </ListItem>
+          <ListItem>
+            <Link to="/language-selection">
+              <Button>Language Selection</Button>
+            </Link>
+          </ListItem>
+          <ListItem>
             <Link to="/dashboard">
               <Button>Dashboard</Button>
             </Link>
