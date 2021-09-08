@@ -1,10 +1,12 @@
 import React from "react";
-import { Grid, Typography, Button } from "@material-ui/core";
+import { Grid, Typography, Button, Icon, Divider } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 import heroImage from "../../assets/heroimage.jpg";
+import logo from "../../assets/logo.svg";
 import dummy1 from "../../assets/undraw_fall_thyk.svg";
-import dummy2 from "../../assets/undraw_my_app_re_gxtj.svg";
-import dummy3 from "../../assets/undraw_step_to_the_sun_nxqq.svg";
+import InstagramIcon from "@material-ui/icons/Instagram";
+import TwitterIcon from "@material-ui/icons/Twitter";
+import FacebookIcon from "@material-ui/icons/Facebook";
 import { spacing } from "@material-ui/system";
 const useStyles = makeStyles((theme) => ({
   mainLayout: {
@@ -97,6 +99,7 @@ function HomePage() {
           </Grid>
         </Grid>
       </section>
+      <Divider />
       <section>
         <Grid
           container
@@ -156,6 +159,33 @@ function HomePage() {
                 style={{ maxWidth: "100%", alignSelf: "center" }}
                 alt="dummy"
               />
+            </Grid>
+          </Grid>
+        </Grid>
+      </section>
+      <Divider />
+      <section>
+        <Grid
+          container
+          style={{ backgroundColor: "#FCFCFC", height: "250px" }}
+          flexDirection="column"
+        >
+          <Grid item container xs={12} justifyContent="center">
+            <img src={logo} alt="logo" />
+          </Grid>
+          <Grid item xs={6}>
+            <Typography>Blabla</Typography>
+            <Typography>(C) copyright</Typography>
+          </Grid>
+          <Grid item container xs={6} justifyContent="center" align="center">
+            <Grid item xs={3}>
+              <InstagramIcon fontSize="medium" />
+            </Grid>
+            <Grid item xs={3}>
+              <TwitterIcon fontSize="medium" />
+            </Grid>
+            <Grid item xs={3}>
+              <FacebookIcon fontSize="medium" />
             </Grid>
           </Grid>
         </Grid>
