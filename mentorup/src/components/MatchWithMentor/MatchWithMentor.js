@@ -4,6 +4,7 @@ import cx from "clsx";
 import mentorProfiles from "../../assets/mentor";
 import { Link } from "react-router-dom";
 import "firebase/firestore";
+import firebase from "firebase";
 import { useFirestore, useUser, useFirestoreCollectionData } from "reactfire";
 
 const useStyles = makeStyles({
@@ -21,31 +22,30 @@ const useStyles = makeStyles({
 });
 
 const help = {
-  requirements: "Preparing a pitch",
-  industry: "Cattle Ranchers",
+  requirements: ["marketing", "HR"],
+  industry: "cheese",
 };
 
-export function findMentor(listOfMentors) {
-  let mentorsWithRequirements = listOfMentors.filter((mentor) =>
-    mentor.helpTopic.includes(help.requirements)
-  );
-  if (mentorsWithRequirements.length > 1) {
-    const sameIndustry = mentorsWithRequirements.filter(
-      (mentor) => mentor.industry === help.industry
-    );
+export function findMentor(listOfMentors, helpNeeded) {
+  if (listOfMentors.length > 1) {
+    const sameIndustry = listOfMentors.filter((mentor) => mentor.industry === helpNeeded.industry);
     if (sameIndustry.length !== 0) {
-      mentorsWithRequirements = sameIndustry;
+      listOfMentors = [...sameIndustry];
     }
   }
-  let matchedMentor =
-    mentorsWithRequirements[Math.floor(Math.random() * mentorsWithRequirements.length)];
+  let matchedMentor = listOfMentors[Math.floor(Math.random() * listOfMentors.length)];
   return matchedMentor;
 }
 const MatchWithMentor = () => {
+  const { data: user } = useUser();
   const firestore = useFirestore();
-  const mentorRef = firestore.collection("userData");
-  const { data: users } = useFirestoreCollectionData(mentorRef);
-  const myMentor = findMentor(users);
+  const mentorRef = firestore
+    .collection("userData")
+    .where("type", "==", "mentor")
+    .where("helpTopic", "array-contains-any", help.requirements);
+  const { data: mentors } = useFirestoreCollectionData(mentorRef);
+  console.log(mentors);
+  const myMentor = mentors ? findMentor(mentors, help) : [];
   const classes = useStyles();
   return myMentor ? (
     <div>
@@ -60,7 +60,7 @@ const MatchWithMentor = () => {
           image={myMentor.avatar}
           title="Random Photo"
         ></CardMedia>
-        <Link to="/contact/6ljttPxPJmziAmtdNSfr">
+        <Link to={`/contact/${myMentor["NO_ID_FIELD"]}`}>
           <Button
             className={cx(classes.media, classes.root)}
             style={{ width: "90%" }}

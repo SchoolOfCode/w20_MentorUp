@@ -38,12 +38,11 @@ function ContactForm() {
 
   // subscribe to a document for realtime updates. just one line!
   const { status, data } = useFirestoreDocData(mentorRef);
-
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     await helpRequests.add({
-      mentorID: mentorID,
+      mentorID: data.authenticationID,
       menteeID: user.uid,
       message: message,
     });
