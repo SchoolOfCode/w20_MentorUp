@@ -74,14 +74,6 @@ function UserDetails() {
   const [businessStage, setBusinessStage] = useState("Startup");
   const [existingFirebaseId, setExistingFirebaseId] = useState("");
   const [showUpdated, setShowUpdated] = useState(false);
-  const [elevatorSpeech, setElevatorSpeech] = useState(`Hi, 
-    I'm ${username} and I would like to be a successful entrepreneur.
-  In order to become one, I need help from a mentor with the following: ${helpTopic}.
-  My business is in the ${industry} industry and is currently at the ${businessStage} stage.
-  I look forward to discussing my business and needs with you soon.
-  Thank you for your time and consideration.
-  All the best, ${username}.
-  `);
 
   useEffect(() => {
     const getUserDetails = async () => {
@@ -111,24 +103,6 @@ function UserDetails() {
         setNeedsSignLanguageInterpreter(
           existingUserFirebaseData.needsSignLanguageInterpreter
         );
-        if (!existingUserFirebaseData.elevatorSpeech) {
-          console.log(
-            "If there is no elevatorSpeech stored for the user, then fill it up with this block of text"
-          );
-          setElevatorSpeech(`Hi, 
-    I'm ${existingUserFirebaseData.username} and I would like to be a successful entrepreneur.
-  In order to become one, I need help from a mentor with the following: ${existingUserFirebaseData.helpTopic}.
-  My business is in the ${existingUserFirebaseData.industry} industry and is currently at the ${existingUserFirebaseData.businessStage} stage.
-  I look forward to discussing my business and needs with you soon.
-  Thank you for your time and consideration.
-  All the best, ${existingUserFirebaseData.username}.
-  `);
-        } else {
-          console.log(
-            "If there is an elevator Speech stored for the user, then grab the data and set it to display it"
-          );
-          setElevatorSpeech(existingUserFirebaseData.elevatorSpeech);
-        }
       }
     };
     getUserDetails();
@@ -146,7 +120,6 @@ function UserDetails() {
       yearsInBusiness: yearsInBusiness,
       language: language,
       needsSignLanguageInterpreter: needsSignLanguageInterpreter,
-      elevatorSpeech: elevatorSpeech,
     };
 
     if (existingFirebaseId) {
@@ -479,30 +452,6 @@ function UserDetails() {
                   🇵🇰 Urdu
                 </MenuItem>
               </TextField>
-            </Grid>
-            <Grid item>
-              <Typography variant="h5" align="left">
-                Elevator Speech
-              </Typography>
-            </Grid>
-            <Grid item>
-              <TextField
-                fullWidth
-                required
-                multiline
-                value={elevatorSpeech}
-                onChange={(e) => setElevatorSpeech(e.target.value)}
-                id="elevatorSpeech"
-                label="Write your elevator speech below"
-                placeholder={`Hi, 
-    I'm ${username} and I would like to be a successful entrepreneur.
-  In order to become one, I need help from a mentor with the following: ${helpTopic}.
-  My business is in the ${industry} industry and is currently at the ${businessStage} stage.
-  I look foward to discussing my business and needs with you soon.
-  Thank you for your time and consideration.
-  All the best, ${username}.
-  `}
-              />
             </Grid>
 
             <Button

@@ -43,7 +43,7 @@ function ContactForm() {
     event.preventDefault();
 
     await helpRequests.add({
-      mentorID: mentorID,
+      mentorID: data.authenticationID,
       menteeID: user.uid,
       message: message,
     });
@@ -100,7 +100,15 @@ function ContactForm() {
               rows={10}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              defaultValue="Please enter your message here"
+              // defaultValue="Please enter your message here"
+              defaultValue={`Hi, 
+    I'm ${user.username} and I would like to be a successful entrepreneur.
+  In order to become one, I need help from a mentor with the following: ${user.helpTopic}.
+  My business is in the ${user.industry} industry and is currently at the ${user.businessStage} stage.
+  I look forward to discussing my business and needs with you soon.
+  Thank you for your time and consideration.
+  All the best, ${user.username}.
+  `}
               variant="outlined"
             />
           </div>
