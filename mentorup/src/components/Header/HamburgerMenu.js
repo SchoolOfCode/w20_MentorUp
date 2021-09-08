@@ -60,11 +60,6 @@ function HamburgerMenu() {
             </Link>
           </ListItem>
           <ListItem>
-            <Link to="/language-selection">
-              <Button>Language Selection</Button>
-            </Link>
-          </ListItem>
-          <ListItem>
             <Link to="/dashboard">
               <Button>Dashboard</Button>
             </Link>
@@ -72,11 +67,6 @@ function HamburgerMenu() {
           <ListItem>
             <Link to="/match-with-mentor">
               <Button>Match with a Mentor</Button>
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link to="/elevator-pitch">
-              <Button>Elevator Pitch</Button>
             </Link>
           </ListItem>
           <ListItem>

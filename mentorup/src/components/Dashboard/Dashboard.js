@@ -16,6 +16,7 @@ const Dashboard = () => {
   const { data: user } = useUser();
   const firestore = useFirestore();
 
+  //userUID should not be a magic number -> get data from firebase
   const userUID = "G77IDapZAJU5z4vZHwf4pY3fLH12";
   const helpRequestsRef = firestore.collection("helpRequests");
   const { data: help } = useFirestoreCollectionData(helpRequestsRef);
@@ -39,15 +40,23 @@ const Dashboard = () => {
         Your mentors
       </Typography>
       {mentors ? (
-        <Grid container direction="row" justifyContent="center" alignItems="center" spacing={4}>
+        <Grid
+          container
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+          spacing={4}
+        >
           {mentors?.map((mentor, index) => {
             if (index > 2) return null;
             return (
               <Grid item xs={3} key={index}>
-                <Paper>
-                  <img src={mentor.avatar} alt="Mentor"></img>
-                  <Typography variant="h6">{mentor.username}</Typography>
-                </Paper>
+                <Link to={`/contact/${mentor.authenticationID}`}>
+                  <Paper>
+                    <img src={mentor.avatar} alt="Mentor"></img>
+                    <Typography variant="h6">{mentor.username}</Typography>
+                  </Paper>
+                </Link>
               </Grid>
             );
           })}
