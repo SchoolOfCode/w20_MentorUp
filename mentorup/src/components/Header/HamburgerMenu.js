@@ -45,18 +45,13 @@ function HamburgerMenu() {
           <List>
             <ListItem>
               <Link to="/landing">
-                <Button>Login/Sign-up</Button>
-              </Link>
-            </ListItem>
-            <ListItem>
-              <Link to="/mentor-or-mentee">
-                <Button>Mentor Or Mentee</Button>
+                <Button>Login/Logout</Button>
               </Link>
             </ListItem>
           </List>
           <ListItem>
-            <Link to="/bsl-selection">
-              <Button>BSL Selection</Button>
+            <Link to="/user-details">
+              <Button>My Profile details</Button>
             </Link>
           </ListItem>
           <ListItem>
@@ -70,13 +65,13 @@ function HamburgerMenu() {
             </Link>
           </ListItem>
           <ListItem>
-            <Link to="/help-selection">
-              <Button>Help Selection</Button>
+            <Link to="/dashboard">
+              <Button>Dashboard</Button>
             </Link>
           </ListItem>
           <ListItem>
-            <Link to="/industry-selection">
-              <Button>Industry Selection</Button>
+            <Link to="/match-with-mentor">
+              <Button>Match with a Mentor</Button>
             </Link>
           </ListItem>
           <ListItem>
@@ -87,16 +82,6 @@ function HamburgerMenu() {
           <ListItem>
             <Link to="/contact">
               <Button>Contact Form</Button>
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link to="/dashboard">
-              <Button>Dashboard</Button>
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link to="/match-with-mentor">
-              <Button>Match with a Mentor</Button>
             </Link>
           </ListItem>
         </div>
