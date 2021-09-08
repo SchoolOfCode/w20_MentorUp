@@ -1,5 +1,13 @@
 import React from "react";
-import { Grid, Typography, Button, Icon, Divider } from "@material-ui/core";
+import {
+  Grid,
+  Typography,
+  Button,
+  Icon,
+  Divider,
+  Box,
+  Container,
+} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 import heroImage from "../../assets/heroimage.jpg";
 import logo from "../../assets/logo.svg";
@@ -164,32 +172,37 @@ function HomePage() {
         </Grid>
       </section>
       <Divider />
-      <section>
-        <Grid
-          container
-          style={{ backgroundColor: "#FCFCFC", height: "250px" }}
-          flexDirection="column"
-        >
-          <Grid item container xs={12} justifyContent="center">
-            <img src={logo} alt="logo" />
-          </Grid>
-          <Grid item xs={6}>
-            <Typography>Blabla</Typography>
-            <Typography>(C) copyright</Typography>
-          </Grid>
-          <Grid item container xs={6} justifyContent="center" align="center">
-            <Grid item xs={3}>
-              <InstagramIcon fontSize="medium" />
+      <footer>
+        <Box>
+          <Container>
+            <Grid
+              container
+              style={{ backgroundColor: "#FCFCFC", height: "250px" }}
+              flexDirection="column"
+            >
+              <Grid item container xs={12} justifyContent="center">
+                <img src={logo} alt="logo" />
+              </Grid>
+              <Grid item xs={6}>
+                <Typography>MentorUp</Typography>
+                <Typography>&#169; 2021</Typography>
+              </Grid>
+
+              <Grid container xs={6} justifyContent="center" align="center">
+                <Grid item xs={3}>
+                  <InstagramIcon fontSize="large" />
+                </Grid>
+                <Grid item xs={3}>
+                  <TwitterIcon fontSize="large" />
+                </Grid>
+                <Grid item xs={3}>
+                  <FacebookIcon fontSize="large" />
+                </Grid>
+              </Grid>
             </Grid>
-            <Grid item xs={3}>
-              <TwitterIcon fontSize="medium" />
-            </Grid>
-            <Grid item xs={3}>
-              <FacebookIcon fontSize="medium" />
-            </Grid>
-          </Grid>
-        </Grid>
-      </section>
+          </Container>
+        </Box>
+      </footer>
     </main>
   );
 }
