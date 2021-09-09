@@ -81,7 +81,8 @@ function UserDetails() {
   // states
   const [loading, setLoading] = useState(true);
   const [helpTopic, setHelpTopics] = useState(["Preparing a pitch"]);
-  const [needsSignLanguageInterpreter, setNeedsSignLanguageInterpreter] = useState(true);
+  const [needsSignLanguageInterpreter, setNeedsSignLanguageInterpreter] =
+    useState(true);
   const [language, setLanguage] = useState("English");
   const [industry, setIndustry] = useState("Agriculture");
   const [yearsInBusiness, setYearsInBusiness] = useState(0);
@@ -91,12 +92,15 @@ function UserDetails() {
   const [existingFirebaseId, setExistingFirebaseId] = useState("");
   const [showUpdated, setShowUpdated] = useState(false);
   const [avatar, setAvatar] = useState(newAvatar());
-  const [userName, setuserName] = useState(usernameGen.generateUsername(8, false));
+  const [userName, setuserName] = useState(
+    usernameGen.generateUsername(8, false)
+  );
 
   function newAvatar() {
     const types = ["bottts", "gridy", "identicon"];
     const randomType = types[Math.floor(Math.random() * types.length)];
-    const generateRandomString = () => Math.random().toString(20).substring(2, 8);
+    const generateRandomString = () =>
+      Math.random().toString(20).substring(2, 8);
     return `https://avatars.dicebear.com/api/${randomType}/${generateRandomString()}.svg`;
   }
   useEffect(() => {
@@ -124,7 +128,9 @@ function UserDetails() {
         setMenteeOrMentor(existingUserFirebaseData.type);
         setUsername(existingUserFirebaseData.username);
         setYearsInBusiness(existingUserFirebaseData.yearsInBusiness);
-        setNeedsSignLanguageInterpreter(existingUserFirebaseData.needsSignLanguageInterpreter);
+        setNeedsSignLanguageInterpreter(
+          existingUserFirebaseData.needsSignLanguageInterpreter
+        );
       }
     };
     getUserDetails();
@@ -202,11 +208,11 @@ function UserDetails() {
                 className={classes.h1Override}
               >
                 Please fill out your details so we can provide you with the best
-                possible help:
+                possible help
               </Typography>
             </Grid>
             <Grid item className={classes.root}>
-              <Typography variant="h5" align="left"gutterBottom>
+              <Typography variant="h5" align="left" gutterBottom>
                 Username
               </Typography>
             </Grid>
@@ -216,7 +222,10 @@ function UserDetails() {
                 onClick={() =>
                   setuserName(
                     usernameGen
-                      .generateUsername(Math.floor(Math.random() * 4 + 6), false)
+                      .generateUsername(
+                        Math.floor(Math.random() * 4 + 6),
+                        false
+                      )
                       .toUpperCase()
                   )
                 }
@@ -228,7 +237,7 @@ function UserDetails() {
               </Button>
             </Grid>
             <Grid item className={classes.root}>
-              <Typography variant="h5" align="center">
+              <Typography variant="h5" align="left">
                 Select an Avatar
               </Typography>
               <CardMedia
@@ -274,7 +283,8 @@ function UserDetails() {
             </Grid>
             <Grid item>
               <Typography variant="h5" align="left">
-                What do you need help with? If you are a Mentor, what topic can you provide help on?
+                What do you need help with? If you are a Mentor, what topic can
+                you provide help on?
               </Typography>
             </Grid>
             <Grid item>
@@ -289,7 +299,11 @@ function UserDetails() {
                 renderValue={(selected) => (
                   <div className={classes.chips}>
                     {selected.map((value) => (
-                      <Chip key={value} label={value} className={classes.chip} />
+                      <Chip
+                        key={value}
+                        label={value}
+                        className={classes.chip}
+                      />
                     ))}
                   </div>
                 )}
@@ -531,7 +545,12 @@ function UserDetails() {
           message="Your Details Have Been Saved"
           action={
             <React.Fragment>
-              <IconButton size="small" aria-label="close" color="inherit" onClick={handleClose}>
+              <IconButton
+                size="small"
+                aria-label="close"
+                color="inherit"
+                onClick={handleClose}
+              >
                 <CloseIcon fontSize="small" />
               </IconButton>
             </React.Fragment>
