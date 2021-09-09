@@ -157,33 +157,34 @@ function HomePage() {
       <Divider />
       <footer>
         <Box>
-          <Container>
-            <Grid
-              container
-              style={{ backgroundColor: "#FCFCFC", height: "250px" }}
-              flexDirection="column"
-            >
-              <Grid item container xs={12} justifyContent="center">
-                <img src={logo} alt="logo" />
-              </Grid>
-              <Grid item xs={6}>
+          <Grid
+            container
+            style={{ backgroundColor: "#FCFCFC", height: "250px" }}
+            flexDirection="column"
+          >
+            <Grid item container xs={12} justifyContent="center">
+              <img src={logo} alt="logo" />
+            </Grid>
+
+            <Grid item xs={6}>
+              <Box px={2}>
                 <Typography>MentorUp</Typography>
                 <Typography>&#169; 2021</Typography>
-              </Grid>
+              </Box>
+            </Grid>
 
-              <Grid container xs={6} justifyContent="center" align="center">
-                <Grid item xs={3}>
-                  <InstagramIcon fontSize="large" />
-                </Grid>
-                <Grid item xs={3}>
-                  <TwitterIcon fontSize="large" />
-                </Grid>
-                <Grid item xs={3}>
-                  <FacebookIcon fontSize="large" />
-                </Grid>
+            <Grid container xs={6} justifyContent="center" align="center">
+              <Grid item xs={3}>
+                <InstagramIcon fontSize="large" />
+              </Grid>
+              <Grid item xs={3}>
+                <TwitterIcon fontSize="large" />
+              </Grid>
+              <Grid item xs={3}>
+                <FacebookIcon fontSize="large" />
               </Grid>
             </Grid>
-          </Container>
+          </Grid>
         </Box>
       </footer>
     </main>
