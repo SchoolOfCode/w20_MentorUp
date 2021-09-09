@@ -72,7 +72,7 @@ function ContactForm() {
     event.preventDefault();
 
     await helpRequests.add({
-      mentorID: data.authenticationID,
+      mentorID: mentorID,
       menteeID: user.uid,
       message: message,
     });

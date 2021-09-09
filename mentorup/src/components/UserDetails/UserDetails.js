@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import "firebase/firestore";
 import { useFirestoreDocData, useFirestore, useUser } from "reactfire";
 import { Link } from "react-router-dom";
+import usernameGen from "username-gen";
+import clsx from "clsx";
 
 import {
   Grid,
@@ -18,6 +20,7 @@ import {
   Input,
   Snackbar,
   IconButton,
+  CardMedia,
 } from "@material-ui/core";
 
 import CloseIcon from "@material-ui/icons/Close";
@@ -26,7 +29,12 @@ const useStyles = makeStyles((theme) => ({
   root: {
     marginBottom: theme.spacing(2),
     // width: "30ch",
-    backgroundColor: "red",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  image: {
+    maxHeight: 150,
+    maxWidth: 150,
   },
   ciao: {
     marginBottom: theme.spacing(3),
@@ -73,8 +81,7 @@ function UserDetails() {
   // states
   const [loading, setLoading] = useState(true);
   const [helpTopic, setHelpTopics] = useState(["Preparing a pitch"]);
-  const [needsSignLanguageInterpreter, setNeedsSignLanguageInterpreter] =
-    useState(true);
+  const [needsSignLanguageInterpreter, setNeedsSignLanguageInterpreter] = useState(true);
   const [language, setLanguage] = useState("English");
   const [industry, setIndustry] = useState("Agriculture");
   const [yearsInBusiness, setYearsInBusiness] = useState(0);
@@ -83,7 +90,15 @@ function UserDetails() {
   const [businessStage, setBusinessStage] = useState("Startup");
   const [existingFirebaseId, setExistingFirebaseId] = useState("");
   const [showUpdated, setShowUpdated] = useState(false);
+  const [avatar, setAvatar] = useState(newAvatar());
+  const [userName, setuserName] = useState(usernameGen.generateUsername(8, false));
 
+  function newAvatar() {
+    const types = ["bottts", "gridy", "identicon"];
+    const randomType = types[Math.floor(Math.random() * types.length)];
+    const generateRandomString = () => Math.random().toString(20).substring(2, 8);
+    return `https://avatars.dicebear.com/api/${randomType}/${generateRandomString()}.svg`;
+  }
   useEffect(() => {
     const getUserDetails = async () => {
       if (user === null || user === undefined) {
@@ -109,9 +124,7 @@ function UserDetails() {
         setMenteeOrMentor(existingUserFirebaseData.type);
         setUsername(existingUserFirebaseData.username);
         setYearsInBusiness(existingUserFirebaseData.yearsInBusiness);
-        setNeedsSignLanguageInterpreter(
-          existingUserFirebaseData.needsSignLanguageInterpreter
-        );
+        setNeedsSignLanguageInterpreter(existingUserFirebaseData.needsSignLanguageInterpreter);
       }
     };
     getUserDetails();
@@ -192,20 +205,49 @@ function UserDetails() {
                 possible help:
               </Typography>
             </Grid>
-            <Grid item>
-              <Typography variant="h5" align="left" gutterBottom>
+            <Grid item className={classes.root}>
+              <Typography variant="h5" align="left"gutterBottom>
                 Username
               </Typography>
             </Grid>
             <Grid item>
-              <TextField
+              <Typography variant="h5">{userName}</Typography>
+              <Button
+                onClick={() =>
+                  setuserName(
+                    usernameGen
+                      .generateUsername(Math.floor(Math.random() * 4 + 6), false)
+                      .toUpperCase()
+                  )
+                }
+                variant="contained"
+                color="primary"
                 fullWidth
-                required
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                id="username"
-                label="Enter your username"
-              />
+              >
+                New Username
+              </Button>
+            </Grid>
+            <Grid item className={classes.root}>
+              <Typography variant="h5" align="center">
+                Select an Avatar
+              </Typography>
+              <CardMedia
+                className={classes.image}
+                margin="auto"
+                component="img"
+                image={avatar}
+                title="Avatar"
+                onClick={() => setAvatar(newAvatar())}
+              ></CardMedia>
+
+              <Button
+                onClick={() => setAvatar(newAvatar())}
+                variant="contained"
+                color="primary"
+                fullWidth
+              >
+                New Avatar
+              </Button>
             </Grid>
             <Grid item>
               <Typography variant="h5" align="left">
@@ -232,8 +274,7 @@ function UserDetails() {
             </Grid>
             <Grid item>
               <Typography variant="h5" align="left">
-                What do you need help with? If you are a Mentor, what topic can
-                you provide help on?
+                What do you need help with? If you are a Mentor, what topic can you provide help on?
               </Typography>
             </Grid>
             <Grid item>
@@ -248,11 +289,7 @@ function UserDetails() {
                 renderValue={(selected) => (
                   <div className={classes.chips}>
                     {selected.map((value) => (
-                      <Chip
-                        key={value}
-                        label={value}
-                        className={classes.chip}
-                      />
+                      <Chip key={value} label={value} className={classes.chip} />
                     ))}
                   </div>
                 )}
@@ -494,12 +531,7 @@ function UserDetails() {
           message="Your Details Have Been Saved"
           action={
             <React.Fragment>
-              <IconButton
-                size="small"
-                aria-label="close"
-                color="inherit"
-                onClick={handleClose}
-              >
+              <IconButton size="small" aria-label="close" color="inherit" onClick={handleClose}>
                 <CloseIcon fontSize="small" />
               </IconButton>
             </React.Fragment>

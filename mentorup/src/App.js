@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./App.css";
 
 import MentorOrMentee from "./components/MentorOrMentee/MentorOrMentee";
-import ElevatorPitch from "./components/ElevatorPitch/ElevatorPitch";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Grid } from "@material-ui/core";
 import Header from "./components/Header/Header";
@@ -32,7 +31,6 @@ function App() {
           <Route path="/contact/:mentorID" component={ContactForm}></Route>
           <Route path="/dashboard" component={Dashboard}></Route>
           <Route path="/match-with-mentor" component={MatchWithMentor}></Route>
-          <Route path="/elevator-pitch" component={ElevatorPitch}></Route>
           <Route path="/user-details" component={UserDetails}></Route>
         </Switch>
 
