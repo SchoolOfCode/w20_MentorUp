@@ -34,12 +34,15 @@ function App() {
           <Route path="/match-with-mentor" component={MatchWithMentor}></Route>
           <Route path="/elevator-pitch" component={ElevatorPitch}></Route>
           <Route path="/user-details" component={UserDetails}></Route>
-          <Route path="/language-selection" component={LanguageSelection}></Route>
-          <Route path="/industry-selection" component={Industryselection}></Route>
-
         </Switch>
 
-        <Grid container direction="column" justifyContent="center" alignItems="center" width="100%">
+        <Grid
+          container
+          direction="column"
+          justifyContent="center"
+          alignItems="center"
+          width="100%"
+        >
           <img src={heroimage} alt="bottom illustration" width="50%"></img>
         </Grid>
       </div>

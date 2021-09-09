@@ -1,6 +1,8 @@
 import { Button } from "@material-ui/core";
 import React, { useState } from "react";
 import TextField from "@material-ui/core/TextField";
+import Typography from "@material-ui/core/Typography";
+import { Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid } from "@material-ui/core";
 import { Avatar } from "@material-ui/core";
@@ -19,8 +21,37 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
       maxWidth: "90%",
     },
+    flexGrow: 1,
   },
-  spacing: 8,
+  paper: {
+    padding: theme.spacing(2),
+    margin: "auto",
+    maxWidth: 500,
+  },
+  mainLayout: {
+    // flexDirection: "column",
+    // backgroundColor: "green",
+    padding: "16px",
+  },
+  h1Override: {
+    fontSize: "1.875rem",
+    fontWeight: "medium",
+  },
+  [theme.breakpoints.up("md")]: {
+    padding: "96px 64px",
+    alignItems: "center",
+  },
+  "@global": {
+    // You should target [class*="MuiButton-root"] instead if you nest themes.
+    ".MuiTypography-h1": {
+      [theme.breakpoints.up("xs")]: {
+        fontSize: "2.375rem",
+      },
+      [theme.breakpoints.up("sm")]: {
+        fontSize: "2.9167rem",
+      },
+    },
+  },
 }));
 
 function ContactForm() {
@@ -66,47 +97,115 @@ function ContactForm() {
   if (!showThanks) {
     return (
       <div>
-        <h1 mx="auto">Mentor's information and contact</h1>
-        <Grid container direction="column" justifyContent="space-around" alignItems="center">
-          <Avatar alt="Avatar of the mentor" src={data.avatar} className={classes.large} />
-          <p>Username: {data.username}</p>
-          <p>Industry: {data.industry}</p>
-          <p>Business Stage: {data.businessStage}</p>
-          <p>Years in business: {data.yearsInBusiness}</p>
-          <p>Expertise: {data.helpTopic}</p>
-        </Grid>
-        <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
-          <div>
-            <TextField
-              required
-              id="outlined-multiline-static"
-              label="Message (required)"
-              multiline
-              rows={10}
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              // defaultValue="Please enter your message here"
-              defaultValue={`Hi, 
-    I'm ${user.username} and I would like to be a successful entrepreneur.
-  In order to become one, I need help from a mentor with the following: ${user.helpTopic}.
-  My business is in the ${user.industry} industry and is currently at the ${user.businessStage} stage.
-  I look forward to discussing my business and needs with you soon.
-  Thank you for your time and consideration.
-  All the best, ${user.username}.
-  `}
-              variant="outlined"
-            />
-          </div>
-          <Button variant="contained" color="primary" type="submit">
-            Send
-          </Button>
+        <Paper className={classes.paper} elevation={3}>
+          <Grid
+            container
+            className={classes.mainLayout}
+            spacing={2}
+            style={{
+              margin: "0 auto",
+            }}
+            xs={12}
+            sm={12}
+            md={6}
+            direction="column"
+            justifyContent="space-around"
+            alignItems="center"
+          >
+            <Typography variant="h1">About your mentor</Typography>
+            <Grid item>
+              <Avatar
+                alt="Avatar of the mentor"
+                src={data.avatar}
+                className={classes.large}
+              />
+            </Grid>
+            <Grid item>
+              <Typography variant="b1" gutterBottom>
+                Username: {data.username}
+              </Typography>
+            </Grid>
+
+            <Grid item>
+              <Typography variant="b1" gutterBottom>
+                Industry: {data.industry}{" "}
+              </Typography>
+            </Grid>
+
+            <Grid item>
+              <Typography variant="b1" gutterBottom>
+                Business Stage: {data.businessStage}{" "}
+              </Typography>
+            </Grid>
+
+            <Grid item>
+              <Typography variant="b1" gutterBottom>
+                Years in business: {data.yearsInBusiness}{" "}
+              </Typography>
+            </Grid>
+
+            <Grid item>
+              <Typography variant="b1" gutterBottom>
+                Expertise: {data.helpTopic}{" "}
+              </Typography>
+            </Grid>
+          </Grid>
+        </Paper>
+        <form
+          className={classes.root}
+          noValidate
+          autoComplete="off"
+          onSubmit={handleSubmit}
+        >
+          <Grid
+            container
+            className={classes.mainLayout}
+            spacing={2}
+            style={{
+              margin: "0 auto",
+            }}
+            xs={12}
+            sm={12}
+            md={6}
+            direction="column"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Grid item>
+              <TextField
+                required
+                id="outlined-multiline-static"
+                label="Message (required)"
+                style={{ width: 500 }}
+                fullWidth
+                multiline
+                rows={10}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                defaultValue="Please enter your message here"
+                //             defaultValue={`Hi,
+                //   I'm ${user.username} and I would like to be a successful entrepreneur.
+                // In order to become one, I need help from a mentor with the following: ${user.helpTopic}.
+                // My business is in the ${user.industry} industry and is currently at the ${user.businessStage} stage.
+                // I look forward to discussing my business and needs with you soon.
+                // Thank you for your time and consideration.
+                // All the best, ${user.username}.
+                // `}
+                variant="outlined"
+              />
+            </Grid>
+            <Button variant="contained" color="primary" type="submit">
+              Send
+            </Button>
+          </Grid>
         </form>
       </div>
     );
   } else {
     return (
       <p>
-        Thanks for submitting your request, the mentor will receive it and be in contact shortly.
+        Thanks for submitting your request, the mentor will receive it and be in
+        contact shortly.
       </p>
     );
   }
