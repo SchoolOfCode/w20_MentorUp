@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
     margin: "auto",
-    maxWidth: 500,
+    maxWidth: 800,
   },
   mainLayout: {
     // flexDirection: "column",
@@ -37,9 +37,8 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "1.875rem",
     fontWeight: "medium",
   },
-  [theme.breakpoints.up("md")]: {
-    padding: "96px 64px",
-    alignItems: "center",
+  textField: {
+    maxWidth: 800,
   },
   "@global": {
     // You should target [class*="MuiButton-root"] instead if you nest themes.
@@ -102,15 +101,13 @@ function ContactForm() {
             container
             className={classes.mainLayout}
             spacing={2}
-            style={{
-              margin: "0 auto",
-            }}
             xs={12}
             sm={12}
             md={6}
             direction="column"
             justifyContent="space-around"
             alignItems="center"
+            style={{ width: "80vw" }}
           >
             <Typography variant="h1">About your mentor</Typography>
             <Grid item>
@@ -146,7 +143,7 @@ function ContactForm() {
 
             <Grid item>
               <Typography variant="b1" gutterBottom>
-                Expertise: {data.helpTopic}{" "}
+                Expertise: {data.helpTopic.join(", ")}{" "}
               </Typography>
             </Grid>
           </Grid>
@@ -176,7 +173,8 @@ function ContactForm() {
                 required
                 id="outlined-multiline-static"
                 label="Message (required)"
-                style={{ width: 500 }}
+                style={{ width: "80vw" }}
+                className={classes.textField}
                 fullWidth
                 multiline
                 rows={10}
