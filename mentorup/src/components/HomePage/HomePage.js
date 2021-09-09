@@ -81,18 +81,24 @@ function HomePage() {
                 experienced mentor in your same field of business!
               </Typography>
             </Grid>
-            <Grid item container xs={12}>
-              <Grid item>
+            <Box
+              component="div"
+              display="flex"
+              flexWrap="wrap"
+              width="100%"
+              gridGap={9}
+            >
+              <Box width={{ xs: "100%", sm: "40%", md: "30%" }}>
                 <Button
                   variant="contained"
                   color="primary"
-                  size="large"
                   fullWidth
+                  size="large"
                 >
                   Sign up
                 </Button>
-              </Grid>
-              <Grid item>
+              </Box>
+              <Box width={{ xs: "100%", sm: "40%", md: "30%" }}>
                 <Button
                   variant="outlined"
                   size="large"
@@ -101,8 +107,8 @@ function HomePage() {
                 >
                   Log in
                 </Button>
-              </Grid>
-            </Grid>
+              </Box>
+            </Box>
           </Grid>
           <Grid item container xs={12} sm={12} md={6}>
             <img
