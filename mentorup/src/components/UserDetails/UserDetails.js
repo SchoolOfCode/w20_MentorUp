@@ -237,18 +237,21 @@ function UserDetails() {
               </Button>
             </Grid>
             <Grid item className={classes.root}>
-              <Typography variant="h5" align="left">
+              <Typography variant="h5" align="left" gutterBottom>
                 Select an Avatar
               </Typography>
-              <CardMedia
-                className={classes.image}
-                margin="auto"
-                component="img"
-                image={avatar}
-                title="Avatar"
-                onClick={() => setAvatar(newAvatar())}
-              ></CardMedia>
-
+              <Grid item className={classes.root}>
+                <CardMedia
+                  className={classes.image}
+                  align="center"
+                  justifyContent="center"
+                  margin="auto"
+                  component="img"
+                  image={avatar}
+                  title="Avatar"
+                  onClick={() => setAvatar(newAvatar())}
+                ></CardMedia>
+              </Grid>
               <Button
                 onClick={() => setAvatar(newAvatar())}
                 variant="contained"

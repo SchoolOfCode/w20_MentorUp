@@ -55,11 +55,6 @@ function HamburgerMenu() {
             </Link>
           </ListItem>
           <ListItem>
-            <Link to="/username-avatar">
-              <Button>Avatar and Username</Button>
-            </Link>
-          </ListItem>
-          <ListItem>
             <Link to="/dashboard">
               <Button>Dashboard</Button>
             </Link>
@@ -67,11 +62,6 @@ function HamburgerMenu() {
           <ListItem>
             <Link to="/match-with-mentor">
               <Button>Match with a Mentor</Button>
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link to="/contact">
-              <Button>Contact Form</Button>
             </Link>
           </ListItem>
         </div>
