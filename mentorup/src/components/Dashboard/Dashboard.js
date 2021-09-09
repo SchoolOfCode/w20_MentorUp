@@ -2,60 +2,59 @@ import React from "react";
 import { Typography, Button, Grid, Paper, Box } from "@material-ui/core";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import "firebase/firestore";
+import firebase from "firebase";
+import {
+  useFirestore,
+  useUser,
+  useFirestoreDocData,
+  useFirestoreCollectionData,
+  useFirestoreCollection,
+} from "reactfire";
 
 const Dashboard = () => {
-  const [imageSrc, setImageSrc] = useState("");
-  const randomString = "aalskdjf";
-  const apiSrc = `https://avatars.dicebear.com/api/gridy/${randomString}.svg`;
-  const mentorProfiles = [
-    {
-      name: "Megan",
-      imageSrc: imageSrc,
-    },
-    {
-      name: "George",
-      imageSrc: imageSrc,
-    },
-    {
-      name: "Chris",
-      imageSrc: imageSrc,
-    },
-  ];
+  const { data: user } = useUser();
+  const firestore = useFirestore();
 
-  useEffect(() => {
-    async function getImage() {
-      const image = await fetch(apiSrc);
-      setImageSrc(image.url);
-      console.log(image.url);
-    }
-    getImage();
-  }, []);
+  const userUID = "G77IDapZAJU5z4vZHwf4pY3fLH12";
+  const helpRequestsRef = firestore.collection("helpRequests");
+  const { data: help } = useFirestoreCollectionData(helpRequestsRef);
+  let filteredHelp = [];
+  let mentorIDs = [null];
+  if (help) {
+    filteredHelp = help.filter((request) => request.menteeID === userUID);
+    mentorIDs = filteredHelp.map((request) => request.mentorID);
+  }
+  const userCollection = firestore.collection("userData");
+  const mentorQuery = userCollection.where(`authenticationID`, "in", mentorIDs);
+  const { data: mentors } = useFirestoreCollectionData(mentorQuery);
+
   return (
-    <div>
-      <Typography variant="h1" m={2}>
-        Welcome Toby!
-      </Typography>
+    <div data-testid="container-div">
       <Typography variant="h3" m={2}>
+        {"Welcome \n"}
+        {user?.displayName ? user.displayName : "Loading Name..."}!
+      </Typography>
+      <Typography variant="h4" m={2}>
         Your mentors
       </Typography>
-      <Grid
-        container
-        direction="row"
-        justifyContent="center"
-        alignItems="center"
-        spacing={4}
-      >
-        {mentorProfiles.map((mentor) => {
-          return (
-            <Grid item xs={3}>
-              <Paper>
-                <img src={mentor.imageSrc} alt="Mentor"></img>
-                <Typography variant="h6">{mentor.name}</Typography>
-              </Paper>
-            </Grid>
-          );
-        })}
-      </Grid>
+      {mentors ? (
+        <Grid container direction="row" justifyContent="center" alignItems="center" spacing={4}>
+          {mentors?.map((mentor, index) => {
+            if (index > 2) return null;
+            return (
+              <Grid item xs={3} key={index}>
+                <Paper>
+                  <img src={mentor.avatar} alt="Mentor"></img>
+                  <Typography variant="h6">{mentor.username}</Typography>
+                </Paper>
+              </Grid>
+            );
+          })}
+        </Grid>
+      ) : (
+        "Loading..."
+      )}
       <Box m={2}>
         <Link to="/match-with-mentor">
           <Button variant="contained" color="primary">
