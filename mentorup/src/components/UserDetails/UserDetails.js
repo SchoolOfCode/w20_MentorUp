@@ -41,6 +41,15 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+  mainLayout: {
+    // flexDirection: "column",
+    // backgroundColor: "green",
+    padding: "16px",
+  },
+  h1Override: {
+    fontSize: "1.875rem",
+    fontWeight: "medium",
+  },
 }));
 
 function UserDetails() {
@@ -156,27 +165,35 @@ function UserDetails() {
   }
 
   return (
-    <div>
+    <div style={{ padding: "16px" }}>
       <form onSubmit={handleSubmit}>
         <Grid
+          container
+          className={classes.mainLayout}
+          spacing={2}
           style={{
             margin: "0 auto",
           }}
-          sm={6}
-          md={3}
-          container
+          xs={12}
+          sm={12}
+          md={6}
           direction="column"
           justifyContent="center"
           alignItems="center"
         >
           <Grid item container direction="column" spacing={4}>
             <Grid item>
-              <Typography variant="h3" align="center">
-                Please fill out your details:
+              <Typography
+                variant="h1"
+                align="center"
+                className={classes.h1Override}
+              >
+                Please fill out your details so we can provide you with the best
+                possible help:
               </Typography>
             </Grid>
             <Grid item>
-              <Typography variant="h5" align="left">
+              <Typography variant="h5" align="left" gutterBottom>
                 Username
               </Typography>
             </Grid>
@@ -348,26 +365,26 @@ function UserDetails() {
             <RadioGroup aria-label="mentorormentee" name="mentorormentee">
               <FormControlLabel
                 value="Yes"
-                control={<Radio />}
+                control={<Radio color="primary" />}
                 label="Yes"
                 checked={needsSignLanguageInterpreter === true}
                 onChange={(e) => setNeedsSignLanguageInterpreter(true)}
                 labelPlacement="start"
                 style={{
-                  justifyContent: "space-between",
+                  justifyContent: "center",
                   margin: "0",
                   padding: "16px",
                 }}
               />
               <FormControlLabel
                 value="No"
-                control={<Radio />}
+                control={<Radio color="primary" />}
                 label="No"
                 checked={needsSignLanguageInterpreter === false}
                 onChange={(e) => setNeedsSignLanguageInterpreter(false)}
                 labelPlacement="start"
                 style={{
-                  justifyContent: "space-between",
+                  justifyContent: "center",
                   margin: "0",
                   padding: "16px",
                 }}
