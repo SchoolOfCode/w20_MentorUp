@@ -4,17 +4,11 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Divider from "@material-ui/core/Divider";
 import Box from "@material-ui/core/Box";
-import Container from "@material-ui/core/Container";
-// import { Button, Icon, Divider, Box, Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 import heroImage from "../../assets/heroimage.jpg";
-import logo from "../../assets/logo.svg";
 import dummy1 from "../../assets/undraw_fall_thyk.svg";
 import dummy2 from "../../assets/undraw_my_app_re_gxtj.svg";
 import dummy3 from "../../assets/undraw_step_to_the_sun_nxqq.svg";
-import InstagramIcon from "@material-ui/icons/Instagram";
-import TwitterIcon from "@material-ui/icons/Twitter";
-import FacebookIcon from "@material-ui/icons/Facebook";
 
 const useStyles = makeStyles((theme) => ({
   mainLayout: {
@@ -161,38 +155,6 @@ function HomePage() {
         </Grid>
       </section>
       <Divider />
-      <footer>
-        <Box>
-          <Grid
-            container
-            style={{ backgroundColor: "#FCFCFC", height: "250px" }}
-            flexDirection="column"
-          >
-            <Grid item container xs={12} justifyContent="center">
-              <img src={logo} alt="logo" />
-            </Grid>
-
-            <Grid item xs={6}>
-              <Box px={2}>
-                <Typography>MentorUp</Typography>
-                <Typography>&#169; 2021</Typography>
-              </Box>
-            </Grid>
-
-            <Grid container xs={6} justifyContent="center" align="center">
-              <Grid item xs={3}>
-                <InstagramIcon fontSize="large" />
-              </Grid>
-              <Grid item xs={3}>
-                <TwitterIcon fontSize="large" />
-              </Grid>
-              <Grid item xs={3}>
-                <FacebookIcon fontSize="large" />
-              </Grid>
-            </Grid>
-          </Grid>
-        </Box>
-      </footer>
     </main>
   );
 }
