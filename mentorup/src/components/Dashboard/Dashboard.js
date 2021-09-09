@@ -40,18 +40,12 @@ const Dashboard = () => {
         Your mentors
       </Typography>
       {mentors ? (
-        <Grid
-          container
-          direction="row"
-          justifyContent="center"
-          alignItems="center"
-          spacing={4}
-        >
+        <Grid container direction="row" justifyContent="center" alignItems="center" spacing={4}>
           {mentors?.map((mentor, index) => {
             if (index > 2) return null;
             return (
               <Grid item xs={3} key={index}>
-                <Link to={`/contact/${mentor.authenticationID}`}>
+                <Link to={`/contact/${mentor["NO_ID_FIELD"]}`}>
                   <Paper>
                     <img src={mentor.avatar} alt="Mentor"></img>
                     <Typography variant="h6">{mentor.username}</Typography>
