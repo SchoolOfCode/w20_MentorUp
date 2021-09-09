@@ -210,20 +210,19 @@ function UserDetails() {
                 New Username
               </Button>
             </Grid>
-            <Grid container item className={classes.root} direction="row">
-              <Grid item>
-                <Typography variant="h5" align="center">
-                  Select an Avatar
-                </Typography>
-                <CardMedia
-                  className={classes.image}
-                  margin="auto"
-                  component="img"
-                  image={avatar}
-                  title="Avatar"
-                  onClick={() => setAvatar(newAvatar())}
-                ></CardMedia>
-              </Grid>
+            <Grid item className={classes.root}>
+              <Typography variant="h5" align="center">
+                Select an Avatar
+              </Typography>
+              <CardMedia
+                className={classes.image}
+                margin="auto"
+                component="img"
+                image={avatar}
+                title="Avatar"
+                onClick={() => setAvatar(newAvatar())}
+              ></CardMedia>
+
               <Button
                 onClick={() => setAvatar(newAvatar())}
                 variant="contained"
