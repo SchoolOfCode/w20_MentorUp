@@ -14,20 +14,27 @@ import {
 
 const Dashboard = () => {
   const { data: user } = useUser();
+  //If user is undefined, uses the local storage
+  const currentUserInfo = user ? user : JSON.parse(localStorage.getItem("currentUserInfo"));
   const firestore = useFirestore();
-
-  //userUID should not be a magic number -> get data from firebase
-  const userUID = "G77IDapZAJU5z4vZHwf4pY3fLH12";
+  const userRef = firestore
+    .collection("userData")
+    .where("authenticationID", "==", currentUserInfo.uid);
+  const { data: currentUserObject } = useFirestoreCollectionData(userRef);
+  //the user is in an Array, this removes it if it's there
+  const currentUser = currentUserObject ? currentUserObject[0] : null;
+  console.log(currentUser);
+  //Finds help requests that the user has been in
   const helpRequestsRef = firestore.collection("helpRequests");
   const { data: help } = useFirestoreCollectionData(helpRequestsRef);
   let filteredHelp = [];
-  let mentorIDs = [null];
+  let mentorIDs = [];
   if (help) {
-    filteredHelp = help.filter((request) => request.menteeID === userUID);
+    filteredHelp = help.filter((request) => request.menteeID === currentUser?.authenticationID);
     mentorIDs = filteredHelp.map((request) => request.mentorID);
   }
-  const userCollection = firestore.collection("userData");
-  const mentorQuery = userCollection.where(`authenticationID`, "in", mentorIDs);
+  if (mentorIDs.length === 0) mentorIDs.push("RandomFillerToFixQuery");
+  const mentorQuery = firestore.collection("userData").where(`authenticationID`, "in", mentorIDs);
   const { data: mentors } = useFirestoreCollectionData(mentorQuery);
 
   return (
