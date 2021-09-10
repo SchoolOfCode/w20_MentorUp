@@ -16,7 +16,7 @@ import "firebase/firestore";
 import heroimage from "./assets/heroimage.jpg";
 import UserDetails from "./components/UserDetails/UserDetails";
 import UsernameAndAvatar from "./components/UsernameAndAvatar/UsernameAndAvatar";
-
+import UsernameAvatar from "./components/WIzard/UsernameAvatar";
 function App() {
   return (
     <Router>
@@ -31,7 +31,8 @@ function App() {
           <Route path="/contact/:mentorID" component={ContactForm}></Route>
           <Route path="/dashboard" component={Dashboard}></Route>
           <Route path="/match-with-mentor" component={MatchWithMentor}></Route>
-          <Route path="/user-details" component={UserDetails}></Route>
+          {/* <Route path="/user-details" component={UserDetails}></Route> */}
+          <Route path="/user-details" component={UsernameAvatar}></Route>
         </Switch>
 
         <Grid
