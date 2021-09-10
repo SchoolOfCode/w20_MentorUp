@@ -19,6 +19,7 @@ import UsernameAndAvatar from "./components/UsernameAndAvatar/UsernameAndAvatar"
 import UsernameAvatar from "./components/WIzard/UsernameAvatar";
 import MentorMentee from "./components/WIzard/MentorMentee";
 import Subject from "./components/WIzard/Subject";
+import Userform from "./components/WIzard/Userform";
 function App() {
   return (
     <Router>
@@ -37,7 +38,8 @@ function App() {
           {/* <Route path="/user-details" component={UsernameAvatar}></Route> */}
 
           {/* <Route path="/user-details" component={MentorMentee}></Route> */}
-          <Route path="/user-details" component={Subject}></Route>
+          {/* <Route path="/user-details" component={Subject}></Route> */}
+          <Route path="/user-details" component={Userform}></Route>
         </Switch>
 
         <Grid

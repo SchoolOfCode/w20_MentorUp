@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-
+import MentorMentee from "./MentorMentee";
+import UsernameAvatar from "./UsernameAvatar";
+import Subject from "./Subject";
+import { Button } from "@material-ui/core";
 function Userform() {
   //Steps
   const [activeSteps, setActiveSteps] = useState(0);
@@ -33,14 +36,30 @@ function Userform() {
     setActiveSteps((nextStep) => nextStep + 1);
   };
   //Navigates to the previous page
-  const handlBack = () => {
+  const handleBack = () => {
     setActiveSteps((previousStep) => previousStep - 1);
   };
   //Handle form value states on change
   const handleChange = (input) => (e) => {
     setMultiFormValues({ ...multiFormValues, [input]: e.target.value });
   };
-  return <div></div>;
+  return (
+    <div>
+      {activeSteps === 0 && <UsernameAvatar handleChange={handleChange} />}
+      {activeSteps === 1 && (
+        <MentorMentee values={multiFormValues} handleChange={handleChange} />
+      )}
+      {activeSteps === 2 && (
+        <Subject values={multiFormValues} handleChange={handleChange} />
+      )}
+      <Button disabled={activeSteps === 0} onClick={handleBack}>
+        Back
+      </Button>
+      <Button disabled={activeSteps === 0} onClick={handleNext}>
+        Next
+      </Button>
+    </div>
+  );
 }
 
 export default Userform;
