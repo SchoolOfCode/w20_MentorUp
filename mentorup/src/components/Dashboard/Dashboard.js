@@ -65,7 +65,7 @@ const Dashboard = () => {
       ) : (
         "Loading..."
       )}
-      <Box m={2}>
+      <Box m={5}>
         <Link to="/match-with-mentor">
           <Button variant="contained" color="primary">
             Find a new mentor
