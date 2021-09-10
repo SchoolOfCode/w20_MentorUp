@@ -30,10 +30,9 @@ function Userform() {
   const handleNext = () => {
     setActiveSteps((nextStep) => nextStep + 1);
   };
-  //Navigates to the next pageBreakAfter:
-
-  const handleNext = () => {
-    setActiveSteps((nextStep) => nextStep + 1);
+  //Navigates to the previous page
+  const handlBack = () => {
+    setActiveSteps((previousStep) => previousStep - 1);
   };
   return <div></div>;
 }
