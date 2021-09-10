@@ -55,8 +55,8 @@ function Userform() {
       <Button disabled={activeSteps === 0} onClick={handleBack}>
         Back
       </Button>
-      <Button disabled={activeSteps === 0} onClick={handleNext}>
-        Next
+      <Button variant="contained" onClick={handleNext}>
+        {activeSteps === steps.length - 2 ? "Submit" : "Next"}
       </Button>
     </div>
   );
