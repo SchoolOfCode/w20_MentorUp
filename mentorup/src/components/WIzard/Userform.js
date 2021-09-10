@@ -35,8 +35,8 @@ function Userform() {
     setActiveSteps((previousStep) => previousStep - 1);
   };
   //Handle form value states on change
-  const handleChange = (input) => (e){
-    setMultiFormValues({ ...multiFormValues , [input]:e.target.value});
+  const handleChange = (input) => (e) => {
+    setMultiFormValues({ ...multiFormValues, [input]: e.target.value });
   };
   return <div></div>;
 }
