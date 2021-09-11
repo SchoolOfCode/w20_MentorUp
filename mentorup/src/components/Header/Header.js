@@ -1,6 +1,6 @@
 import { AppBar, Toolbar } from "@material-ui/core";
 import logo from "../../assets/logo.svg";
-
+import { Link } from "react-router-dom";
 import HamburgerMenu from "./HamburgerMenu";
 import { makeStyles } from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
@@ -24,7 +24,9 @@ function Header() {
         <Toolbar>
           <HamburgerMenu />
           <div className={classes.logoCentre}>
-            <img src={logo} alt="logo" />
+            <Link to="./">
+              <img src={logo} alt="logo" />
+            </Link>
           </div>
         </Toolbar>
       </AppBar>
