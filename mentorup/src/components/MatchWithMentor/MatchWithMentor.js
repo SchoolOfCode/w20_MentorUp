@@ -1,5 +1,5 @@
 import { Card, CardMedia, Typography, makeStyles, Button } from "@material-ui/core";
-import React from "react";
+import React, { useState } from "react";
 import cx from "clsx";
 import mentorProfiles from "../../assets/mentor";
 import { Link } from "react-router-dom";
@@ -32,6 +32,7 @@ export function findMentor(listOfMentors, helpNeeded) {
   return matchedMentor;
 }
 const MatchWithMentor = () => {
+  const [randomState, setRandomState] = useState();
   const { data: user } = useUser();
   //Gets info from local storage incase user is not defined yet
   const currentUserInfo = user ? user : JSON.parse(localStorage.getItem("currentUserInfo"));
@@ -85,6 +86,16 @@ const MatchWithMentor = () => {
             Contact Mentor
           </Button>
         </Link>
+        <Button
+          className={cx(classes.media, classes.root)}
+          style={{ width: "90%" }}
+          m={2}
+          variant="contained"
+          color="primary"
+          onClick={() => setRandomState(Math.random())}
+        >
+          Refresh Mentor
+        </Button>
       </Card>
     </div>
   ) : (

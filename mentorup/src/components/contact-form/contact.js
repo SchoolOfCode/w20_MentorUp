@@ -183,9 +183,11 @@ function ContactForm() {
                 variant="outlined"
               />
             </Grid>
-            <Button variant="contained" color="primary" type="submit">
-              Send
-            </Button>
+            <Link to="../Dashboard">
+              <Button variant="contained" color="primary" type="submit">
+                Send
+              </Button>
+            </Link>
           </Grid>
         </form>
       </div>
