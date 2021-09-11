@@ -76,13 +76,14 @@ function UserDetails() {
   const [industry, setIndustry] = useState("Agriculture");
   const [yearsInBusiness, setYearsInBusiness] = useState(0);
   const [menteeOrMentor, setMenteeOrMentor] = useState("Mentee");
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState(
+    usernameGen.generateUsername(Math.floor(Math.random() * 4 + 6), false).toUpperCase()
+  );
   const [businessStage, setBusinessStage] = useState("Startup");
   const [existingFirebaseId, setExistingFirebaseId] = useState("");
   const [showUpdated, setShowUpdated] = useState(false);
   const [avatar, setAvatar] = useState(newAvatar());
   const [activeSteps, setActiveSteps] = useState(0);
-  const [userName, setuserName] = useState(usernameGen.generateUsername(8, false));
 
   function newAvatar() {
     const types = ["bottts", "gridy", "identicon"];
@@ -116,6 +117,7 @@ function UserDetails() {
         setUsername(existingUserFirebaseData.username);
         setYearsInBusiness(existingUserFirebaseData.yearsInBusiness);
         setNeedsSignLanguageInterpreter(existingUserFirebaseData.needsSignLanguageInterpreter);
+        setAvatar(existingUserFirebaseData.avatar);
       }
     };
     getUserDetails();
@@ -130,6 +132,7 @@ function UserDetails() {
       industry: industry,
       type: menteeOrMentor,
       username: username,
+      avatar: avatar,
       yearsInBusiness: yearsInBusiness,
       language: language,
       needsSignLanguageInterpreter: needsSignLanguageInterpreter,
@@ -209,8 +212,8 @@ function UserDetails() {
             {activeSteps === 0 && (
               <UserName
                 classes={classes}
-                userName={userName}
-                setuserName={setuserName}
+                username={username}
+                setUsername={setUsername}
                 avatar={avatar}
                 setAvatar={setAvatar}
                 newAvatar={newAvatar}

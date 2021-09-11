@@ -75,13 +75,14 @@ function UserProfile() {
   const [industry, setIndustry] = useState("Agriculture");
   const [yearsInBusiness, setYearsInBusiness] = useState(0);
   const [menteeOrMentor, setMenteeOrMentor] = useState("Mentee");
-  const [username, setUsername] = useState("");
   const [businessStage, setBusinessStage] = useState("Startup");
   const [existingFirebaseId, setExistingFirebaseId] = useState("");
   const [showUpdated, setShowUpdated] = useState(false);
   const [avatar, setAvatar] = useState(newAvatar());
   const [activeSteps, setActiveSteps] = useState(0);
-  const [userName, setuserName] = useState(usernameGen.generateUsername(8, false));
+  const [username, setUsername] = useState(
+    usernameGen.generateUsername(Math.floor(Math.random() * 4 + 6), false).toUpperCase()
+  );
 
   function newAvatar() {
     const types = ["bottts", "gridy", "identicon"];
@@ -113,6 +114,7 @@ function UserProfile() {
         setHelpTopics(existingUserFirebaseData.helpTopic);
         setMenteeOrMentor(existingUserFirebaseData.type);
         setUsername(existingUserFirebaseData.username);
+        setAvatar(existingUserFirebaseData.avatar);
         setYearsInBusiness(existingUserFirebaseData.yearsInBusiness);
         setNeedsSignLanguageInterpreter(existingUserFirebaseData.needsSignLanguageInterpreter);
       }
@@ -124,6 +126,7 @@ function UserProfile() {
     event.preventDefault();
 
     const data = {
+      avatar: avatar,
       businessStage: businessStage,
       helpTopic: helpTopic,
       industry: industry,
@@ -207,8 +210,8 @@ function UserProfile() {
           <Grid item container direction="column" spacing={4}>
             <UserName
               classes={classes}
-              userName={userName}
-              setuserName={setuserName}
+              username={username}
+              setUsername={setUsername}
               avatar={avatar}
               setAvatar={setAvatar}
               newAvatar={newAvatar}
