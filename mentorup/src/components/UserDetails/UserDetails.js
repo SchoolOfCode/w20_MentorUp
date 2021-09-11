@@ -260,14 +260,16 @@ function UserDetails() {
             </Button>
             <div>
               {activeSteps === steps.length ? (
-                <Button
-                  variant="contained"
-                  color="primary"
-                  className={classes.buttonResponsive}
-                  type="submit"
-                >
-                  Save User Details
-                </Button>
+                <Link to="../Dashboard">
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    className={classes.buttonResponsive}
+                    type="submit"
+                  >
+                    Save User Details
+                  </Button>
+                </Link>
               ) : (
                 <Button onClick={handleNext}>Next</Button>
               )}
