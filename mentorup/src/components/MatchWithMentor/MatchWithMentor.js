@@ -96,6 +96,11 @@ const MatchWithMentor = () => {
         >
           Refresh Mentor
         </Button>
+        <p>
+          <Link to="/user-profile">
+            Please change your details here to update what you need help with
+          </Link>
+        </p>
       </Card>
     </div>
   ) : (
