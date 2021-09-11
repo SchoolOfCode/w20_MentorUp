@@ -72,7 +72,7 @@ function ContactForm() {
     event.preventDefault();
 
     await helpRequests.add({
-      mentorID: mentorID,
+      mentorID: data.authenticationID,
       menteeID: user.uid,
       message: message,
     });
@@ -111,11 +111,7 @@ function ContactForm() {
           >
             <Typography variant="h1">About your mentor</Typography>
             <Grid item>
-              <Avatar
-                alt="Avatar of the mentor"
-                src={data.avatar}
-                className={classes.large}
-              />
+              <Avatar alt="Avatar of the mentor" src={data.avatar} className={classes.large} />
             </Grid>
             <Grid item>
               <Typography variant="b1" gutterBottom>
@@ -148,12 +144,7 @@ function ContactForm() {
             </Grid>
           </Grid>
         </Paper>
-        <form
-          className={classes.root}
-          noValidate
-          autoComplete="off"
-          onSubmit={handleSubmit}
-        >
+        <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
           <Grid
             container
             className={classes.mainLayout}
@@ -192,9 +183,11 @@ function ContactForm() {
                 variant="outlined"
               />
             </Grid>
-            <Button variant="contained" color="primary" type="submit">
-              Send
-            </Button>
+            <Link to="../Dashboard">
+              <Button variant="contained" color="primary" type="submit">
+                Send
+              </Button>
+            </Link>
           </Grid>
         </form>
       </div>
@@ -202,8 +195,7 @@ function ContactForm() {
   } else {
     return (
       <p>
-        Thanks for submitting your request, the mentor will receive it and be in
-        contact shortly.
+        Thanks for submitting your request, the mentor will receive it and be in contact shortly.
       </p>
     );
   }

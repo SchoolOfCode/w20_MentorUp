@@ -1,7 +1,6 @@
 import { useState } from "react";
 import {
   IconButton,
-  Typography,
   Button,
   SwipeableDrawer,
   List,
@@ -9,7 +8,9 @@ import {
   Divider,
   Box,
 } from "@material-ui/core";
-import Logo from "../../assets/logo.svg";
+
+import logo from "../../assets/logo.svg";
+
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
 
@@ -18,6 +19,7 @@ function HamburgerMenu() {
   return (
     <div>
       <IconButton
+        data-testid="icon-button"
         edge="start"
         color="inherit"
         aria-label="open menu"
@@ -25,7 +27,7 @@ function HamburgerMenu() {
           setOpen(true);
         }}
       >
-        <MenuIcon />
+        <MenuIcon style={{ fontSize: "1.9rem" }} />
       </IconButton>
       <SwipeableDrawer
         anchor="left"
@@ -38,14 +40,28 @@ function HamburgerMenu() {
         }}
       >
         <div>
-          <Box textAlign="center" p={2} style={{ width: 250 }}>
-            <Typography variant="h6">MentorUP</Typography>
+          <Box
+            textAlign="center"
+            p={2}
+            style={{
+              width: 250,
+              height: "54px",
+              padding: "13px 0",
+            }}
+            elevation={4}
+          >
+            <img src={logo} alt="mentorup logo" />
           </Box>
           <Divider />
           <List>
             <ListItem>
               <Link to="/landing">
-                <Button>Login/Logout</Button>
+                <Button>Login/Sign-up</Button>
+              </Link>
+            </ListItem>
+            <ListItem>
+              <Link to="/mentor-or-mentee">
+                <Button>Mentor Or Mentee</Button>
               </Link>
             </ListItem>
           </List>

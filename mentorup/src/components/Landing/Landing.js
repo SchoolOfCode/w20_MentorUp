@@ -26,11 +26,9 @@ function Landing() {
 
   // Listen to the Firebase Auth state and set the local state.
   useEffect(() => {
-    const unregisterAuthObserver = firebase
-      .auth()
-      .onAuthStateChanged((user) => {
-        setIsSignedIn(!!user);
-      });
+    const unregisterAuthObserver = firebase.auth().onAuthStateChanged((user) => {
+      setIsSignedIn(!!user);
+    });
     return () => unregisterAuthObserver(); // Make sure we un-register Firebase observers when the component unmounts.
   }, []);
 
@@ -39,28 +37,20 @@ function Landing() {
       <div>
         <h1>MentorUP</h1>
         <p>Please sign-in or register</p>
-        <StyledFirebaseAuth
-          uiConfig={uiConfig}
-          firebaseAuth={firebase.auth()}
-        />
+        <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
       </div>
     );
   } else {
+    window.localStorage.setItem("currentUserInfo", JSON.stringify(firebase.auth().currentUser));
+    console.log("Storage", localStorage, "not", firebase.auth().currentUser);
     return (
       <div>
         <h1>MentorUP</h1>
-        <p>
-          Welcome {firebase.auth().currentUser.displayName}! You are now
-          signed-in!
-        </p>
+        <p>Welcome {firebase.auth().currentUser.displayName}! You are now signed-in!</p>
         <p>
           <Link to="/user-details">Please fill out your user details</Link>
         </p>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={() => firebase.auth().signOut()}
-        >
+        <Button variant="contained" color="primary" onClick={() => firebase.auth().signOut()}>
           Sign-out
         </Button>
       </div>
