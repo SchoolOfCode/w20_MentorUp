@@ -3,23 +3,17 @@ import "firebase/firestore";
 import { useFirestoreDocData, useFirestore, useUser } from "reactfire";
 import { Link } from "react-router-dom";
 import usernameGen from "username-gen";
-import MentorMentee from "../Wizard/MentorMentee";
+import MentorMentee from "../WIzard/MentorMentee";
 import CloseIcon from "@material-ui/icons/Close";
-import UserName from "../Wizard/UsernameAvatar";
-import Subject from "../Wizard/Subject";
-import Industry from "../Wizard/Industry";
+import UserName from "../WIzard/UsernameAvatar";
+import Subject from "../WIzard/Subject";
+import Industry from "../WIzard/Industry";
 import clsx from "clsx";
 
-import {
-  Grid,
-  Button,
-  makeStyles,
-  Snackbar,
-  IconButton,
-} from "@material-ui/core";
-import BusinessStage from "../Wizard/BusinessStage";
-import BSL from "../Wizard/BSL";
-import Language from "../Wizard/Language";
+import { Grid, Button, makeStyles, Snackbar, IconButton } from "@material-ui/core";
+import BusinessStage from "../WIzard/BusinessStage";
+import BSL from "../WIzard/BSL";
+import Language from "../WIzard/Language";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -77,8 +71,7 @@ function UserDetails() {
   // states
   const [loading, setLoading] = useState(true);
   const [helpTopic, setHelpTopics] = useState(["Preparing a pitch"]);
-  const [needsSignLanguageInterpreter, setNeedsSignLanguageInterpreter] =
-    useState(true);
+  const [needsSignLanguageInterpreter, setNeedsSignLanguageInterpreter] = useState(true);
   const [language, setLanguage] = useState("English");
   const [industry, setIndustry] = useState("Agriculture");
   const [yearsInBusiness, setYearsInBusiness] = useState(0);
@@ -89,15 +82,12 @@ function UserDetails() {
   const [showUpdated, setShowUpdated] = useState(false);
   const [avatar, setAvatar] = useState(newAvatar());
   const [activeSteps, setActiveSteps] = useState(0);
-  const [userName, setuserName] = useState(
-    usernameGen.generateUsername(8, false)
-  );
+  const [userName, setuserName] = useState(usernameGen.generateUsername(8, false));
 
   function newAvatar() {
     const types = ["bottts", "gridy", "identicon"];
     const randomType = types[Math.floor(Math.random() * types.length)];
-    const generateRandomString = () =>
-      Math.random().toString(20).substring(2, 8);
+    const generateRandomString = () => Math.random().toString(20).substring(2, 8);
     return `https://avatars.dicebear.com/api/${randomType}/${generateRandomString()}.svg`;
   }
   useEffect(() => {
@@ -125,9 +115,7 @@ function UserDetails() {
         setMenteeOrMentor(existingUserFirebaseData.type);
         setUsername(existingUserFirebaseData.username);
         setYearsInBusiness(existingUserFirebaseData.yearsInBusiness);
-        setNeedsSignLanguageInterpreter(
-          existingUserFirebaseData.needsSignLanguageInterpreter
-        );
+        setNeedsSignLanguageInterpreter(existingUserFirebaseData.needsSignLanguageInterpreter);
       }
     };
     getUserDetails();
@@ -244,11 +232,7 @@ function UserDetails() {
               />
             )}
             {activeSteps === 3 && (
-              <Industry
-                industry={industry}
-                setIndustry={setIndustry}
-                classes={classes}
-              />
+              <Industry industry={industry} setIndustry={setIndustry} classes={classes} />
             )}
             {activeSteps === 4 && (
               <BusinessStage
@@ -262,17 +246,11 @@ function UserDetails() {
             {activeSteps === 5 && (
               <BSL
                 needsSignLanguageInterpreter={needsSignLanguageInterpreter}
-                setNeedsSignLanguageInterpreter={
-                  setNeedsSignLanguageInterpreter
-                }
+                setNeedsSignLanguageInterpreter={setNeedsSignLanguageInterpreter}
               />
             )}
             {activeSteps === 6 && (
-              <Language
-                setLanguage={setLanguage}
-                language={language}
-                classes={classes}
-              />
+              <Language setLanguage={setLanguage} language={language} classes={classes} />
             )}
             <Button disabled={activeSteps === 0} onClick={handleBack}>
               Back
@@ -317,12 +295,7 @@ function UserDetails() {
           message="Your Details Have Been Saved"
           action={
             <React.Fragment>
-              <IconButton
-                size="small"
-                aria-label="close"
-                color="inherit"
-                onClick={handleClose}
-              >
+              <IconButton size="small" aria-label="close" color="inherit" onClick={handleClose}>
                 <CloseIcon fontSize="small" />
               </IconButton>
             </React.Fragment>
