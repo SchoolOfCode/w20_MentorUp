@@ -62,9 +62,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Subject() {
-  const [helpTopic, setHelpTopics] = useState(["Preparing a pitch"]);
-  const classes = useStyles();
+function Subject({ classes, helpTopic, helpTopics, setHelpTopics }) {
   return (
     <div>
       <Grid item>

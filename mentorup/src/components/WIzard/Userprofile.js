@@ -12,20 +12,10 @@ import clsx from "clsx";
 
 import {
   Grid,
-  MenuItem,
-  TextField,
   Button,
-  FormControlLabel,
-  RadioGroup,
-  Typography,
   makeStyles,
-  Radio,
-  Select,
-  Chip,
-  Input,
   Snackbar,
   IconButton,
-  CardMedia,
 } from "@material-ui/core";
 import BusinessStage from "../WIzard/BusinessStage";
 import BSL from "../WIzard/BSL";
@@ -66,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function UserDetails() {
+function UserProfile() {
   const { data: user } = useUser();
 
   const firestore = useFirestore();
@@ -228,90 +218,56 @@ function UserDetails() {
           alignItems="center"
         >
           <Grid item container direction="column" spacing={4}>
-            {activeSteps === 0 && (
-              <UserName
-                classes={classes}
-                userName={userName}
-                setuserName={setuserName}
-                avatar={avatar}
-                setAvatar={setAvatar}
-                newAvatar={newAvatar}
-              />
-            )}
-            {activeSteps === 1 && (
-              <MentorMentee
-                menteeOrMentor={menteeOrMentor}
-                setMenteeOrMentor={setMenteeOrMentor}
-                classes={classes}
-              />
-            )}
-            {activeSteps === 2 && (
-              <Subject
-                helpTopics={helpTopics}
-                setHelpTopics={setHelpTopics}
-                classes={classes}
-                helpTopic={helpTopic}
-              />
-            )}
-            {activeSteps === 3 && (
-              <Industry
-                industry={industry}
-                setIndustry={setIndustry}
-                classes={classes}
-              />
-            )}
-            {activeSteps === 4 && (
-              <BusinessStage
-                businessStage={businessStage}
-                setBusinessStage={setBusinessStage}
-                yearsInBusiness={yearsInBusiness}
-                setYearsInBusiness={setYearsInBusiness}
-                classes={classes}
-              />
-            )}
-            {activeSteps === 5 && (
-              <BSL
-                needsSignLanguageInterpreter={needsSignLanguageInterpreter}
-                setNeedsSignLanguageInterpreter={
-                  setNeedsSignLanguageInterpreter
-                }
-              />
-            )}
-            {activeSteps === 6 && (
-              <Language
-                setLanguage={setLanguage}
-                language={language}
-                classes={classes}
-              />
-            )}
-            <Button disabled={activeSteps === 0} onClick={handleBack}>
-              Back
-            </Button>
-            <div>
-              {activeSteps === steps.length ? (
-                <Button
-                  variant="contained"
-                  color="primary"
-                  className={classes.buttonResponsive}
-                  type="submit"
-                >
-                  Save User Details
-                </Button>
-              ) : (
-                <Button onClick={handleNext}>Next</Button>
-              )}
-            </div>
-            {/* <Button  onClick={handleNext}>
-              Next
-            </Button> */}
-            {/* <Button
+            <UserName
+              classes={classes}
+              userName={userName}
+              setuserName={setuserName}
+              avatar={avatar}
+              setAvatar={setAvatar}
+              newAvatar={newAvatar}
+            />
+            <MentorMentee
+              menteeOrMentor={menteeOrMentor}
+              setMenteeOrMentor={setMenteeOrMentor}
+              classes={classes}
+            />
+            <Subject
+              helpTopics={helpTopics}
+              setHelpTopics={setHelpTopics}
+              classes={classes}
+              helpTopic={helpTopic}
+            />
+            <Industry
+              industry={industry}
+              setIndustry={setIndustry}
+              classes={classes}
+            />
+            <BusinessStage
+              businessStage={businessStage}
+              setBusinessStage={setBusinessStage}
+              yearsInBusiness={yearsInBusiness}
+              setYearsInBusiness={setYearsInBusiness}
+              classes={classes}
+            />
+            <BSL
+              needsSignLanguageInterpreter={needsSignLanguageInterpreter}
+              setNeedsSignLanguageInterpreter={setNeedsSignLanguageInterpreter}
+            />
+
+            <Language
+              setLanguage={setLanguage}
+              language={language}
+              classes={classes}
+            />
+
+            <Button
               variant="contained"
               color="primary"
               className={classes.buttonResponsive}
               type="submit"
             >
               Save User Details
-            </Button> */}
+            </Button>
           </Grid>
         </Grid>
       </form>
@@ -343,4 +299,4 @@ function UserDetails() {
   );
 }
 
-export default UserDetails;
+export default UserProfile;

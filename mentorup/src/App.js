@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 
 import MentorOrMentee from "./components/MentorOrMentee/MentorOrMentee";
@@ -16,10 +16,8 @@ import "firebase/firestore";
 import heroimage from "./assets/heroimage.jpg";
 import UserDetails from "./components/UserDetails/UserDetails";
 import UsernameAndAvatar from "./components/UsernameAndAvatar/UsernameAndAvatar";
-import UsernameAvatar from "./components/WIzard/UsernameAvatar";
-import MentorMentee from "./components/WIzard/MentorMentee";
-import Subject from "./components/WIzard/Subject";
-import Userform from "./components/WIzard/Userform";
+import UserProfile from "./components/WIzard/Userprofile";
+
 function App() {
   return (
     <Router>
@@ -34,12 +32,8 @@ function App() {
           <Route path="/contact/:mentorID" component={ContactForm}></Route>
           <Route path="/dashboard" component={Dashboard}></Route>
           <Route path="/match-with-mentor" component={MatchWithMentor}></Route>
-          {/* <Route path="/user-details" component={UserDetails}></Route> */}
-          {/* <Route path="/user-details" component={UsernameAvatar}></Route> */}
-
-          {/* <Route path="/user-details" component={MentorMentee}></Route> */}
-          {/* <Route path="/user-details" component={Subject}></Route> */}
-          <Route path="/user-details" component={Userform}></Route>
+          <Route path="/user-details" component={UserDetails}></Route>
+          <Route path="/user-profile" component={UserProfile}></Route>
         </Switch>
 
         <Grid

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
 import {
   Typography,
   FormControl,
+  withStyles,
   FormControlLabel,
   RadioGroup,
   Radio,
@@ -9,52 +9,29 @@ import {
   Grid,
   CardMedia,
 } from "@material-ui/core";
-const usernameGen = require("username-gen");
-// import usernames from "usernames";
+import usernameGen from "username-gen";
+import React from "react";
 
-function UsernameAvatar() {
-  const [avatar, setAvatar] = useState(newAvatar());
-  const [userName, setuserName] = useState(
-    usernameGen.generateUsername(8, false)
-  );
-  function newAvatar() {
-    const types = ["bottts", "gridy", "identicon"];
-    const randomType = types[Math.floor(Math.random() * types.length)];
-    const generateRandomString = () =>
-      Math.random().toString(20).substring(2, 8);
-    return `https://avatars.dicebear.com/api/${randomType}/${generateRandomString()}.svg`;
-  }
+function UserName({
+  classes,
+  userName,
+  setuserName,
+  avatar,
+  setAvatar,
+  newAvatar,
+}) {
   return (
-    <Grid
-      style={{
-        margin: "0 auto",
-      }}
-      xs={10}
-      md={3}
-      container
-      direction="column"
-      justifyContent="center"
-      alignItems="center"
-      spacing={4}
-    >
-      <Grid item p={2}>
-        <Typography variant="h5" align="center">
-          Select an Avatar
+    <div>
+      <Grid item>
+        <Typography variant="h1" align="center" className={classes.h1Override}>
+          Please fill out your details so we can provide you with the best
+          possible help
         </Typography>
-        <CardMedia
-          component="img"
-          image={avatar}
-          title="Avatar"
-          onClick={() => setAvatar(newAvatar())}
-        ></CardMedia>
-        <Button
-          onClick={() => setAvatar(newAvatar())}
-          variant="contained"
-          color="primary"
-          fullWidth
-        >
-          New Avatar
-        </Button>
+      </Grid>
+      <Grid item className={classes.root}>
+        <Typography variant="h5" align="left" gutterBottom>
+          Username
+        </Typography>
       </Grid>
       <Grid item>
         <Typography variant="h5">{userName}</Typography>
@@ -73,11 +50,32 @@ function UsernameAvatar() {
           New Username
         </Button>
       </Grid>
-      <Button variant="contained" color="primary" fullWidth>
-        Next
-      </Button>
-    </Grid>
+      <Grid item className={classes.root}>
+        <Typography variant="h5" align="left" gutterBottom>
+          Select an Avatar
+        </Typography>
+        <Grid item className={classes.root}>
+          <CardMedia
+            className={classes.image}
+            align="center"
+            justifyContent="center"
+            margin="auto"
+            component="img"
+            image={avatar}
+            title="Avatar"
+            onClick={() => setAvatar(newAvatar())}
+          ></CardMedia>
+        </Grid>
+        <Button
+          onClick={() => setAvatar(newAvatar())}
+          variant="contained"
+          color="primary"
+          fullWidth
+        >
+          New Avatar
+        </Button>
+      </Grid>
+    </div>
   );
 }
-
-export default UsernameAvatar;
+export default UserName;
