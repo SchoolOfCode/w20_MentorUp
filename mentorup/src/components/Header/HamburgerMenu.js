@@ -8,8 +8,9 @@ import {
   Divider,
   Box,
 } from "@material-ui/core";
+
 import logo from "../../assets/logo.svg";
-import logoRed from "../../assets/logoRed.svg";
+
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
 
@@ -65,33 +66,8 @@ function HamburgerMenu() {
             </ListItem>
           </List>
           <ListItem>
-            <Link to="/bsl-selection">
-              <Button>BSL Selection</Button>
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link to="/language-selection">
-              <Button>Language Selection</Button>
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link to="/help-selection">
-              <Button>Help Selection</Button>
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link to="/industry-selection">
-              <Button>Industry Selection</Button>
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link to="/elevator-pitch">
-              <Button>Elevator Pitch</Button>
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link to="/contact">
-              <Button>Contact Form</Button>
+            <Link to="/user-details">
+              <Button>My Profile details</Button>
             </Link>
           </ListItem>
           <ListItem>

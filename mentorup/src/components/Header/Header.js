@@ -1,10 +1,6 @@
-//Hamburger
-//Logo
-
-import { AppBar, Toolbar, Typography } from "@material-ui/core";
+import { AppBar, Toolbar } from "@material-ui/core";
 import logo from "../../assets/logo.svg";
-import logoBlue from "../../assets/logoBlue.svg";
-import logoWhite from "../../assets/logoWhite.svg";
+
 import HamburgerMenu from "./HamburgerMenu";
 import { makeStyles } from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
