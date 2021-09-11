@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import {
   Grid,
   MenuItem,
@@ -16,16 +15,6 @@ import {
   IconButton,
   CardMedia,
 } from "@material-ui/core";
-const helpTopics = [
-  "Accounting",
-  "Business Plan",
-  "Building a React website",
-  "Capital & Investment",
-  "HR & Recruitment",
-  "Networking",
-  "Marketing & Social Media",
-  "Preparing a pitch",
-];
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -61,6 +50,23 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "medium",
   },
 }));
+const industriesArray = [
+  "Agiculture",
+  " Automotive",
+  "Bars & Restaurants",
+  "Business Services",
+  "Construction",
+  "Education",
+  "Entertainment",
+  "Environment",
+  "Health & Beauty",
+  "Retail Sales",
+  "Sport",
+  "Tech",
+  "Transport",
+  "Other",
+];
+
 function Industry({ classes, industry, setIndustry }) {
   return (
     <div>
@@ -79,41 +85,11 @@ function Industry({ classes, industry, setIndustry }) {
           select
           fullWidth
         >
-          <MenuItem className={classes.hover} value="Agriculture">
-            Agriculture
-          </MenuItem>
-
-          <MenuItem value="Automotive">Automotive</MenuItem>
-
-          <MenuItem className={classes.hover} value="Bars & Restaurants">
-            Bars & Restaurants
-          </MenuItem>
-
-          <MenuItem value="Building">Building</MenuItem>
-
-          <MenuItem className={classes.hover} value="Business Services">
-            Business Services{" "}
-          </MenuItem>
-
-          <MenuItem value="Education">Education</MenuItem>
-
-          <MenuItem value="Entertainment ">Entertainment</MenuItem>
-
-          <MenuItem value="Environment">Environment</MenuItem>
-
-          <MenuItem value="Health & Beauty">Health & Beauty</MenuItem>
-
-          <MenuItem className={classes.hover} value="Retail Sales">
-            Retail Sales{" "}
-          </MenuItem>
-
-          <MenuItem value="Sport">Sport</MenuItem>
-
-          <MenuItem value="Tech">Tech</MenuItem>
-
-          <MenuItem value="Transport">Transport</MenuItem>
-
-          <MenuItem value="Other">Other</MenuItem>
+          {industriesArray.map((name) => (
+            <MenuItem className={classes.hover} value={name}>
+              {name}
+            </MenuItem>
+          ))}
         </TextField>
       </Grid>
     </div>
