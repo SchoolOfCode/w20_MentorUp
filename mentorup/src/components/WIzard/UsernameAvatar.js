@@ -12,20 +12,12 @@ import {
 import usernameGen from "username-gen";
 import React from "react";
 
-function UserName({
-  classes,
-  userName,
-  setuserName,
-  avatar,
-  setAvatar,
-  newAvatar,
-}) {
+function UserName({ classes, username, setUsername, avatar, setAvatar, newAvatar }) {
   return (
     <div>
       <Grid item>
         <Typography variant="h1" align="center" className={classes.h1Override}>
-          Please fill out your details so we can provide you with the best
-          possible help
+          Please fill out your details so we can provide you with the best possible help
         </Typography>
       </Grid>
       <Grid item className={classes.root}>
@@ -34,13 +26,11 @@ function UserName({
         </Typography>
       </Grid>
       <Grid item>
-        <Typography variant="h5">{userName}</Typography>
+        <Typography variant="h5">{username}</Typography>
         <Button
           onClick={() =>
-            setuserName(
-              usernameGen
-                .generateUsername(Math.floor(Math.random() * 4 + 6), false)
-                .toUpperCase()
+            setUsername(
+              usernameGen.generateUsername(Math.floor(Math.random() * 4 + 6), false).toUpperCase()
             )
           }
           variant="contained"
