@@ -3,33 +3,23 @@ import "firebase/firestore";
 import { useFirestoreDocData, useFirestore, useUser } from "reactfire";
 import { Link } from "react-router-dom";
 import usernameGen from "username-gen";
-import MentorMentee from "../WIzard/MentorMentee";
+import MentorMentee from "../Wizard/MentorMentee";
 import CloseIcon from "@material-ui/icons/Close";
-import UserName from "../WIzard/UsernameAvatar";
-import Subject from "../WIzard/Subject";
-import Industry from "../WIzard/Industry";
+import UserName from "../Wizard/UsernameAvatar";
+import Subject from "../Wizard/Subject";
+import Industry from "../Wizard/Industry";
 import clsx from "clsx";
 
 import {
   Grid,
-  MenuItem,
-  TextField,
   Button,
-  FormControlLabel,
-  RadioGroup,
-  Typography,
   makeStyles,
-  Radio,
-  Select,
-  Chip,
-  Input,
   Snackbar,
   IconButton,
-  CardMedia,
 } from "@material-ui/core";
-import BusinessStage from "../WIzard/BusinessStage";
-import BSL from "../WIzard/BSL";
-import Language from "../WIzard/Language";
+import BusinessStage from "../Wizard/BusinessStage";
+import BSL from "../Wizard/BSL";
+import Language from "../Wizard/Language";
 
 const useStyles = makeStyles((theme) => ({
   root: {

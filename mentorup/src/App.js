@@ -16,7 +16,7 @@ import "firebase/firestore";
 import heroimage from "./assets/heroimage.jpg";
 import UserDetails from "./components/UserDetails/UserDetails";
 import UsernameAndAvatar from "./components/UsernameAndAvatar/UsernameAndAvatar";
-import UserProfile from "./components/WIzard/Userprofile";
+import UserProfile from "./components/UserProfile/Userprofile";
 
 function App() {
   return (
@@ -35,16 +35,6 @@ function App() {
           <Route path="/user-details" component={UserDetails}></Route>
           <Route path="/user-profile" component={UserProfile}></Route>
         </Switch>
-
-        <Grid
-          container
-          direction="column"
-          justifyContent="center"
-          alignItems="center"
-          width="100%"
-        >
-          <img src={heroimage} alt="bottom illustration" width="50%"></img>
-        </Grid>
       </div>
     </Router>
   );
