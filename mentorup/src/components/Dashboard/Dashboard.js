@@ -32,11 +32,16 @@ const Dashboard = () => {
     filteredHelp = help.filter((request) => request.menteeID === currentUser?.authenticationID);
     mentorIDs = filteredHelp.map((request) => request.mentorID);
   }
-  console.log(filteredHelp);
+  mentorIDs = [...new Set(mentorIDs)];
   if (mentorIDs.length === 0) mentorIDs.push("RandomFillerToFixQuery");
-  const mentorQuery = firestore.collection("userData").where(`authenticationID`, "in", mentorIDs);
+  const mentorQuery = firestore
+    .collection("userData")
+    .where(`authenticationID`, "in", mentorIDs.slice(0, 3));
   const { data: mentors } = useFirestoreCollectionData(mentorQuery);
-  console.log("My Mentors: ", mentors);
+  const sortedMentors = mentors
+    ? mentors.sort((a, b) => a.username.localeCompare(b.username))
+    : null;
+  console.log("My Mentors: ", sortedMentors);
   return (
     <div data-testid="container-div">
       <Typography variant="h3" m={2}>
@@ -48,7 +53,7 @@ const Dashboard = () => {
       </Typography>
       {mentors ? (
         <Grid container direction="row" justifyContent="center" alignItems="center" spacing={4}>
-          {mentors?.map((mentor, index) => {
+          {sortedMentors?.map((mentor, index) => {
             if (index > 2) return null;
             return (
               <Grid item xs={3} key={index}>
