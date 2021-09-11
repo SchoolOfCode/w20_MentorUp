@@ -1,13 +1,18 @@
-//Hamburger
-//Logo
+import { AppBar, Toolbar } from "@material-ui/core";
+import logo from "../../assets/logo.svg";
 
-import { AppBar, Toolbar, Typography } from "@material-ui/core";
-import Logo from "../../assets/logo.svg";
 import HamburgerMenu from "./HamburgerMenu";
 import { makeStyles } from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
   header: {
     height: "80px",
+    justifyContent: "center",
+    backgroundColor: "#FFAB40",
+    color: "black",
+  },
+  logoCentre: {
+    width: "calc(100% - 68px)",
+    display: "flex",
     justifyContent: "center",
   },
 }));
@@ -18,7 +23,9 @@ function Header() {
       <AppBar position="static" className={classes.header}>
         <Toolbar>
           <HamburgerMenu />
-          <Typography variant="h6">MentorUP</Typography>
+          <div className={classes.logoCentre}>
+            <img src={logo} alt="logo" />
+          </div>
         </Toolbar>
       </AppBar>
     </div>
