@@ -1,4 +1,5 @@
 import React from "react";
+
 import MentorOrMentee from "./components/MentorOrMentee/MentorOrMentee";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/Header/Header";
@@ -11,8 +12,9 @@ import "./App.css";
 import "firebase/firestore";
 import UserDetails from "./components/UserDetails/UserDetails";
 import UsernameAndAvatar from "./components/UsernameAndAvatar/UsernameAndAvatar";
+import UserProfile from "./components/UserProfile/Userprofile";
 import Footer from "./components/Footer/Footer";
-// import Header from "./components/Header";
+
 function App() {
   return (
     <>
@@ -29,11 +31,13 @@ function App() {
             <Route path="/dashboard" component={Dashboard}></Route>
             <Route path="/match-with-mentor" component={MatchWithMentor}></Route>
             <Route path="/user-details" component={UserDetails}></Route>
+<Route path="/user-profile" component={UserProfile}></Route>
           </Switch>
           <Footer />
         </div>
       </Router>
     </>
+
   );
 }
 

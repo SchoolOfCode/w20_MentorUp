@@ -66,7 +66,7 @@ function HamburgerMenu() {
             </ListItem>
           </List>
           <ListItem>
-            <Link to="/user-details">
+            <Link to="/user-profile">
               <Button>My Profile details</Button>
             </Link>
           </ListItem>
