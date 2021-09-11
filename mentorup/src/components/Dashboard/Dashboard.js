@@ -23,7 +23,6 @@ const Dashboard = () => {
   const { data: currentUserObject } = useFirestoreCollectionData(userRef);
   //the user is in an Array, this removes it if it's there
   const currentUser = currentUserObject ? currentUserObject[0] : null;
-  console.log(currentUser);
   //Finds help requests that the user has been in
   const helpRequestsRef = firestore.collection("helpRequests");
   const { data: help } = useFirestoreCollectionData(helpRequestsRef);
@@ -33,10 +32,11 @@ const Dashboard = () => {
     filteredHelp = help.filter((request) => request.menteeID === currentUser?.authenticationID);
     mentorIDs = filteredHelp.map((request) => request.mentorID);
   }
+  console.log(filteredHelp);
   if (mentorIDs.length === 0) mentorIDs.push("RandomFillerToFixQuery");
   const mentorQuery = firestore.collection("userData").where(`authenticationID`, "in", mentorIDs);
   const { data: mentors } = useFirestoreCollectionData(mentorQuery);
-
+  console.log("My Mentors: ", mentors);
   return (
     <div data-testid="container-div">
       <Typography variant="h3" m={2}>
@@ -44,7 +44,7 @@ const Dashboard = () => {
         {user?.displayName ? user.displayName : "Loading Name..."}!
       </Typography>
       <Typography variant="h4" m={2}>
-        Your mentors
+        {mentors?.length > 0 ? " Your mentors" : "No Mentors..."}
       </Typography>
       {mentors ? (
         <Grid container direction="row" justifyContent="center" alignItems="center" spacing={4}>
