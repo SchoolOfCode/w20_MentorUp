@@ -2,7 +2,7 @@ import React from "react";
 import MentorOrMentee from "./components/MentorOrMentee/MentorOrMentee";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/Header/Header";
-import HomePage from "./components/HomePage/HomePage";
+import HomePage from "./components/Homepage/Homepage";
 import Landing from "./components/Landing/Landing";
 import MatchWithMentor from "./components/MatchWithMentor/MatchWithMentor";
 import Dashboard from "./components/Dashboard/Dashboard";
