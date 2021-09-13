@@ -8,7 +8,7 @@ import TwitterIcon from "@material-ui/icons/Twitter";
 import FacebookIcon from "@material-ui/icons/Facebook";
 function Footer() {
   return (
-    <footer style={{ position: "absolute", bottom: 0, width: " 100%" }}>
+    <footer style={{ position: "absolute", bottom: 0, width: "100%" }}>
       <Box>
         <Grid
           container
