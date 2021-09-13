@@ -27,9 +27,11 @@ function BSL({
           onChange={(e) => setNeedsSignLanguageInterpreter(true)}
           labelPlacement="start"
           style={{
-            justifyContent: "center",
+            justifyContent: "space-between",
             margin: "0",
+            marginBottom: "20px",
             padding: "16px",
+            display: "flex",
           }}
         />
         <FormControlLabel
@@ -40,9 +42,11 @@ function BSL({
           onChange={(e) => setNeedsSignLanguageInterpreter(false)}
           labelPlacement="start"
           style={{
-            justifyContent: "center",
+            justifyContent: "space-between",
             margin: "0",
+
             padding: "16px",
+            display: "flex",
           }}
         />
       </RadioGroup>
