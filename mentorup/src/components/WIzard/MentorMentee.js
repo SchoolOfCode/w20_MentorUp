@@ -25,9 +25,11 @@ function MentorMentee({ menteeOrMentor, setMenteeOrMentor, classes }) {
           onChange={(e) => setMenteeOrMentor("Mentee")}
           labelPlacement="start"
           style={{
-            justifyContent: "center",
+            justifyContent: "space-between",
             margin: "0",
+            marginBottom: "20px",
             padding: "16px",
+            display: "flex",
           }}
         />
         <FormControlLabel
@@ -38,9 +40,10 @@ function MentorMentee({ menteeOrMentor, setMenteeOrMentor, classes }) {
           onChange={(e) => setMenteeOrMentor("Mentor")}
           labelPlacement="start"
           style={{
-            justifyContent: "center",
-            margin: "0",
+            justifyContent: "space-between",
+            margin: "0px",
             padding: "16px",
+            display: "flex",
           }}
         />
       </RadioGroup>
