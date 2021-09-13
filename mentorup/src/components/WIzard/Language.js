@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Grid,
   MenuItem,
@@ -6,15 +6,25 @@ import {
   Typography,
   makeStyles,
 } from "@material-ui/core";
-const helpTopics = [
-  "Accounting",
-  "Business Plan",
-  "Building a React website",
-  "Capital & Investment",
-  "HR & Recruitment",
-  "Networking",
-  "Marketing & Social Media",
-  "Preparing a pitch",
+const languages = [
+  "English",
+  "Arabic",
+  "Bengali",
+  "French",
+  "German",
+  "Gujurati",
+  "Hindi",
+  "Italian",
+  "Lithuanian",
+  "Polish",
+  "Portuguese",
+  "Punjabi",
+  "Romanian",
+  "Somali",
+  "Spanish",
+  "Tagalog/Filipino",
+  "Turkish",
+  "Urdu",
 ];
 
 const useStyles = makeStyles((theme) => ({
