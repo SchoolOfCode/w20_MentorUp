@@ -55,7 +55,7 @@ function HomePage() {
       <section>
         {/* container className={classes.mainLayout} spacing={2} */}
         <Box display="flex" flexWrap="wrap" align="left">
-          <Grid container xs={12} sm={12} md={6} className={classes.heroText}>
+          <Grid container xs={12} sm={12} md={7} className={classes.heroText}>
             <Grid item container>
               <Typography
                 variant="h1"
@@ -77,7 +77,7 @@ function HomePage() {
                 gridGap={9}
                 my={6}
               >
-                <Box width={{ xs: "100%", sm: "40%", md: "30%" }}>
+                <Box width={{ xs: "100%", sm: "40%", md: "35%" }}>
                   <Button
                     variant="contained"
                     color="primary"
@@ -87,7 +87,7 @@ function HomePage() {
                     Sign up
                   </Button>
                 </Box>
-                <Box width={{ xs: "100%", sm: "40%", md: "30%" }}>
+                <Box width={{ xs: "100%", sm: "40%", md: "35%" }}>
                   <Button
                     variant="outlined"
                     size="large"
@@ -100,7 +100,7 @@ function HomePage() {
               </Box>
             </Grid>
           </Grid>
-          <Grid item container xs={12} sm={12} md={6}>
+          <Grid item container xs={12} sm={12} md={5}>
             <img
               src={heroImage}
               alt="hero"
