@@ -7,7 +7,7 @@ import {
 } from "@material-ui/core";
 
 import React from "react";
-function MentorMentee({ menteeOrMentor, setMenteeOrMentor, classes }) {
+function MentorMentee({ menteeOrMentor, setMenteeOrMentor }) {
   return (
     <div>
       <Grid item>
