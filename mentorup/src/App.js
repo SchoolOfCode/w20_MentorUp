@@ -3,7 +3,7 @@ import React from "react";
 import MentorOrMentee from "./components/MentorOrMentee/MentorOrMentee";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/Header/Header";
-import Homepage from "./components/Homepage/Homepage";
+import Home from "./components/Home/Home";
 import Landing from "./components/Landing/Landing";
 import MatchWithMentor from "./components/MatchWithMentor/MatchWithMentor";
 import Dashboard from "./components/Dashboard/Dashboard";
@@ -23,13 +23,19 @@ function App() {
           <Header />
 
           <Switch>
-            <Route exact path="/" component={Homepage}></Route>
+            <Route exact path="/" component={Home}></Route>
             <Route path="/landing" component={Landing}></Route>
             <Route path="/mentor-or-mentee" component={MentorOrMentee}></Route>
-            <Route path="/username-avatar" component={UsernameAndAvatar}></Route>
+            <Route
+              path="/username-avatar"
+              component={UsernameAndAvatar}
+            ></Route>
             <Route path="/contact/:mentorID" component={ContactForm}></Route>
             <Route path="/dashboard" component={Dashboard}></Route>
-            <Route path="/match-with-mentor" component={MatchWithMentor}></Route>
+            <Route
+              path="/match-with-mentor"
+              component={MatchWithMentor}
+            ></Route>
             <Route path="/user-details" component={UserDetails}></Route>
             <Route path="/user-profile" component={UserProfile}></Route>
           </Switch>
