@@ -51,7 +51,7 @@ function HomePage() {
   const classes = useStyles();
   console.log(howItWorksSteps[0].image2);
   return (
-    <main style={{ padding: "16px" }}>
+    <main style={{ padding: "16px", minHeight: "100vh" }}>
       <section>
         {/* container className={classes.mainLayout} spacing={2} */}
         <Box display="flex" flexWrap="wrap" align="left">
