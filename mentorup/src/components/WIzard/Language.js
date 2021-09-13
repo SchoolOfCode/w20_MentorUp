@@ -5,26 +5,43 @@ import {
   TextField,
   Typography,
   makeStyles,
+  Box,
 } from "@material-ui/core";
+import uk from "./../../assets/flags/united-kingdom.svg";
+import uae from "./../../assets/flags/united-arab-emirates.svg";
+// import bangladesh from "./../assets/flags/bangladesh.svg"
+import france from "./../../assets/flags/france.svg";
+import germany from "./../../assets/flags/germany.svg";
+import india from "./../../assets/flags/india.svg";
+import italy from "./../../assets/flags/italy.svg";
+import lithuania from "./../../assets/flags/lithuania.svg";
+import poland from "./../../assets/flags/poland.svg";
+// import portugal from "./../../assets/flags/portugal.svg";
+import pakistan from "./../../assets/flags/pakistan.svg";
+// import romania from "./../../assets/flags/romania.svg";
+import somalia from "./../../assets/flags/somalia.svg";
+import spain from "./../../assets/flags/spain.svg";
+import philippines from "./../../assets/flags/philippines.svg";
+import turkey from "./../../assets/flags/turkey.svg";
 const languages = [
-  "English",
-  "Arabic",
-  "Bengali",
-  "French",
-  "German",
-  "Gujurati",
-  "Hindi",
-  "Italian",
-  "Lithuanian",
-  "Polish",
-  "Portuguese",
-  "Punjabi",
-  "Romanian",
-  "Somali",
-  "Spanish",
-  "Tagalog/Filipino",
-  "Turkish",
-  "Urdu",
+  { language: "English", flag: uk },
+  { language: "Arabic", flag: uae },
+  // { language: "Bengali", flag: bangladesh },
+  { language: "French", flag: france },
+  { language: "German", flag: germany },
+  { language: "Gujurati", flag: india },
+  { language: "Hindi", flag: india },
+  { language: "Italian", flag: italy },
+  { language: "Lithuanian", flag: lithuania },
+  { language: "Polish", flag: poland },
+  // { language: "Portuguese", flag: portugal },
+  { language: "Punjabi", flag: pakistan },
+  // { language: "Romanian", flag: romania },
+  { language: "Somali", flag: somalia },
+  { language: "Spanish", flag: spain },
+  { language: "Tagalog/Filipino", flag: philippines },
+  { language: "Turkey", flag: turkey },
+  { language: "Urdu", flag: pakistan },
 ];
 
 const useStyles = makeStyles((theme) => ({
@@ -81,7 +98,15 @@ function Language({ setLanguage, language, classes }) {
           select
           fullWidth
         >
-          <MenuItem value="English" className={classes.hover}>
+          {languages.map(({ language, flag, index }) => (
+            <MenuItem value={language} className={classes.hover} key={index}>
+              <Box width="50px" height="50px  ">
+                <img src={flag} alt={language} />
+              </Box>
+              <Box>{language}</Box>
+            </MenuItem>
+          ))}
+          {/* <MenuItem value="English" className={classes.hover}>
             🇬🇧 English
           </MenuItem>
           <MenuItem value="Arabic" className={classes.hover}>
@@ -140,7 +165,7 @@ function Language({ setLanguage, language, classes }) {
           </MenuItem>
           <MenuItem value="Urdu" className={classes.hover}>
             🇵🇰 Urdu
-          </MenuItem>
+          </MenuItem> */}
         </TextField>
       </Grid>
     </div>
