@@ -18,7 +18,7 @@ function BSL({
           Do you need a British Sign Language interpreter?
         </Typography>
       </Grid>
-      <RadioGroup aria-label="mentorormentee" name="mentorormentee">
+      <RadioGroup aria-label="bsl" name="bsl">
         <FormControlLabel
           value="Yes"
           control={<Radio color="primary" />}
