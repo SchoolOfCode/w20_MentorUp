@@ -53,15 +53,9 @@ function HomePage() {
   return (
     <main style={{ padding: "16px" }}>
       <section>
-        <Grid container className={classes.mainLayout} spacing={2}>
-          <Grid
-            container
-            xs={12}
-            sm={12}
-            md={6}
-            spacing={2}
-            className={classes.heroText}
-          >
+        {/* container className={classes.mainLayout} spacing={2} */}
+        <Box display="flex" flexWrap="wrap" align="left">
+          <Grid container xs={12} sm={12} md={6} className={classes.heroText}>
             <Grid item container>
               <Typography
                 variant="h1"
@@ -74,35 +68,37 @@ function HomePage() {
                 Get an experienced mentor in your same field of business! Get an
                 experienced mentor in your same field of business!
               </Typography>
+
+              <Box
+                component="div"
+                display="flex"
+                flexWrap="wrap"
+                width="100%"
+                gridGap={9}
+                my={6}
+              >
+                <Box width={{ xs: "100%", sm: "40%", md: "30%" }}>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    fullWidth
+                    size="large"
+                  >
+                    Sign up
+                  </Button>
+                </Box>
+                <Box width={{ xs: "100%", sm: "40%", md: "30%" }}>
+                  <Button
+                    variant="outlined"
+                    size="large"
+                    color="primary"
+                    fullWidth
+                  >
+                    Log in
+                  </Button>
+                </Box>
+              </Box>
             </Grid>
-            <Box
-              component="div"
-              display="flex"
-              flexWrap="wrap"
-              width="100%"
-              gridGap={9}
-            >
-              <Box width={{ xs: "100%", sm: "40%", md: "30%" }}>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  fullWidth
-                  size="large"
-                >
-                  Sign up
-                </Button>
-              </Box>
-              <Box width={{ xs: "100%", sm: "40%", md: "30%" }}>
-                <Button
-                  variant="outlined"
-                  size="large"
-                  color="primary"
-                  fullWidth
-                >
-                  Log in
-                </Button>
-              </Box>
-            </Box>
           </Grid>
           <Grid item container xs={12} sm={12} md={6}>
             <img
@@ -111,7 +107,7 @@ function HomePage() {
               style={{ maxWidth: "100%", alignSelf: "center" }}
             />
           </Grid>
-        </Grid>
+        </Box>
       </section>
       <Divider />
       <section>
