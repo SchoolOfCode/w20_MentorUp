@@ -1,10 +1,7 @@
 import {
   Typography,
-  FormControl,
-  withStyles,
-  FormControlLabel,
-  RadioGroup,
-  Radio,
+  Divider,
+  Box,
   Button,
   Grid,
   CardMedia,
@@ -12,59 +9,72 @@ import {
 import usernameGen from "username-gen";
 import React from "react";
 
-function UserName({ classes, username, setUsername, avatar, setAvatar, newAvatar }) {
+function UserName({
+  classes,
+  username,
+  setUsername,
+  avatar,
+  setAvatar,
+  newAvatar,
+}) {
   return (
     <div>
-      <Grid item>
+      <Box mb={4}>
         <Typography variant="h1" align="center" className={classes.h1Override}>
-          Please fill out your details so we can provide you with the best possible help
+          Please fill out your details so we can provide you with the best
+          possible help
         </Typography>
-      </Grid>
-      <Grid item className={classes.root}>
-        <Typography variant="h5" align="left" gutterBottom>
-          Username
-        </Typography>
-      </Grid>
-      <Grid item>
-        <Typography variant="h5">{username}</Typography>
-        <Button
-          onClick={() =>
-            setUsername(
-              usernameGen.generateUsername(Math.floor(Math.random() * 4 + 6), false).toUpperCase()
-            )
-          }
-          variant="contained"
-          color="primary"
-          fullWidth
-        >
-          New Username
-        </Button>
-      </Grid>
-      <Grid item className={classes.root}>
-        <Typography variant="h5" align="left" gutterBottom>
-          Select an Avatar
-        </Typography>
-        <Grid item className={classes.root}>
-          <CardMedia
-            className={classes.image}
-            align="center"
-            justifyContent="center"
-            margin="auto"
-            component="img"
-            image={avatar}
-            title="Avatar"
-            onClick={() => setAvatar(newAvatar())}
-          ></CardMedia>
+      </Box>
+      <Box display="flex" flexDirection="column" flexWrap="wrap" mb={4}>
+        <Grid>
+          <Typography variant="h6" align="left" gutterBottom>
+            Username
+          </Typography>
+          <Box mb={2}>
+            <Typography variant="h6" gutterBottom>
+              {username}
+            </Typography>
+          </Box>
+
+          <Button
+            onClick={() =>
+              setUsername(
+                usernameGen
+                  .generateUsername(Math.floor(Math.random() * 4 + 6), false)
+                  .toUpperCase()
+              )
+            }
+            variant="outlined"
+            color="primary"
+          >
+            New Username
+          </Button>
         </Grid>
-        <Button
-          onClick={() => setAvatar(newAvatar())}
-          variant="contained"
-          color="primary"
-          fullWidth
-        >
-          New Avatar
-        </Button>
-      </Grid>
+      </Box>
+      {/* <Divider /> */}
+      <Box display="flex" flexDirection="column" flexWrap="wrap" mb={4}>
+        <Grid>
+          <Typography variant="h6" align="left" gutterBottom>
+            Select an Avatar
+          </Typography>
+          <Grid container className={classes.root} justifyContent="center">
+            <CardMedia
+              className={classes.image}
+              component="img"
+              image={avatar}
+              title="Avatar"
+              onClick={() => setAvatar(newAvatar())}
+            />
+          </Grid>
+          <Button
+            onClick={() => setAvatar(newAvatar())}
+            variant="outlined"
+            color="primary"
+          >
+            New Avatar
+          </Button>
+        </Grid>
+      </Box>
     </div>
   );
 }
