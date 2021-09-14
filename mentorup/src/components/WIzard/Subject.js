@@ -1,37 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Grid,
   MenuItem,
   Typography,
-  makeStyles,
   Select,
   Chip,
   Input,
   Box,
 } from "@material-ui/core";
-const helpTopics = [
-  "Accounting",
-  "Business Plan",
-  "Building a React website",
-  "Capital & Investment",
-  "HR & Recruitment",
-  "Networking",
-  "Marketing & Social Media",
-  "Preparing a pitch",
-];
-
-const useStyles = makeStyles((theme) => ({
-  hover: {
-    "&:hover, &:focus": {
-      background: "#3F51B5",
-      color: "#000",
-      "&:before": {
-        background: "#5767BE",
-        transform: "scale(1)",
-      },
-    },
-  },
-}));
 
 function Subject({ classes, helpTopic, helpTopics, setHelpTopics }) {
   return (
