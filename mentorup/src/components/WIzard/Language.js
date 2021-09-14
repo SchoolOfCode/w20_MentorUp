@@ -51,13 +51,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
   },
-  image: {
-    maxHeight: 150,
-    maxWidth: 150,
-  },
-  ciao: {
-    marginBottom: theme.spacing(3),
-  },
+
   hover: {
     "&:hover, &:focus": {
       background: "#3F51B5",
@@ -98,12 +92,22 @@ function Language({ setLanguage, language, classes }) {
           select
           fullWidth
         >
+          {/* <MenuItem value="Select" className={classes.hover}>
+            Select
+          </MenuItem> */}
           {languages.map(({ language, flag, index }) => (
             <MenuItem value={language} className={classes.hover} key={index}>
-              <Box width="50px" height="50px  ">
-                <img src={flag} alt={language} />
+              <Box
+                display="flex"
+                justifyContent="space-between"
+                width="50%"
+                alignItems="center"
+              >
+                <Box>
+                  <img src={flag} width="50px" height="50px" alt={language} />
+                </Box>
+                <Box>{language}</Box>
               </Box>
-              <Box>{language}</Box>
             </MenuItem>
           ))}
           {/* <MenuItem value="English" className={classes.hover}>
