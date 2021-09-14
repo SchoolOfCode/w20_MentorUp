@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "firebase/firestore";
-import { useFirestoreDocData, useFirestore, useUser } from "reactfire";
+import { useFirestore, useUser } from "reactfire";
 import { Link } from "react-router-dom";
 import usernameGen from "username-gen";
 import MentorMentee from "../WIzard/MentorMentee";
@@ -8,7 +8,6 @@ import CloseIcon from "@material-ui/icons/Close";
 import UserName from "../WIzard/UsernameAvatar";
 import Subject from "../WIzard/Subject";
 import Industry from "../WIzard/Industry";
-import clsx from "clsx";
 
 import {
   Grid,
@@ -85,14 +84,15 @@ function UserDetails() {
   const [yearsInBusiness, setYearsInBusiness] = useState(0);
   const [menteeOrMentor, setMenteeOrMentor] = useState("Mentee");
   const [username, setUsername] = useState(
-    usernameGen.generateUsername(Math.floor(Math.random() * 4 + 6), false).toUpperCase()
+    usernameGen
+      .generateUsername(Math.floor(Math.random() * 4 + 6), false)
+      .toUpperCase()
   );
   const [businessStage, setBusinessStage] = useState("Startup");
   const [existingFirebaseId, setExistingFirebaseId] = useState("");
   const [showUpdated, setShowUpdated] = useState(false);
   const [avatar, setAvatar] = useState(newAvatar());
   const [activeSteps, setActiveSteps] = useState(0);
-
 
   function newAvatar() {
     const types = ["bottts", "gridy", "identicon"];
@@ -127,7 +127,9 @@ function UserDetails() {
         setUsername(existingUserFirebaseData.username);
         setYearsInBusiness(existingUserFirebaseData.yearsInBusiness);
 
-        setNeedsSignLanguageInterpreter(existingUserFirebaseData.needsSignLanguageInterpreter);
+        setNeedsSignLanguageInterpreter(
+          existingUserFirebaseData.needsSignLanguageInterpreter
+        );
         setAvatar(existingUserFirebaseData.avatar);
       }
     };
@@ -297,22 +299,19 @@ function UserDetails() {
               </Box>
 
               <Box width={{ xs: "100%", sm: "40%" }}>
-
-              {activeSteps === steps.length ? (
-                <Link to="../Dashboard">
-
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    className={classes.buttonResponsive}
-                    type="submit"
-
-                    fullWidth
-                  >
-                    Save User Details
-                  </Button>
-                </Link>
-              ) : (
+                {activeSteps === steps.length ? (
+                  <Link to="../Dashboard">
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      className={classes.buttonResponsive}
+                      type="submit"
+                      fullWidth
+                    >
+                      Save User Details
+                    </Button>
+                  </Link>
+                ) : (
                   <Button
                     variant="contained"
                     color="primary"
