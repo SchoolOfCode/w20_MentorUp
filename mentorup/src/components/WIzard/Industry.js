@@ -1,24 +1,5 @@
-import {
-  Grid,
-  MenuItem,
-  TextField,
-  Typography,
-  makeStyles,
-  Box,
-} from "@material-ui/core";
+import { Grid, MenuItem, TextField, Typography, Box } from "@material-ui/core";
 
-const useStyles = makeStyles((theme) => ({
-  hover: {
-    "&:hover, &:focus": {
-      background: "#3F51B5",
-      color: "#000",
-      "&:before": {
-        background: "#5767BE",
-        transform: "scale(1)",
-      },
-    },
-  },
-}));
 const industriesArray = [
   "Agiculture",
   " Automotive",

@@ -1,11 +1,4 @@
-import {
-  Typography,
-  Divider,
-  Box,
-  Button,
-  Grid,
-  CardMedia,
-} from "@material-ui/core";
+import { Typography, Box, Button, Grid, CardMedia } from "@material-ui/core";
 import usernameGen from "username-gen";
 import React from "react";
 
@@ -51,7 +44,7 @@ function UserName({
           </Button>
         </Grid>
       </Box>
-      {/* <Divider /> */}
+
       <Box display="flex" flexDirection="column" flexWrap="wrap" mb={4}>
         <Grid>
           <Typography variant="h6" align="left" gutterBottom>
