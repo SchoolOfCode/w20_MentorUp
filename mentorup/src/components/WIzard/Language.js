@@ -44,18 +44,6 @@ const languages = [
   { language: "Urdu", flag: pakistan },
 ];
 
-const useStyles = makeStyles((theme) => ({
-  hover: {
-    "&:hover, &:focus": {
-      background: "#3F51B5",
-      color: "#000",
-      "&:before": {
-        background: "#5767BE",
-        transform: "scale(1)",
-      },
-    },
-  },
-}));
 function Language({ setLanguage, language, classes }) {
   return (
     <div>
