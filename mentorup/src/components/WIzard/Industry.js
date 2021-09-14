@@ -54,6 +54,7 @@ function Industry({ classes, industry, setIndustry }) {
             value={industry}
             select
             fullWidth
+            style={{ paddingTop: "25px" }}
           >
             {industriesArray.map((name) => (
               <MenuItem className={classes.hover} value={name}>

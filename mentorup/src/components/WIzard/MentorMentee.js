@@ -1,6 +1,6 @@
 import {
   Typography,
-  Grid,
+  Box,
   Radio,
   RadioGroup,
   FormControlLabel,
@@ -10,11 +10,11 @@ import React from "react";
 function MentorMentee({ menteeOrMentor, setMenteeOrMentor }) {
   return (
     <div>
-      <Grid item>
+      <Box mb={3}>
         <Typography variant="h5" align="left">
           Are you a Mentor or Mentee?
         </Typography>
-      </Grid>
+      </Box>
 
       <RadioGroup aria-label="mentorormentee" name="mentorormentee">
         <FormControlLabel

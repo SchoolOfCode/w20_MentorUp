@@ -2,19 +2,12 @@ import React, { useState } from "react";
 import {
   Grid,
   MenuItem,
-  TextField,
-  Button,
-  FormControlLabel,
-  RadioGroup,
   Typography,
   makeStyles,
-  Radio,
   Select,
   Chip,
   Input,
-  Snackbar,
-  IconButton,
-  CardMedia,
+  Box,
 } from "@material-ui/core";
 const helpTopics = [
   "Accounting",
@@ -28,19 +21,6 @@ const helpTopics = [
 ];
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    marginBottom: theme.spacing(2),
-    // width: "30ch",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  image: {
-    maxHeight: 150,
-    maxWidth: 150,
-  },
-  ciao: {
-    marginBottom: theme.spacing(3),
-  },
   hover: {
     "&:hover, &:focus": {
       background: "#3F51B5",
@@ -51,26 +31,17 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
-  mainLayout: {
-    // flexDirection: "column",
-    // backgroundColor: "green",
-    padding: "16px",
-  },
-  h1Override: {
-    fontSize: "1.875rem",
-    fontWeight: "medium",
-  },
 }));
 
 function Subject({ classes, helpTopic, helpTopics, setHelpTopics }) {
   return (
     <div>
-      <Grid item>
+      <Box mb={3}>
         <Typography variant="h5" align="left">
           What do you need help with? If you are a Mentor, what topic can you
           provide help on?
         </Typography>
-      </Grid>
+      </Box>
       <Grid item>
         <Select
           labelId="demo-mutiple-chip-label"
@@ -89,7 +60,7 @@ function Subject({ classes, helpTopic, helpTopics, setHelpTopics }) {
           )}
         >
           {helpTopics.map((name) => (
-            <MenuItem key={name} value={name}>
+            <MenuItem key={name} value={name} className={classes.hover}>
               {name}
             </MenuItem>
           ))}
