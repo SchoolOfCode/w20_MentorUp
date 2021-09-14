@@ -45,13 +45,6 @@ const languages = [
 ];
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    marginBottom: theme.spacing(2),
-    // width: "30ch",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-
   hover: {
     "&:hover, &:focus": {
       background: "#3F51B5",
@@ -62,27 +55,18 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
-  mainLayout: {
-    // flexDirection: "column",
-    // backgroundColor: "green",
-    padding: "16px",
-  },
-  h1Override: {
-    fontSize: "1.875rem",
-    fontWeight: "medium",
-  },
 }));
 function Language({ setLanguage, language, classes }) {
   return (
     <div>
-      <Grid item>
+      <Box mb={3}>
         <Typography variant="h5" align="left">
           What language do you speak?
         </Typography>
         <Typography variant="h6" align="left">
           We will provide support for you
         </Typography>
-      </Grid>
+      </Box>
       <Grid item>
         <TextField
           id="language"
@@ -92,9 +76,6 @@ function Language({ setLanguage, language, classes }) {
           select
           fullWidth
         >
-          {/* <MenuItem value="Select" className={classes.hover}>
-            Select
-          </MenuItem> */}
           {languages.map(({ language, flag, index }) => (
             <MenuItem value={language} className={classes.hover} key={index}>
               <Box
@@ -110,66 +91,6 @@ function Language({ setLanguage, language, classes }) {
               </Box>
             </MenuItem>
           ))}
-          {/* <MenuItem value="English" className={classes.hover}>
-            🇬🇧 English
-          </MenuItem>
-          <MenuItem value="Arabic" className={classes.hover}>
-            Arabic
-          </MenuItem>
-          <MenuItem value="Bengali" className={classes.hover}>
-            Bengali
-          </MenuItem>
-          <MenuItem value="French" className={classes.hover}>
-            🇫🇷 French
-          </MenuItem>
-          <MenuItem value="German" className={classes.hover}>
-            🇩🇪 German
-          </MenuItem>
-          <MenuItem value="Gujarati" className={classes.hover}>
-            Gujarati
-          </MenuItem>
-          <MenuItem value="Hindi" className={classes.hover}>
-            🇮🇳 Hindi
-          </MenuItem>
-          <MenuItem value="Italian" className={classes.hover}>
-            🇮🇹 Italian
-          </MenuItem>
-          <MenuItem value="Lithuanian" className={classes.hover}>
-            🇱🇹 Lithuanian
-          </MenuItem>
-          <MenuItem value="Persian" className={classes.hover}>
-            🇮🇷 Persian/Farsi
-          </MenuItem>
-          <MenuItem value="Polish" className={classes.hover}>
-            🇵🇱 Polish
-          </MenuItem>
-          <MenuItem value="Portuguese" className={classes.hover}>
-            🇵🇹 Portuguese
-          </MenuItem>
-          <MenuItem value="Punjabi" className={classes.hover}>
-            Punjabi
-          </MenuItem>
-          <MenuItem value="Romanian" className={classes.hover}>
-            🇷🇴 Romanian
-          </MenuItem>
-          <MenuItem value="Somali" className={classes.hover}>
-            🇸🇴 Somali
-          </MenuItem>
-          <MenuItem value="Spanish" className={classes.hover}>
-            🇪🇸 Spanish
-          </MenuItem>
-          <MenuItem value="Tagalog" className={classes.hover}>
-            🇵🇭 Tagalog/Filipino
-          </MenuItem>
-          <MenuItem value="Tamil" className={classes.hover}>
-            Tamil
-          </MenuItem>
-          <MenuItem value="Turkish" className={classes.hover}>
-            🇹🇷 Turkish
-          </MenuItem>
-          <MenuItem value="Urdu" className={classes.hover}>
-            🇵🇰 Urdu
-          </MenuItem> */}
         </TextField>
       </Grid>
     </div>

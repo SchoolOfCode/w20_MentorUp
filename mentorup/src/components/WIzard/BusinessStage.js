@@ -5,22 +5,10 @@ import {
   TextField,
   Typography,
   makeStyles,
+  Box,
 } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    marginBottom: theme.spacing(2),
-    // width: "30ch",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  image: {
-    maxHeight: 150,
-    maxWidth: 150,
-  },
-  ciao: {
-    marginBottom: theme.spacing(3),
-  },
   hover: {
     "&:hover, &:focus": {
       background: "#3F51B5",
@@ -31,14 +19,8 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
-  mainLayout: {
-    // flexDirection: "column",
-    // backgroundColor: "green",
-    padding: "16px",
-  },
-  h1Override: {
-    fontSize: "1.875rem",
-    fontWeight: "medium",
+  paddingTop: {
+    paddingTop: "25px",
   },
 }));
 function BusinessStage({
@@ -50,32 +32,36 @@ function BusinessStage({
 }) {
   return (
     <div>
-      <Grid item>
+      <Box mb={3}>
         <Typography variant="h5" align="left">
           Business Stage
         </Typography>
-      </Grid>
-      <Grid item>
-        <TextField
-          fullWidth
-          required
-          select
-          value={businessStage}
-          onChange={(e) => setBusinessStage(e.target.value)}
-          id="business_stage"
-          label="What is your business stage?"
-        >
-          <MenuItem value="Pre-launch" className={classes.hover}>
-            Pre-launch
-          </MenuItem>
-          <MenuItem value="Startup" className={classes.hover}>
-            Startup
-          </MenuItem>
-          <MenuItem value="Active" className={classes.hover}>
-            Active
-          </MenuItem>
-        </TextField>
-      </Grid>
+      </Box>
+      <Box mb={3}>
+        <Grid item>
+          <TextField
+            fullWidth
+            required
+            select
+            value={businessStage}
+            onChange={(e) => setBusinessStage(e.target.value)}
+            id="business_stage"
+            label="What is your business stage?"
+            style={{ paddingTop: "25px" }}
+          >
+            <MenuItem value="Pre-launch" className={classes.hover}>
+              Pre-launch
+            </MenuItem>
+            <MenuItem value="Startup" className={classes.hover}>
+              Startup
+            </MenuItem>
+            <MenuItem value="Active" className={classes.hover}>
+              Active
+            </MenuItem>
+          </TextField>
+        </Grid>
+      </Box>
+
       <Grid item>
         <TextField
           fullWidth
@@ -85,6 +71,7 @@ function BusinessStage({
           onChange={(e) => setYearsInBusiness(e.target.value)}
           id="yearsinbusiness"
           label="How many years have you been in business?"
+          style={{ paddingTop: "25px" }}
         />
       </Grid>
     </div>
