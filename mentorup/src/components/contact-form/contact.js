@@ -4,7 +4,7 @@ import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 import { Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import { Grid } from "@material-ui/core";
+import { Grid, Box } from "@material-ui/core";
 import { Avatar } from "@material-ui/core";
 import { Link, useParams } from "react-router-dom";
 import "firebase/firestore";
@@ -39,6 +39,11 @@ const useStyles = makeStyles((theme) => ({
   },
   textField: {
     maxWidth: 800,
+  },
+  avatar: {
+    width: "150px",
+    height: "150px",
+    border: "2px solid #383838",
   },
   "@global": {
     // You should target [class*="MuiButton-root"] instead if you nest themes.
@@ -107,44 +112,57 @@ function ContactForm() {
             direction="column"
             justifyContent="space-around"
             alignItems="center"
-            style={{ width: "80vw" }}
+            // style={{ width: "80vw" }}
           >
-            <Typography variant="h1">About your mentor</Typography>
-            <Grid item>
-              <Avatar alt="Avatar of the mentor" src={data.avatar} className={classes.large} />
-            </Grid>
-            <Grid item>
-              <Typography variant="b1" gutterBottom>
-                Username: {data.username}
-              </Typography>
-            </Grid>
+            {/* <Typography variant="h1">About your mentor</Typography> */}
+            <Box display="flex" flexDirection="column">
+              <Box mb={3}>
+                <Typography variant="b1" gutterBottom>
+                  <strong>{data.username.toUpperCase()}</strong>
+                </Typography>
+              </Box>
 
-            <Grid item>
-              <Typography variant="b1" gutterBottom>
-                Industry: {data.industry}{" "}
-              </Typography>
-            </Grid>
+              <Box alignSelf="center">
+                <Avatar
+                  alt="Avatar of the mentor"
+                  src={data.avatar}
+                  className={classes.avatar}
+                />
+              </Box>
+              <Box>
+                <Grid item>
+                  <Typography variant="b1" gutterBottom>
+                    Industry: {data.industry}{" "}
+                  </Typography>
+                </Grid>
 
-            <Grid item>
-              <Typography variant="b1" gutterBottom>
-                Business Stage: {data.businessStage}{" "}
-              </Typography>
-            </Grid>
+                <Grid item>
+                  <Typography variant="b1" gutterBottom>
+                    Business Stage: {data.businessStage}{" "}
+                  </Typography>
+                </Grid>
 
-            <Grid item>
-              <Typography variant="b1" gutterBottom>
-                Years in business: {data.yearsInBusiness}{" "}
-              </Typography>
-            </Grid>
+                <Grid item>
+                  <Typography variant="b1" gutterBottom>
+                    Years in business: {data.yearsInBusiness}{" "}
+                  </Typography>
+                </Grid>
 
-            <Grid item>
-              <Typography variant="b1" gutterBottom>
-                Expertise: {data.helpTopic.join(", ")}{" "}
-              </Typography>
-            </Grid>
+                <Grid item>
+                  <Typography variant="b1" gutterBottom>
+                    Expertise: {data.helpTopic.join(", ")}{" "}
+                  </Typography>
+                </Grid>
+              </Box>
+            </Box>
           </Grid>
         </Paper>
-        <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
+        <form
+          className={classes.root}
+          noValidate
+          autoComplete="off"
+          onSubmit={handleSubmit}
+        >
           <Grid
             container
             className={classes.mainLayout}
@@ -195,7 +213,8 @@ function ContactForm() {
   } else {
     return (
       <p>
-        Thanks for submitting your request, the mentor will receive it and be in contact shortly.
+        Thanks for submitting your request, the mentor will receive it and be in
+        contact shortly.
       </p>
     );
   }
