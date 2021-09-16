@@ -26,36 +26,43 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
     margin: "auto",
-    maxWidth: 800,
+    marginTop: "60px",
+    [theme.breakpoints.up("sm")]: {
+      maxWidth: "400px",
+    },
+    minHeight: "400px",
   },
   mainLayout: {
     // flexDirection: "column",
     // backgroundColor: "green",
     padding: "16px",
   },
-  h1Override: {
-    fontSize: "1.875rem",
-    fontWeight: "medium",
-  },
+  // h1Override: {
+  //   fontSize: "1.875rem",
+  //   fontWeight: "medium",
+  // },
   textField: {
-    maxWidth: 800,
+    [theme.breakpoints.up("sm")]: {
+      maxWidth: "435px",
+    },
+    maxWidth: 350,
   },
   avatar: {
     width: "150px",
     height: "150px",
     border: "2px solid #383838",
   },
-  "@global": {
-    // You should target [class*="MuiButton-root"] instead if you nest themes.
-    ".MuiTypography-h1": {
-      [theme.breakpoints.up("xs")]: {
-        fontSize: "2.375rem",
-      },
-      [theme.breakpoints.up("sm")]: {
-        fontSize: "2.9167rem",
-      },
-    },
-  },
+  // "@global": {
+  //   // You should target [class*="MuiButton-root"] instead if you nest themes.
+  //   ".MuiTypography-h1": {
+  //     [theme.breakpoints.up("xs")]: {
+  //       fontSize: "2.375rem",
+  //     },
+  //     [theme.breakpoints.up("sm")]: {
+  //       fontSize: "2.9167rem",
+  //     },
+  //   },
+  // },
 }));
 
 function ContactForm() {
@@ -103,19 +110,21 @@ function ContactForm() {
       <div>
         <Paper className={classes.paper} elevation={3}>
           <Grid
-            container
-            className={classes.mainLayout}
-            spacing={2}
-            xs={12}
-            sm={12}
-            md={6}
-            direction="column"
-            justifyContent="space-around"
-            alignItems="center"
-            // style={{ width: "80vw" }}
+          // xs={12}
+          // sm={12}
+          // md={6}
+          // direction="column"
+          // justifyContent="space-around"
+
+          // style={{ width: "80vw" }}
           >
             {/* <Typography variant="h1">About your mentor</Typography> */}
-            <Box display="flex" flexDirection="column">
+            <Box
+              display="flex"
+              flexDirection="column"
+              justifyContent="space-evently"
+              alignItems="center"
+            >
               <Box mb={3}>
                 <Typography variant="b1" gutterBottom>
                   <strong>{data.username.toUpperCase()}</strong>
@@ -129,31 +138,38 @@ function ContactForm() {
                   className={classes.avatar}
                 />
               </Box>
-              <Box>
-                <Grid item>
-                  <Typography variant="b1" gutterBottom>
-                    <strong>Industry: </strong> {data.industry}
-                  </Typography>
-                </Grid>
+              <Box
+                display="flex"
+                flexDirection="column"
+                height="200px"
+                justifyContent="space-evenly"
+                alignItems="center"
+                mt={3}
+              >
+                <Typography variant="b1" gutterBottom>
+                  <strong>Industry: </strong> {data.industry}
+                </Typography>
 
-                <Grid item>
-                  <Typography variant="b1" gutterBottom>
-                    <strong>Business Stage: </strong>
-                    {data.businessStage}
-                  </Typography>
-                </Grid>
+                <Typography variant="b1" gutterBottom>
+                  <strong>Business Stage: </strong>
+                  {data.businessStage}
+                </Typography>
 
-                <Grid item>
-                  <Typography variant="b1" gutterBottom>
-                    <strong>Years in business:</strong> {data.yearsInBusiness}
-                  </Typography>
-                </Grid>
+                <Typography variant="b1" gutterBottom>
+                  <strong>Years in business:</strong> {data.yearsInBusiness}
+                </Typography>
 
-                <Grid item>
-                  <Typography variant="b1" gutterBottom>
-                    <strong>Expertise:</strong> {data.helpTopic.join(", ")}
-                  </Typography>
-                </Grid>
+                <Typography variant="b1">
+                  <strong>Expertise:</strong>{" "}
+                  <Box
+                    display="flex"
+                    flexDirection="column"
+                    flexWrap="wrap"
+                    maxWidth="200px"
+                  >
+                    {data.helpTopic.join(", ")}
+                  </Box>
+                </Typography>
               </Box>
             </Box>
           </Grid>
@@ -183,7 +199,7 @@ function ContactForm() {
                 required
                 id="outlined-multiline-static"
                 label="Message (required)"
-                style={{ width: "80vw" }}
+                // style={{ width: "80vw" }}
                 className={classes.textField}
                 fullWidth
                 multiline
