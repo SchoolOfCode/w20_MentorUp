@@ -132,25 +132,26 @@ function ContactForm() {
               <Box>
                 <Grid item>
                   <Typography variant="b1" gutterBottom>
-                    Industry: {data.industry}{" "}
+                    <strong>Industry: </strong> {data.industry}
                   </Typography>
                 </Grid>
 
                 <Grid item>
                   <Typography variant="b1" gutterBottom>
-                    Business Stage: {data.businessStage}{" "}
+                    <strong>Business Stage: </strong>
+                    {data.businessStage}
                   </Typography>
                 </Grid>
 
                 <Grid item>
                   <Typography variant="b1" gutterBottom>
-                    Years in business: {data.yearsInBusiness}{" "}
+                    <strong>Years in business:</strong> {data.yearsInBusiness}
                   </Typography>
                 </Grid>
 
                 <Grid item>
                   <Typography variant="b1" gutterBottom>
-                    Expertise: {data.helpTopic.join(", ")}{" "}
+                    <strong>Expertise:</strong> {data.helpTopic.join(", ")}
                   </Typography>
                 </Grid>
               </Box>
