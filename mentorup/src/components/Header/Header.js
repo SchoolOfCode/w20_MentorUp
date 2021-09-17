@@ -24,7 +24,7 @@ function Header() {
         <Toolbar>
           <HamburgerMenu />
           <div className={classes.logoCentre}>
-            <Link to="./">
+            <Link to="/">
               <img src={logo} alt="logo" />
             </Link>
           </div>
