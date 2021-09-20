@@ -114,16 +114,8 @@ function ContactForm() {
   if (!showThanks) {
     return (
       <div>
-        <Paper className={classes.paper} elevation={3}>
-          <Grid
-          // xs={12}
-          // sm={12}
-          // md={6}
-          // direction="column"
-          // justifyContent="space-around"
-
-          // style={{ width: "80vw" }}
-          >
+        <Paper className={classes.paper}>
+          <Grid>
             {/* <Typography variant="h1">About your mentor</Typography> */}
             <Box
               display="flex"
