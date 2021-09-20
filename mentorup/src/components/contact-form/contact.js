@@ -183,20 +183,25 @@ function ContactForm() {
                 variant="outlined"
               />
             </Grid>
-            <Link to="../Dashboard">
-              <Button variant="contained" color="primary" type="submit">
-                Send
-              </Button>
-            </Link>
+            <Button variant="contained" color="primary" type="submit">
+              Send
+            </Button>
           </Grid>
         </form>
       </div>
     );
   } else {
     return (
-      <p>
-        Thanks for submitting your request, the mentor will receive it and be in contact shortly.
-      </p>
+      <>
+        <p>
+          Thanks for submitting your request, the mentor will receive it and be in contact shortly.
+        </p>
+        <Link to="../Dashboard">
+          <Button variant="contained" color="primary" type="submit">
+            Return to Dashboard
+          </Button>
+        </Link>
+      </>
     );
   }
 }

@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import FacebookIcon from "@material-ui/icons/Facebook";
+import { Link } from "react-router-dom";
 function Footer() {
   return (
     <footer>
@@ -15,10 +16,11 @@ function Footer() {
           style={{ backgroundColor: "#FCFCFC", height: "250px" }}
           flexDirection="column"
         >
-          <Grid item container xs={12} justifyContent="center">
-            <img src={logo} alt="logo" />
-          </Grid>
-
+          <Link to="/">
+            <Grid item container xs={12} justifyContent="center">
+              <img src={logo} alt="logo" />
+            </Grid>
+          </Link>
           <Grid item xs={6}>
             <Box px={2}>
               <Typography>MentorUp</Typography>

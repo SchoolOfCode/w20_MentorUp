@@ -9,6 +9,7 @@ import heroImage from "../../assets/heroimage.jpg";
 import dummy1 from "../../assets/undraw_fall_thyk.svg";
 import dummy2 from "../../assets/undraw_my_app_re_gxtj.svg";
 import dummy3 from "../../assets/undraw_step_to_the_sun_nxqq.svg";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   mainLayout: {
@@ -54,62 +55,35 @@ function HomePage() {
     <main style={{ padding: "16px" }}>
       <section>
         <Grid container className={classes.mainLayout} spacing={2}>
-          <Grid
-            container
-            xs={12}
-            sm={12}
-            md={6}
-            spacing={2}
-            className={classes.heroText}
-          >
+          <Grid container xs={12} sm={12} md={6} spacing={2} className={classes.heroText}>
             <Grid item container>
-              <Typography
-                variant="h1"
-                className={classes.h1Override}
-                gutterBottom
-              >
+              <Typography variant="h1" className={classes.h1Override} gutterBottom>
                 Kickstart your startup with a kickass mentor
               </Typography>
               <Typography variant="h6">
-                Get an experienced mentor in your same field of business! Get an
-                experienced mentor in your same field of business!
+                Get an experienced mentor in your same field of business! Get an experienced mentor
+                in your same field of business!
               </Typography>
             </Grid>
-            <Box
-              component="div"
-              display="flex"
-              flexWrap="wrap"
-              width="100%"
-              gridGap={9}
-            >
+            <Box component="div" display="flex" flexWrap="wrap" width="100%" gridGap={9}>
               <Box width={{ xs: "100%", sm: "40%", md: "30%" }}>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  fullWidth
-                  size="large"
-                >
-                  Sign up
-                </Button>
+                <Link to="/landing">
+                  <Button variant="contained" color="primary" fullWidth size="large">
+                    Sign up
+                  </Button>
+                </Link>
               </Box>
               <Box width={{ xs: "100%", sm: "40%", md: "30%" }}>
-                <Button
-                  variant="outlined"
-                  size="large"
-                  color="primary"
-                  fullWidth
-                >
-                  Log in
-                </Button>
+                <Link to="/landing">
+                  <Button variant="outlined" size="large" color="primary" fullWidth>
+                    Log in
+                  </Button>
+                </Link>
               </Box>
             </Box>
           </Grid>
           <Grid item container xs={12} sm={12} md={6}>
-            <img
-              src={heroImage}
-              alt="hero"
-              style={{ maxWidth: "100%", alignSelf: "center" }}
-            />
+            <img src={heroImage} alt="hero" style={{ maxWidth: "100%", alignSelf: "center" }} />
           </Grid>
         </Grid>
       </section>
