@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "firebase/firestore";
 import { useFirestoreDocData, useFirestore, useUser } from "reactfire";
 import { Link, useHistory } from "react-router-dom";
@@ -8,8 +8,17 @@ import CloseIcon from "@material-ui/icons/Close";
 import UserName from "../WIzard/UsernameAvatar";
 import Subject from "../WIzard/Subject";
 import Industry from "../WIzard/Industry";
-import clsx from "clsx";
-import { Grid, Button, makeStyles, Snackbar, IconButton, Box } from "@material-ui/core";
+
+
+import {
+  Grid,
+  Button,
+  makeStyles,
+  Snackbar,
+  IconButton,
+  Box,
+} from "@material-ui/core";
+
 import BusinessStage from "../WIzard/BusinessStage";
 import BSL from "../WIzard/BSL";
 import Language from "../WIzard/Language";
@@ -76,7 +85,9 @@ function UserDetails() {
   const [yearsInBusiness, setYearsInBusiness] = useState(0);
   const [menteeOrMentor, setMenteeOrMentor] = useState("Mentee");
   const [username, setUsername] = useState(
-    usernameGen.generateUsername(Math.floor(Math.random() * 4 + 6), false).toUpperCase()
+    usernameGen
+      .generateUsername(Math.floor(Math.random() * 4 + 6), false)
+      .toUpperCase()
   );
   const [businessStage, setBusinessStage] = useState("Startup");
   const [existingFirebaseId, setExistingFirebaseId] = useState("");
@@ -116,7 +127,9 @@ function UserDetails() {
         setUsername(existingUserFirebaseData.username);
         setYearsInBusiness(existingUserFirebaseData.yearsInBusiness);
 
-        setNeedsSignLanguageInterpreter(existingUserFirebaseData.needsSignLanguageInterpreter);
+        setNeedsSignLanguageInterpreter(
+          existingUserFirebaseData.needsSignLanguageInterpreter
+        );
         setAvatar(existingUserFirebaseData.avatar);
       }
     };
@@ -279,17 +292,27 @@ function UserDetails() {
 
               <Box width={{ xs: "100%", sm: "40%" }}>
                 {activeSteps === steps.length ? (
+
+                  <Link to="../Dashboard">
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      className={classes.buttonResponsive}
+                      type="submit"
+                      fullWidth
+                    >
+                      Save User Details
+                    </Button>
+                  </Link>
+                ) : (
                   <Button
                     variant="contained"
                     color="primary"
-                    className={classes.buttonResponsive}
-                    type="submit"
                     fullWidth
+                    onClick={handleNext}
+                    xs={6}
                   >
-                    Save User Details
-                  </Button>
-                ) : (
-                  <Button variant="contained" color="primary" fullWidth onClick={handleNext} xs={6}>
+
                     Next
                   </Button>
                 )}

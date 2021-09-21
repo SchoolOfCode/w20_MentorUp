@@ -52,10 +52,12 @@ function HomePage() {
   const classes = useStyles();
   console.log(howItWorksSteps[0].image2);
   return (
-    <main style={{ padding: "16px" }}>
+    <main style={{ padding: "16px", minHeight: "100vh" }}>
       <section>
-        <Grid container className={classes.mainLayout} spacing={2}>
-          <Grid container xs={12} sm={12} md={6} spacing={2} className={classes.heroText}>
+
+        {/* container className={classes.mainLayout} spacing={2} */}
+        <Box display="flex" flexWrap="wrap" align="left">
+          <Grid container xs={12} sm={12} md={7} className={classes.heroText}>
             <Grid item container>
               <Typography variant="h1" className={classes.h1Override} gutterBottom>
                 Kickstart your startup with a kickass mentor
@@ -64,28 +66,53 @@ function HomePage() {
                 Get an experienced mentor in your same field of business! Get an experienced mentor
                 in your same field of business!
               </Typography>
-            </Grid>
-            <Box component="div" display="flex" flexWrap="wrap" width="100%" gridGap={9}>
-              <Box width={{ xs: "100%", sm: "40%", md: "30%" }}>
-                <Link to="/landing">
-                  <Button variant="contained" color="primary" fullWidth size="large">
+
+
+              <Box
+                component="div"
+                display="flex"
+                flexWrap="wrap"
+                width="100%"
+                gridGap={9}
+                my={6}
+              >
+                <Box width={{ xs: "100%", sm: "40%", md: "35%" }}>
+                   <Link to="/landing">
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    fullWidth
+                    size="large"
+                  >
                     Sign up
                   </Button>
-                </Link>
-              </Box>
-              <Box width={{ xs: "100%", sm: "40%", md: "30%" }}>
-                <Link to="/landing">
-                  <Button variant="outlined" size="large" color="primary" fullWidth>
+    </Link>
+                </Box>
+                <Box width={{ xs: "100%", sm: "40%", md: "35%" }}>
+                  <Link to="/landing">
+                  <Button
+                    variant="outlined"
+                    size="large"
+                    color="primary"
+                    fullWidth
+                  >
                     Log in
                   </Button>
-                </Link>
+ </Link>
+                </Box>
               </Box>
-            </Box>
+            </Grid>
           </Grid>
-          <Grid item container xs={12} sm={12} md={6}>
-            <img src={heroImage} alt="hero" style={{ maxWidth: "100%", alignSelf: "center" }} />
+
+          <Grid item container xs={12} sm={12} md={5}>
+            <img
+              src={heroImage}
+              alt="hero"
+              style={{ maxWidth: "100%", alignSelf: "center" }}
+            />
+
           </Grid>
-        </Grid>
+        </Box>
       </section>
       <Divider />
       <section>

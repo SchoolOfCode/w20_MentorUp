@@ -4,7 +4,7 @@ import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 import { Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import { Grid } from "@material-ui/core";
+import { Grid, Box } from "@material-ui/core";
 import { Avatar } from "@material-ui/core";
 import { Link, useParams } from "react-router-dom";
 import "firebase/firestore";
@@ -26,31 +26,49 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
     margin: "auto",
-    maxWidth: 800,
+    marginTop: "60px",
+    [theme.breakpoints.down("xs")]: {
+      maxWidth: "340px",
+    },
+    [theme.breakpoints.up("sm")]: {
+      maxWidth: "400px",
+    },
+
+    minHeight: "400px",
   },
   mainLayout: {
     // flexDirection: "column",
     // backgroundColor: "green",
     padding: "16px",
   },
-  h1Override: {
-    fontSize: "1.875rem",
-    fontWeight: "medium",
-  },
+  // h1Override: {
+  //   fontSize: "1.875rem",
+  //   fontWeight: "medium",
+  // },
   textField: {
-    maxWidth: 800,
-  },
-  "@global": {
-    // You should target [class*="MuiButton-root"] instead if you nest themes.
-    ".MuiTypography-h1": {
-      [theme.breakpoints.up("xs")]: {
-        fontSize: "2.375rem",
-      },
-      [theme.breakpoints.up("sm")]: {
-        fontSize: "2.9167rem",
-      },
+    [theme.breakpoints.down("xs")]: {
+      maxWidth: "376px",
+    },
+    [theme.breakpoints.up("sm")]: {
+      maxWidth: "436px",
     },
   },
+  avatar: {
+    width: "150px",
+    height: "150px",
+    border: "2px solid #383838",
+  },
+  // "@global": {
+  //   // You should target [class*="MuiButton-root"] instead if you nest themes.
+  //   ".MuiTypography-h1": {
+  //     [theme.breakpoints.up("xs")]: {
+  //       fontSize: "2.375rem",
+  //     },
+  //     [theme.breakpoints.up("sm")]: {
+  //       fontSize: "2.9167rem",
+  //     },
+  //   },
+  // },
 }));
 
 function ContactForm() {
@@ -96,55 +114,70 @@ function ContactForm() {
   if (!showThanks) {
     return (
       <div>
-        <Paper className={classes.paper} elevation={3}>
-          <Grid
-            container
-            className={classes.mainLayout}
-            spacing={2}
-            xs={12}
-            sm={12}
-            md={6}
-            direction="column"
-            justifyContent="space-around"
-            alignItems="center"
-            style={{ width: "80vw" }}
-          >
-            <Typography variant="h1">About your mentor</Typography>
-            <Grid item>
-              <Avatar alt="Avatar of the mentor" src={data.avatar} className={classes.large} />
-            </Grid>
-            <Grid item>
-              <Typography variant="b1" gutterBottom>
-                Username: {data.username}
-              </Typography>
-            </Grid>
+        <Paper className={classes.paper}>
+          <Grid>
+            {/* <Typography variant="h1">About your mentor</Typography> */}
+            <Box
+              display="flex"
+              flexDirection="column"
+              justifyContent="space-evently"
+              alignItems="center"
+            >
+              <Box mb={3}>
+                <Typography variant="b1" gutterBottom>
+                  <strong>{data.username.toUpperCase()}</strong>
+                </Typography>
+              </Box>
 
-            <Grid item>
-              <Typography variant="b1" gutterBottom>
-                Industry: {data.industry}{" "}
-              </Typography>
-            </Grid>
+              <Box alignSelf="center">
+                <Avatar
+                  alt="Avatar of the mentor"
+                  src={data.avatar}
+                  className={classes.avatar}
+                />
+              </Box>
+              <Box
+                display="flex"
+                flexDirection="column"
+                height="200px"
+                justifyContent="space-evenly"
+                alignItems="center"
+                mt={3}
+              >
+                <Typography variant="b1" gutterBottom>
+                  <strong>Industry: </strong> {data.industry}
+                </Typography>
 
-            <Grid item>
-              <Typography variant="b1" gutterBottom>
-                Business Stage: {data.businessStage}{" "}
-              </Typography>
-            </Grid>
+                <Typography variant="b1" gutterBottom>
+                  <strong>Business Stage: </strong>
+                  {data.businessStage}
+                </Typography>
 
-            <Grid item>
-              <Typography variant="b1" gutterBottom>
-                Years in business: {data.yearsInBusiness}{" "}
-              </Typography>
-            </Grid>
+                <Typography variant="b1" gutterBottom>
+                  <strong>Years in business:</strong> {data.yearsInBusiness}
+                </Typography>
 
-            <Grid item>
-              <Typography variant="b1" gutterBottom>
-                Expertise: {data.helpTopic.join(", ")}{" "}
-              </Typography>
-            </Grid>
+                <Typography variant="b1">
+                  <strong>Expertise:</strong>{" "}
+                  <Box
+                    display="flex"
+                    flexDirection="column"
+                    flexWrap="wrap"
+                    maxWidth="200px"
+                  >
+                    {data.helpTopic.join(", ")}
+                  </Box>
+                </Typography>
+              </Box>
+            </Box>
           </Grid>
         </Paper>
-        <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
+        <form
+          className={classes.root}
+          noValidate
+          autoComplete="off"
+          onSubmit={handleSubmit}
+        >
           <Grid
             container
             className={classes.mainLayout}
@@ -152,46 +185,57 @@ function ContactForm() {
             style={{
               margin: "0 auto",
             }}
-            xs={12}
-            sm={12}
-            md={6}
+            // xs={12}
+            // sm={12}
+            // md={6}
             direction="column"
             justifyContent="center"
             alignItems="center"
           >
-            <Grid item>
-              <TextField
-                required
-                id="outlined-multiline-static"
-                label="Message (required)"
-                style={{ width: "80vw" }}
-                className={classes.textField}
-                fullWidth
-                multiline
-                rows={10}
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                defaultValue="Please enter your message here"
-                //             defaultValue={`Hi,
-                //   I'm ${user.username} and I would like to be a successful entrepreneur.
-                // In order to become one, I need help from a mentor with the following: ${user.helpTopic}.
-                // My business is in the ${user.industry} industry and is currently at the ${user.businessStage} stage.
-                // I look forward to discussing my business and needs with you soon.
-                // Thank you for your time and consideration.
-                // All the best, ${user.username}.
-                // `}
-                variant="outlined"
-              />
-            </Grid>
-            <Button variant="contained" color="primary" type="submit">
-              Send
-            </Button>
+
+            <TextField
+              required
+              id="outlined-multiline-static"
+              label="Message (required)"
+              // style={{ width: "80vw" }}
+              className={classes.textField}
+              fullWidth
+              multiline
+              rows={10}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              defaultValue="Please enter your message here"
+              //             defaultValue={`Hi,
+              //   I'm ${user.username} and I would like to be a successful entrepreneur.
+              // In order to become one, I need help from a mentor with the following: ${user.helpTopic}.
+              // My business is in the ${user.industry} industry and is currently at the ${user.businessStage} stage.
+              // I look forward to discussing my business and needs with you soon.
+              // Thank you for your time and consideration.
+              // All the best, ${user.username}.
+              // `}
+              variant="outlined"
+            />
+            <Box>
+              <Link to="../Dashboard">
+                <Button
+                  variant="contained"
+                  color="primary"
+                  type="submit"
+                  fullWidth
+                >
+                  Send
+                </Button>
+              </Link>
+            </Box>
+
+          
           </Grid>
         </form>
       </div>
     );
   } else {
     return (
+
       <>
         <p>
           Thanks for submitting your request, the mentor will receive it and be in contact shortly.
@@ -202,6 +246,7 @@ function ContactForm() {
           </Button>
         </Link>
       </>
+
     );
   }
 }

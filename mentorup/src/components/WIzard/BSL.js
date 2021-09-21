@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  Grid,
+  Box,
   FormControlLabel,
   RadioGroup,
   Typography,
@@ -13,12 +13,13 @@ function BSL({
 }) {
   return (
     <div>
-      <Grid item>
+      <Box mb={3}>
         <Typography variant="h5" align="left">
           Do you need a British Sign Language interpreter?
         </Typography>
-      </Grid>
-      <RadioGroup aria-label="mentorormentee" name="mentorormentee">
+      </Box>
+
+      <RadioGroup aria-label="bsl" name="bsl">
         <FormControlLabel
           value="Yes"
           control={<Radio color="primary" />}
@@ -27,9 +28,11 @@ function BSL({
           onChange={(e) => setNeedsSignLanguageInterpreter(true)}
           labelPlacement="start"
           style={{
-            justifyContent: "center",
+            justifyContent: "space-between",
             margin: "0",
+            marginBottom: "20px",
             padding: "16px",
+            display: "flex",
           }}
         />
         <FormControlLabel
@@ -40,9 +43,10 @@ function BSL({
           onChange={(e) => setNeedsSignLanguageInterpreter(false)}
           labelPlacement="start"
           style={{
-            justifyContent: "center",
+            justifyContent: "space-between",
             margin: "0",
             padding: "16px",
+            display: "flex",
           }}
         />
       </RadioGroup>
