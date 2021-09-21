@@ -192,6 +192,7 @@ function ContactForm() {
             justifyContent="center"
             alignItems="center"
           >
+
             <TextField
               required
               id="outlined-multiline-static"
@@ -226,16 +227,26 @@ function ContactForm() {
                 </Button>
               </Link>
             </Box>
+
+          
           </Grid>
         </form>
       </div>
     );
   } else {
     return (
-      <p>
-        Thanks for submitting your request, the mentor will receive it and be in
-        contact shortly.
-      </p>
+
+      <>
+        <p>
+          Thanks for submitting your request, the mentor will receive it and be in contact shortly.
+        </p>
+        <Link to="../Dashboard">
+          <Button variant="contained" color="primary" type="submit">
+            Return to Dashboard
+          </Button>
+        </Link>
+      </>
+
     );
   }
 }

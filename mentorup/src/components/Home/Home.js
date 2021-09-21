@@ -9,6 +9,7 @@ import heroImage from "../../assets/heroimage.jpg";
 import dummy1 from "../../assets/undraw_fall_thyk.svg";
 import dummy2 from "../../assets/undraw_my_app_re_gxtj.svg";
 import dummy3 from "../../assets/undraw_step_to_the_sun_nxqq.svg";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   mainLayout: {
@@ -53,21 +54,19 @@ function HomePage() {
   return (
     <main style={{ padding: "16px", minHeight: "100vh" }}>
       <section>
+
         {/* container className={classes.mainLayout} spacing={2} */}
         <Box display="flex" flexWrap="wrap" align="left">
           <Grid container xs={12} sm={12} md={7} className={classes.heroText}>
             <Grid item container>
-              <Typography
-                variant="h1"
-                className={classes.h1Override}
-                gutterBottom
-              >
+              <Typography variant="h1" className={classes.h1Override} gutterBottom>
                 Kickstart your startup with a kickass mentor
               </Typography>
               <Typography variant="h6">
-                Get an experienced mentor in your same field of business! Get an
-                experienced mentor in your same field of business!
+                Get an experienced mentor in your same field of business! Get an experienced mentor
+                in your same field of business!
               </Typography>
+
 
               <Box
                 component="div"
@@ -78,6 +77,7 @@ function HomePage() {
                 my={6}
               >
                 <Box width={{ xs: "100%", sm: "40%", md: "35%" }}>
+                   <Link to="/landing">
                   <Button
                     variant="contained"
                     color="primary"
@@ -86,8 +86,10 @@ function HomePage() {
                   >
                     Sign up
                   </Button>
+    </Link>
                 </Box>
                 <Box width={{ xs: "100%", sm: "40%", md: "35%" }}>
+                  <Link to="/landing">
                   <Button
                     variant="outlined"
                     size="large"
@@ -96,16 +98,19 @@ function HomePage() {
                   >
                     Log in
                   </Button>
+ </Link>
                 </Box>
               </Box>
             </Grid>
           </Grid>
+
           <Grid item container xs={12} sm={12} md={5}>
             <img
               src={heroImage}
               alt="hero"
               style={{ maxWidth: "100%", alignSelf: "center" }}
             />
+
           </Grid>
         </Box>
       </section>

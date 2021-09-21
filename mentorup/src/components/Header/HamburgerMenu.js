@@ -50,7 +50,7 @@ function HamburgerMenu() {
             }}
             elevation={4}
           >
-            <Link to="./">
+            <Link to="/">
               <img src={logo} alt="mentorup logo" />
             </Link>
           </Box>

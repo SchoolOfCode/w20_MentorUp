@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "firebase/firestore";
-import { useFirestore, useUser } from "reactfire";
-import { Link } from "react-router-dom";
+import { useFirestoreDocData, useFirestore, useUser } from "reactfire";
+import { Link, useHistory } from "react-router-dom";
 import usernameGen from "username-gen";
 import MentorMentee from "../WIzard/MentorMentee";
 import CloseIcon from "@material-ui/icons/Close";
 import UserName from "../WIzard/UsernameAvatar";
 import Subject from "../WIzard/Subject";
 import Industry from "../WIzard/Industry";
+
 
 import {
   Grid,
@@ -17,6 +18,7 @@ import {
   IconButton,
   Box,
 } from "@material-ui/core";
+
 import BusinessStage from "../WIzard/BusinessStage";
 import BSL from "../WIzard/BSL";
 import Language from "../WIzard/Language";
@@ -77,8 +79,7 @@ function UserDetails() {
   // states
   const [loading, setLoading] = useState(true);
   const [helpTopic, setHelpTopics] = useState(["Preparing a pitch"]);
-  const [needsSignLanguageInterpreter, setNeedsSignLanguageInterpreter] =
-    useState(true);
+  const [needsSignLanguageInterpreter, setNeedsSignLanguageInterpreter] = useState(true);
   const [language, setLanguage] = useState("English");
   const [industry, setIndustry] = useState("Agriculture");
   const [yearsInBusiness, setYearsInBusiness] = useState(0);
@@ -97,8 +98,7 @@ function UserDetails() {
   function newAvatar() {
     const types = ["bottts", "gridy", "identicon"];
     const randomType = types[Math.floor(Math.random() * types.length)];
-    const generateRandomString = () =>
-      Math.random().toString(20).substring(2, 8);
+    const generateRandomString = () => Math.random().toString(20).substring(2, 8);
     return `https://avatars.dicebear.com/api/${randomType}/${generateRandomString()}.svg`;
   }
   useEffect(() => {
@@ -136,6 +136,8 @@ function UserDetails() {
     getUserDetails();
   }, [user]);
 
+  const history = useHistory();
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -161,6 +163,7 @@ function UserDetails() {
     }
 
     setShowUpdated(true);
+    setTimeout(() => history.push("/Dashboard"), 2000);
   };
 
   const handleClose = (event, reason) => {
@@ -203,7 +206,6 @@ function UserDetails() {
   const handleBack = () => {
     setActiveSteps((previousStep) => previousStep - 1);
   };
-
   return (
     <div style={{ padding: "16px" }}>
       <form onSubmit={handleSubmit}>
@@ -248,11 +250,7 @@ function UserDetails() {
               />
             )}
             {activeSteps === 3 && (
-              <Industry
-                industry={industry}
-                setIndustry={setIndustry}
-                classes={classes}
-              />
+              <Industry industry={industry} setIndustry={setIndustry} classes={classes} />
             )}
             {activeSteps === 4 && (
               <BusinessStage
@@ -266,17 +264,11 @@ function UserDetails() {
             {activeSteps === 5 && (
               <BSL
                 needsSignLanguageInterpreter={needsSignLanguageInterpreter}
-                setNeedsSignLanguageInterpreter={
-                  setNeedsSignLanguageInterpreter
-                }
+                setNeedsSignLanguageInterpreter={setNeedsSignLanguageInterpreter}
               />
             )}
             {activeSteps === 6 && (
-              <Language
-                setLanguage={setLanguage}
-                language={language}
-                classes={classes}
-              />
+              <Language setLanguage={setLanguage} language={language} classes={classes} />
             )}
 
             <Box
@@ -300,6 +292,7 @@ function UserDetails() {
 
               <Box width={{ xs: "100%", sm: "40%" }}>
                 {activeSteps === steps.length ? (
+
                   <Link to="../Dashboard">
                     <Button
                       variant="contained"
@@ -319,6 +312,7 @@ function UserDetails() {
                     onClick={handleNext}
                     xs={6}
                   >
+
                     Next
                   </Button>
                 )}
@@ -339,12 +333,7 @@ function UserDetails() {
           message="Your Details Have Been Saved"
           action={
             <React.Fragment>
-              <IconButton
-                size="small"
-                aria-label="close"
-                color="inherit"
-                onClick={handleClose}
-              >
+              <IconButton size="small" aria-label="close" color="inherit" onClick={handleClose}>
                 <CloseIcon fontSize="small" />
               </IconButton>
             </React.Fragment>
