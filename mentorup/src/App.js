@@ -39,8 +39,8 @@ function App() {
             <Route path="/user-details" component={UserDetails}></Route>
             <Route path="/user-profile" component={UserProfile}></Route>
           </Switch>
-          <Footer />
         </div>
+        <Footer />
       </Router>
     </>
   );

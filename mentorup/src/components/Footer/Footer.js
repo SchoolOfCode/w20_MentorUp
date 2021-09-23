@@ -9,7 +9,14 @@ import FacebookIcon from "@material-ui/icons/Facebook";
 import { Link } from "react-router-dom";
 function Footer() {
   return (
-    <footer>
+    <footer
+      style={{
+        // position: "absolute",
+        width: "100%",
+        // marginTop: "auto",
+        // bottom: 0,
+      }}
+    >
       <Box>
         <Grid
           container
