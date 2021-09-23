@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "firebase/firestore";
-import { useFirestoreDocData, useFirestore, useUser } from "reactfire";
+import { useFirestore, useUser } from "reactfire";
 import { Link, useHistory } from "react-router-dom";
 import usernameGen from "username-gen";
 import MentorMentee from "../WIzard/MentorMentee";
@@ -8,16 +8,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import UserName from "../WIzard/UsernameAvatar";
 import Subject from "../WIzard/Subject";
 import Industry from "../WIzard/Industry";
-
-import {
-  Grid,
-  Button,
-  makeStyles,
-  Snackbar,
-  IconButton,
-  Box,
-} from "@material-ui/core";
-
+import { Grid, Button, makeStyles, Snackbar, IconButton, Box } from "@material-ui/core";
 import BusinessStage from "../WIzard/BusinessStage";
 import BSL from "../WIzard/BSL";
 import Language from "../WIzard/Language";
