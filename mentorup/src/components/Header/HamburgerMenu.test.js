@@ -1,6 +1,6 @@
 import React from "react";
 import { render, fireEvent, waitFor } from "@testing-library/react";
-import HamburgerMenu from "./HamburgerMenu";
+
 import App from "../../App";
 
 test("expect hamburger menu to be rendered", async () => {

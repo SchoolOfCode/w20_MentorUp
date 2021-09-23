@@ -1,16 +1,6 @@
 import React, { useState } from "react";
-import {
-  Typography,
-  FormControl,
-  FormControlLabel,
-  RadioGroup,
-  Radio,
-  Button,
-  Grid,
-  CardMedia,
-} from "@material-ui/core";
+import { Typography, Button, Grid, CardMedia } from "@material-ui/core";
 const usernameGen = require("username-gen");
-// import usernames from "usernames";
 
 function UsernameAndAvatar() {
   const [avatar, setAvatar] = useState(newAvatar());
