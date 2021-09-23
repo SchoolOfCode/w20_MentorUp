@@ -7,10 +7,8 @@ import {
 } from "@material-ui/core";
 import React, { useState } from "react";
 import cx from "clsx";
-
 import { Link } from "react-router-dom";
 import "firebase/firestore";
-
 import { useFirestore, useUser, useFirestoreCollectionData } from "reactfire";
 
 const useStyles = makeStyles({
@@ -26,7 +24,7 @@ const useStyles = makeStyles({
     // margin: "6",
   },
 });
-
+//
 export function findMentor(listOfMentors, helpNeeded) {
   if (listOfMentors.length > 1) {
     const sameIndustry = listOfMentors.filter(
@@ -43,14 +41,8 @@ export function findMentor(listOfMentors, helpNeeded) {
 const MatchWithMentor = () => {
   const [randomState, setRandomState] = useState();
   const { data: user } = useUser();
-  //Gets info from local storage incase user is not defined yet
-  const currentUserInfo = user
-    ? user
-    : JSON.parse(localStorage.getItem("currentUserInfo"));
   const firestore = useFirestore();
-  const userRef = firestore
-    .collection("userData")
-    .where("authenticationID", "==", currentUserInfo.uid);
+  const userRef = firestore.collection("userData").where("authenticationID", "==", user.uid);
   const { data: currentUserObject } = useFirestoreCollectionData(userRef);
   //the user is in an Array, this removes it if it's there
   const currentUser = currentUserObject ? currentUserObject[0] : null;
@@ -66,7 +58,7 @@ const MatchWithMentor = () => {
       };
   const mentorRef = firestore
     .collection("userData")
-    .where("type", "==", "mentor")
+    .where("type", "==", "Mentor")
     .where("helpTopic", "array-contains-any", help.requirements);
   //Returns array of mentors where the help topics match those of the user
   const { data: mentors } = useFirestoreCollectionData(mentorRef);

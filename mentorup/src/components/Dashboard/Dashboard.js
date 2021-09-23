@@ -1,6 +1,5 @@
 import React from "react";
 import { Typography, Button, Grid, Paper, Box } from "@material-ui/core";
-
 import { Link } from "react-router-dom";
 import "firebase/firestore";
 
@@ -8,14 +7,8 @@ import { useFirestore, useUser, useFirestoreCollectionData } from "reactfire";
 
 const Dashboard = () => {
   const { data: user } = useUser();
-  //If user is undefined, uses the local storage
-  const currentUserInfo = user
-    ? user
-    : JSON.parse(localStorage.getItem("currentUserInfo"));
   const firestore = useFirestore();
-  const userRef = firestore
-    .collection("userData")
-    .where("authenticationID", "==", currentUserInfo.uid);
+  const userRef = firestore.collection("userData").where("authenticationID", "==", user.uid);
   const { data: currentUserObject } = useFirestoreCollectionData(userRef);
   //the user is in an Array, this removes it if it's there
   const currentUser = currentUserObject ? currentUserObject[0] : null;
@@ -31,15 +24,18 @@ const Dashboard = () => {
     mentorIDs = filteredHelp.map((request) => request.mentorID);
   }
   mentorIDs = [...new Set(mentorIDs)];
+  //If mentorId is empty, the query still needs to be made with something
   if (mentorIDs.length === 0) mentorIDs.push("RandomFillerToFixQuery");
   const mentorQuery = firestore
     .collection("userData")
     .where(`authenticationID`, "in", mentorIDs.slice(0, 3));
+  //collects the mentors which match with the Ids
   const { data: mentors } = useFirestoreCollectionData(mentorQuery);
   const sortedMentors = mentors
     ? mentors.sort((a, b) => a.username.localeCompare(b.username))
     : null;
   console.log("My Mentors: ", sortedMentors);
+
   return (
     <div data-testid="container-div">
       <Typography variant="h3" m={2}>
