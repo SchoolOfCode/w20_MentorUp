@@ -46,7 +46,11 @@ function BusinessStage({
           required
           type="number"
           value={yearsInBusiness}
-          onChange={(e) => setYearsInBusiness(e.target.value)}
+          onChange={(e) => {
+            e.target.value < 0
+              ? (e.target.value = 0)
+              : setYearsInBusiness(e.target.value);
+          }}
           id="yearsinbusiness"
           label="How many years have you been in business?"
           style={{ paddingTop: "25px" }}

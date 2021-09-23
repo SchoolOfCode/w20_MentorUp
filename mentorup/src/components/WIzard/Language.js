@@ -56,6 +56,7 @@ function Language({ setLanguage, language, classes }) {
           value={language}
           select
           fullWidth
+          required
         >
           {languages.map(({ language, flag, index }) => (
             <MenuItem value={language} className={classes.hover} key={index}>
