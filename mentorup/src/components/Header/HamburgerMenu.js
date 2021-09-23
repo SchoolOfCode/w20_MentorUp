@@ -61,11 +61,6 @@ function HamburgerMenu() {
                 <Button>Login/Sign-up</Button>
               </Link>
             </ListItem>
-            <ListItem>
-              <Link to="/mentor-or-mentee">
-                <Button>Mentor Or Mentee</Button>
-              </Link>
-            </ListItem>
           </List>
           <ListItem>
             <Link to="/user-profile">
