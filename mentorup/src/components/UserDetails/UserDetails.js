@@ -8,7 +8,14 @@ import CloseIcon from "@material-ui/icons/Close";
 import UserName from "../WIzard/UsernameAvatar";
 import Subject from "../WIzard/Subject";
 import Industry from "../WIzard/Industry";
-import { Grid, Button, makeStyles, Snackbar, IconButton, Box } from "@material-ui/core";
+import {
+  Grid,
+  Button,
+  makeStyles,
+  Snackbar,
+  IconButton,
+  Box,
+} from "@material-ui/core";
 import BusinessStage from "../WIzard/BusinessStage";
 import BSL from "../WIzard/BSL";
 import Language from "../WIzard/Language";
@@ -294,17 +301,15 @@ function UserDetails() {
 
               <Box width={{ xs: "100%", sm: "40%" }}>
                 {activeSteps === steps.length ? (
-                  <Link to="../dashboard">
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      className={classes.buttonResponsive}
-                      type="submit"
-                      fullWidth
-                    >
-                      Save User Details
-                    </Button>
-                  </Link>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    className={classes.buttonResponsive}
+                    type="submit"
+                    fullWidth
+                  >
+                    Save User Details
+                  </Button>
                 ) : (
                   <Button
                     variant="contained"
