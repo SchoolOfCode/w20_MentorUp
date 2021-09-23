@@ -8,7 +8,7 @@ import {
 } from "@material-ui/core";
 
 const industriesArray = [
-  "Agiculture",
+  "Agriculture",
   " Automotive",
   "Bars & Restaurants",
   "Business Services",
