@@ -89,7 +89,7 @@ function HomePage() {
                 my={6}
               >
                 <Box width={{ xs: "100%", sm: "40%", md: "35%" }}>
-                  <Link to="/landing">
+                  <Link to="/landing" style={{ textDecoration: "none" }}>
                     <Button
                       variant="contained"
                       color="primary"
@@ -101,7 +101,7 @@ function HomePage() {
                   </Link>
                 </Box>
                 <Box width={{ xs: "100%", sm: "40%", md: "35%" }}>
-                  <Link to="/landing">
+                  <Link to="/landing" style={{ textDecoration: "none" }}>
                     <Button
                       variant="outlined"
                       size="large"
