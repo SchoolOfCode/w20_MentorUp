@@ -156,9 +156,9 @@ function HomePage() {
                     <Typography variant="h6">
                       <strong>Step {item.step}:</strong>
                     </Typography>
-                    <Typography>{item.text}</Typography>
+                    <Typography align="center">{item.text}</Typography>
                   </Box>
-                  <Box>
+                  <Box pt={2}>
                     <img
                       src={item.image}
                       style={{ maxWidth: "100%", alignSelf: "center" }}
