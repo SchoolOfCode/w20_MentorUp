@@ -1,11 +1,22 @@
-import { Card, CardMedia, Typography, makeStyles, Button } from "@material-ui/core";
+import {
+  Card,
+  CardMedia,
+  Typography,
+  makeStyles,
+  Button,
+} from "@material-ui/core";
 import React, { useState } from "react";
 import cx from "clsx";
 import mentorProfiles from "../../assets/mentor";
 import { Link } from "react-router-dom";
 import "firebase/firestore";
 import firebase from "firebase";
-import { useFirestore, useUser, useFirestoreCollectionData, useFirestoreDocData } from "reactfire";
+import {
+  useFirestore,
+  useUser,
+  useFirestoreCollectionData,
+  useFirestoreDocData,
+} from "reactfire";
 
 const useStyles = makeStyles({
   root: {
@@ -23,19 +34,24 @@ const useStyles = makeStyles({
 
 export function findMentor(listOfMentors, helpNeeded) {
   if (listOfMentors.length > 1) {
-    const sameIndustry = listOfMentors.filter((mentor) => mentor.industry === helpNeeded.industry);
+    const sameIndustry = listOfMentors.filter(
+      (mentor) => mentor.industry === helpNeeded.industry
+    );
     if (sameIndustry.length !== 0) {
       listOfMentors = [...sameIndustry];
     }
   }
-  let matchedMentor = listOfMentors[Math.floor(Math.random() * listOfMentors.length)];
+  let matchedMentor =
+    listOfMentors[Math.floor(Math.random() * listOfMentors.length)];
   return matchedMentor;
 }
 const MatchWithMentor = () => {
   const [randomState, setRandomState] = useState();
   const { data: user } = useUser();
   //Gets info from local storage incase user is not defined yet
-  const currentUserInfo = user ? user : JSON.parse(localStorage.getItem("currentUserInfo"));
+  const currentUserInfo = user
+    ? user
+    : JSON.parse(localStorage.getItem("currentUserInfo"));
   const firestore = useFirestore();
   const userRef = firestore
     .collection("userData")
@@ -55,7 +71,7 @@ const MatchWithMentor = () => {
       };
   const mentorRef = firestore
     .collection("userData")
-    .where("type", "==", "mentor")
+    .where("type", "==", "Mentor")
     .where("helpTopic", "array-contains-any", help.requirements);
   //Returns array of mentors where the help topics match those of the user
   const { data: mentors } = useFirestoreCollectionData(mentorRef);

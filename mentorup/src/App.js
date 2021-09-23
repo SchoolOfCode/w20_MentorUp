@@ -1,6 +1,5 @@
 import React from "react";
 
-import MentorOrMentee from "./components/MentorOrMentee/MentorOrMentee";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
@@ -25,7 +24,6 @@ function App() {
           <Switch>
             <Route exact path="/" component={Home}></Route>
             <Route path="/landing" component={Landing}></Route>
-            <Route path="/mentor-or-mentee" component={MentorOrMentee}></Route>
             <Route
               path="/username-avatar"
               component={UsernameAndAvatar}

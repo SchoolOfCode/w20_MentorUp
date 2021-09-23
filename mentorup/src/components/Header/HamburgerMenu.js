@@ -13,8 +13,11 @@ import logo from "../../assets/logo.svg";
 
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
+import { useUser } from "reactfire";
+import firebase from "firebase";
 
 function HamburgerMenu() {
+  const { data: user } = useUser();
   const [open, setOpen] = useState(false);
   return (
     <div>
@@ -56,32 +59,37 @@ function HamburgerMenu() {
           </Box>
           <Divider />
           <List>
+            {user === null ? (
+              <ListItem>
+                <Link to="/landing">
+                  <Button>Login/Sign-up</Button>
+                </Link>
+              </ListItem>
+            ) : (
+              <ListItem>
+                <Link>
+                  <Button onClick={() => firebase.auth().signOut()}>
+                    Sign Out
+                  </Button>
+                </Link>
+              </ListItem>
+            )}
             <ListItem>
-              <Link to="/landing">
-                <Button>Login/Sign-up</Button>
+              <Link to="/user-profile">
+                <Button>My Profile details</Button>
               </Link>
             </ListItem>
             <ListItem>
-              <Link to="/mentor-or-mentee">
-                <Button>Mentor Or Mentee</Button>
+              <Link to="/dashboard">
+                <Button>Dashboard</Button>
+              </Link>
+            </ListItem>
+            <ListItem>
+              <Link to="/match-with-mentor">
+                <Button>Match with a Mentor</Button>
               </Link>
             </ListItem>
           </List>
-          <ListItem>
-            <Link to="/user-profile">
-              <Button>My Profile details</Button>
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link to="/dashboard">
-              <Button>Dashboard</Button>
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link to="/match-with-mentor">
-              <Button>Match with a Mentor</Button>
-            </Link>
-          </ListItem>
         </div>
       </SwipeableDrawer>
     </div>
