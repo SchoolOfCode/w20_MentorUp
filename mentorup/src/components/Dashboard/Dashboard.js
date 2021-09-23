@@ -1,21 +1,17 @@
 import React from "react";
 import { Typography, Button, Grid, Paper, Box } from "@material-ui/core";
-import { useEffect, useState } from "react";
+
 import { Link } from "react-router-dom";
 import "firebase/firestore";
-import firebase from "firebase";
-import {
-  useFirestore,
-  useUser,
-  useFirestoreDocData,
-  useFirestoreCollectionData,
-  useFirestoreCollection,
-} from "reactfire";
+
+import { useFirestore, useUser, useFirestoreCollectionData } from "reactfire";
 
 const Dashboard = () => {
   const { data: user } = useUser();
   //If user is undefined, uses the local storage
-  const currentUserInfo = user ? user : JSON.parse(localStorage.getItem("currentUserInfo"));
+  const currentUserInfo = user
+    ? user
+    : JSON.parse(localStorage.getItem("currentUserInfo"));
   const firestore = useFirestore();
   const userRef = firestore
     .collection("userData")
@@ -29,7 +25,9 @@ const Dashboard = () => {
   let filteredHelp = [];
   let mentorIDs = [];
   if (help) {
-    filteredHelp = help.filter((request) => request.menteeID === currentUser?.authenticationID);
+    filteredHelp = help.filter(
+      (request) => request.menteeID === currentUser?.authenticationID
+    );
     mentorIDs = filteredHelp.map((request) => request.mentorID);
   }
   mentorIDs = [...new Set(mentorIDs)];
@@ -52,7 +50,13 @@ const Dashboard = () => {
         {mentors?.length > 0 ? " Your mentors" : "No Mentors..."}
       </Typography>
       {mentors ? (
-        <Grid container direction="row" justifyContent="center" alignItems="center" spacing={4}>
+        <Grid
+          container
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+          spacing={4}
+        >
           {sortedMentors?.map((mentor, index) => {
             if (index > 2) return null;
             return (
