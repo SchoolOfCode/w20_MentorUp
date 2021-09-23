@@ -1,4 +1,10 @@
-import { Card, CardMedia, Typography, makeStyles, Button } from "@material-ui/core";
+import {
+  Card,
+  CardMedia,
+  Typography,
+  makeStyles,
+  Button,
+} from "@material-ui/core";
 import React, { useState } from "react";
 import cx from "clsx";
 import { Link } from "react-router-dom";
@@ -21,18 +27,20 @@ const useStyles = makeStyles({
 //
 export function findMentor(listOfMentors, helpNeeded) {
   if (listOfMentors.length > 1) {
-    const sameIndustry = listOfMentors.filter((mentor) => mentor.industry === helpNeeded.industry);
+    const sameIndustry = listOfMentors.filter(
+      (mentor) => mentor.industry === helpNeeded.industry
+    );
     if (sameIndustry.length !== 0) {
       listOfMentors = [...sameIndustry];
     }
   }
-  let matchedMentor = listOfMentors[Math.floor(Math.random() * listOfMentors.length)];
+  let matchedMentor =
+    listOfMentors[Math.floor(Math.random() * listOfMentors.length)];
   return matchedMentor;
 }
 const MatchWithMentor = () => {
   const [randomState, setRandomState] = useState();
   const { data: user } = useUser();
-  //Gets info from local storage incase user is not defined yet
   const firestore = useFirestore();
   const userRef = firestore.collection("userData").where("authenticationID", "==", user.uid);
   const { data: currentUserObject } = useFirestoreCollectionData(userRef);
