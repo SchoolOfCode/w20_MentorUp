@@ -148,7 +148,6 @@ function HomePage() {
                   item
                   container
                   sm={4}
-                  md={4}
                   justifyContent="center"
                   style={{ padding: "24px" }}
                 >
