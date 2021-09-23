@@ -20,7 +20,11 @@ function Footer() {
       <Box>
         <Grid
           container
-          style={{ backgroundColor: "#FCFCFC", height: "250px" }}
+          style={{
+            backgroundColor: "#FCFCFC",
+            height: "250px",
+            padding: "36px",
+          }}
           flexDirection="column"
         >
           <Grid item container xs={12} justifyContent="center">
