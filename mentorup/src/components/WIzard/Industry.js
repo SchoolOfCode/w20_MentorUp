@@ -1,4 +1,11 @@
-import { Grid, MenuItem, TextField, Typography, Box } from "@material-ui/core";
+import {
+  Grid,
+  MenuItem,
+  TextField,
+  Typography,
+  Box,
+  FormControl,
+} from "@material-ui/core";
 
 const industriesArray = [
   "Agiculture",
@@ -35,6 +42,7 @@ function Industry({ classes, industry, setIndustry }) {
             value={industry}
             select
             fullWidth
+            required
             style={{ paddingTop: "25px" }}
           >
             {industriesArray.map((name) => (
