@@ -31,6 +31,16 @@ const useStyles = makeStyles((theme) => ({
       alignItems: "center",
     },
   },
+  howItWorks: {
+    [theme.breakpoints.up("xs")]: {
+      padding: "36px 36px",
+      alignItems: "center",
+    },
+    [theme.breakpoints.up("md")]: {
+      padding: "36px 36px",
+      alignItems: "center",
+    },
+  },
   "@global": {
     // You should target [class*="MuiButton-root"] instead if you nest themes.
     ".MuiTypography-h1": {
@@ -54,19 +64,21 @@ function HomePage() {
   return (
     <main style={{ padding: "16px", minHeight: "100vh" }}>
       <section>
-
         {/* container className={classes.mainLayout} spacing={2} */}
         <Box display="flex" flexWrap="wrap" align="left">
           <Grid container xs={12} sm={12} md={7} className={classes.heroText}>
             <Grid item container>
-              <Typography variant="h1" className={classes.h1Override} gutterBottom>
+              <Typography
+                variant="h1"
+                className={classes.h1Override}
+                gutterBottom
+              >
                 Kickstart your startup with a kickass mentor
               </Typography>
               <Typography variant="h6">
-                Get an experienced mentor in your same field of business! Get an experienced mentor
-                in your same field of business!
+                Get an experienced mentor in your same field of business! Get an
+                experienced mentor in your same field of business!
               </Typography>
-
 
               <Box
                 component="div"
@@ -77,40 +89,39 @@ function HomePage() {
                 my={6}
               >
                 <Box width={{ xs: "100%", sm: "40%", md: "35%" }}>
-                   <Link to="/landing">
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    fullWidth
-                    size="large"
-                  >
-                    Sign up
-                  </Button>
-    </Link>
+                  <Link to="/landing">
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      fullWidth
+                      size="large"
+                    >
+                      Sign up
+                    </Button>
+                  </Link>
                 </Box>
                 <Box width={{ xs: "100%", sm: "40%", md: "35%" }}>
                   <Link to="/landing">
-                  <Button
-                    variant="outlined"
-                    size="large"
-                    color="primary"
-                    fullWidth
-                  >
-                    Log in
-                  </Button>
- </Link>
+                    <Button
+                      variant="outlined"
+                      size="large"
+                      color="primary"
+                      fullWidth
+                    >
+                      Log in
+                    </Button>
+                  </Link>
                 </Box>
               </Box>
             </Grid>
           </Grid>
 
-          <Grid item container xs={12} sm={12} md={5}>
+          <Grid item container xs={12} sm={12} md={5} justifyContent="center">
             <img
               src={heroImage}
               alt="hero"
               style={{ maxWidth: "100%", alignSelf: "center" }}
             />
-
           </Grid>
         </Box>
       </section>
@@ -123,32 +134,37 @@ function HomePage() {
           //   md={6}
           justifyContent="center"
           style={{ margin: "0 auto", background: "blanchedalmond" }}
-          className={classes.heroText}
+          className={classes.howItWorks}
           spacing={3}
         >
-          <Grid item container xs={12} justifyContent="center">
+          <Box xs={12} justifyContent="center">
             <Typography variant="h4">How it works</Typography>
-          </Grid>
+          </Box>
+
           <Grid container>
             {howItWorksSteps.map((item, index) => {
               return (
                 <Grid
                   item
                   container
-                  sm={12}
+                  sm={4}
                   md={4}
                   justifyContent="center"
                   style={{ padding: "24px" }}
                 >
-                  <Typography variant="h5" gutterBottom>
-                    Step {item.step}: {item.text}
-                  </Typography>
-                  <img
-                    src={item.image}
-                    style={{ maxWidth: "100%", alignSelf: "center" }}
-                    alt={item.text}
-                  />
-                  ;
+                  <Box>
+                    <Typography variant="h6">
+                      <strong>Step {item.step}:</strong>
+                    </Typography>
+                    <Typography>{item.text}</Typography>
+                  </Box>
+                  <Box>
+                    <img
+                      src={item.image}
+                      style={{ maxWidth: "100%", alignSelf: "center" }}
+                      alt={item.text}
+                    />
+                  </Box>
                 </Grid>
               );
             })}

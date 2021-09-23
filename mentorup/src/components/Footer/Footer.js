@@ -23,11 +23,11 @@ function Footer() {
           style={{ backgroundColor: "#FCFCFC", height: "250px" }}
           flexDirection="column"
         >
-          <Link to="/">
-            <Grid item container xs={12} justifyContent="center">
+          <Grid item container xs={12} justifyContent="center">
+            <Link to="/">
               <img src={logo} alt="logo" />
-            </Grid>
-          </Link>
+            </Link>
+          </Grid>
           <Grid item xs={6}>
             <Box px={2}>
               <Typography>MentorUp</Typography>
