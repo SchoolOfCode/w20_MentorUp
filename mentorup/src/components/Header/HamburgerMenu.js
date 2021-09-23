@@ -61,22 +61,23 @@ function HamburgerMenu() {
                 <Button>Login/Sign-up</Button>
               </Link>
             </ListItem>
+
+            <ListItem>
+              <Link to="/user-profile">
+                <Button>My Profile details</Button>
+              </Link>
+            </ListItem>
+            <ListItem>
+              <Link to="/dashboard">
+                <Button>Dashboard</Button>
+              </Link>
+            </ListItem>
+            <ListItem>
+              <Link to="/match-with-mentor">
+                <Button>Match with a Mentor</Button>
+              </Link>
+            </ListItem>
           </List>
-          <ListItem>
-            <Link to="/user-profile">
-              <Button>My Profile details</Button>
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link to="/dashboard">
-              <Button>Dashboard</Button>
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link to="/match-with-mentor">
-              <Button>Match with a Mentor</Button>
-            </Link>
-          </ListItem>
         </div>
       </SwipeableDrawer>
     </div>
