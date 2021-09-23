@@ -13,8 +13,11 @@ import logo from "../../assets/logo.svg";
 
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
+import { useUser } from "reactfire";
+import firebase from "firebase";
 
 function HamburgerMenu() {
+  const { data: user } = useUser();
   const [open, setOpen] = useState(false);
   return (
     <div>
@@ -56,9 +59,24 @@ function HamburgerMenu() {
           </Box>
           <Divider />
           <List>
+            {user === null ? (
+              <ListItem>
+                <Link to="/landing" style={{ textDecoration: "none" }}>
+                  <Button>Login/Sign-up</Button>
+                </Link>
+              </ListItem>
+            ) : (
+              <ListItem>
+                <Link style={{ textDecoration: "none" }}>
+                  <Button onClick={() => firebase.auth().signOut()}>
+                    Sign Out
+                  </Button>
+                </Link>
+              </ListItem>
+            )}
             <ListItem>
-              <Link to="/landing" style={{ textDecoration: "none" }}>
-                <Button>Login/Sign-up</Button>
+              <Link to="/user-profile" style={{ textDecoration: "none" }}>
+                <Button>My Profile details</Button>
               </Link>
             </ListItem>
 

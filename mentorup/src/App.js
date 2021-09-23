@@ -24,7 +24,6 @@ function App() {
           <Switch>
             <Route exact path="/" component={Home}></Route>
             <Route path="/landing" component={Landing}></Route>
-
             <Route
               path="/username-avatar"
               component={UsernameAndAvatar}

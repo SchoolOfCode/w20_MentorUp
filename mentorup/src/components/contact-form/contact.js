@@ -1,5 +1,5 @@
 import { Button } from "@material-ui/core";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 import { Paper } from "@material-ui/core";
@@ -83,6 +83,28 @@ function ContactForm() {
   // easily access the Firestore library
 
   const mentorRef = useFirestore().collection("userData").doc(mentorID);
+  var userDataCollection = firestore.collection("userData");
+
+  useEffect(() => {
+    const getUserDetails = async () => {
+      if (user === null || user === undefined) {
+        return;
+      }
+
+      const userDetailsQuery = await userDataCollection
+        .where("authenticationID", "==", user.uid)
+        .get();
+
+      if (!userDetailsQuery.empty) {
+        // grab the first entry
+
+        let existingUserFirebaseData = userDetailsQuery.docs[0].data();
+        let messageTemplate = `Hi, I'm ${existingUserFirebaseData.username} and I would like to be a successful entrepreneur. In order to become one, I need help from a mentor with the following: ${existingUserFirebaseData.helpTopic}. My business is in the ${existingUserFirebaseData.industry} industry and is currently at the ${existingUserFirebaseData.businessStage} stage. I look forward to discussing my business and needs with you soon. Thank you for your time and consideration. All the best, ${existingUserFirebaseData.username}.`;
+        setMessage(messageTemplate);
+      }
+    };
+    getUserDetails();
+  }, []);
 
   // subscribe to a document for realtime updates. just one line!
   const { status, data } = useFirestoreDocData(mentorRef);
@@ -94,7 +116,6 @@ function ContactForm() {
       menteeID: user.uid,
       message: message,
     });
-
     setShowThanks(true);
   };
 
@@ -204,14 +225,6 @@ function ContactForm() {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               defaultValue="Please enter your message here"
-              //             defaultValue={`Hi,
-              //   I'm ${user.username} and I would like to be a successful entrepreneur.
-              // In order to become one, I need help from a mentor with the following: ${user.helpTopic}.
-              // My business is in the ${user.industry} industry and is currently at the ${user.businessStage} stage.
-              // I look forward to discussing my business and needs with you soon.
-              // Thank you for your time and consideration.
-              // All the best, ${user.username}.
-              // `}
               variant="outlined"
             />
             <Box>

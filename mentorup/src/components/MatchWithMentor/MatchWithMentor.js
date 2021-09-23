@@ -42,7 +42,9 @@ const MatchWithMentor = () => {
   const [randomState, setRandomState] = useState();
   const { data: user } = useUser();
   const firestore = useFirestore();
-  const userRef = firestore.collection("userData").where("authenticationID", "==", user.uid);
+  const userRef = firestore
+    .collection("userData")
+    .where("authenticationID", "==", user.uid);
   const { data: currentUserObject } = useFirestoreCollectionData(userRef);
   //the user is in an Array, this removes it if it's there
   const currentUser = currentUserObject ? currentUserObject[0] : null;
