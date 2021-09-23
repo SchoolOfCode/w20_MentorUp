@@ -57,23 +57,23 @@ function HamburgerMenu() {
           <Divider />
           <List>
             <ListItem>
-              <Link to="/landing">
+              <Link to="/landing" style={{ textDecoration: "none" }}>
                 <Button>Login/Sign-up</Button>
               </Link>
             </ListItem>
 
             <ListItem>
-              <Link to="/user-profile">
-                <Button>My Profile details</Button>
+              <Link to="/user-profile" style={{ textDecoration: "none" }}>
+                <Button>My Profile </Button>
               </Link>
             </ListItem>
             <ListItem>
-              <Link to="/dashboard">
+              <Link to="/dashboard" style={{ textDecoration: "none" }}>
                 <Button>Dashboard</Button>
               </Link>
             </ListItem>
             <ListItem>
-              <Link to="/match-with-mentor">
+              <Link to="/match-with-mentor" style={{ textDecoration: "none" }}>
                 <Button>Match with a Mentor</Button>
               </Link>
             </ListItem>
