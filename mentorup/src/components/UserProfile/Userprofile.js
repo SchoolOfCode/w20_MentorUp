@@ -15,6 +15,7 @@ import {
   makeStyles,
   Snackbar,
   IconButton,
+  Box,
 } from "@material-ui/core";
 import BusinessStage from "../WIzard/BusinessStage";
 import BSL from "../WIzard/BSL";
@@ -203,7 +204,7 @@ function UserProfile() {
   };
 
   return (
-    <div style={{ padding: "16px" }}>
+    <Box mt={5} p={2}>
       <form onSubmit={handleSubmit}>
         <Grid
           container
@@ -297,7 +298,7 @@ function UserProfile() {
           }
         />
       </div>
-    </div>
+    </Box>
   );
 }
 

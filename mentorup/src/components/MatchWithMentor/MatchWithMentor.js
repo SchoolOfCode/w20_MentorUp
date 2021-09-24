@@ -4,6 +4,7 @@ import {
   Typography,
   makeStyles,
   Button,
+  Box,
 } from "@material-ui/core";
 import React, { useState } from "react";
 import cx from "clsx";
@@ -68,7 +69,7 @@ const MatchWithMentor = () => {
   const myMentor = mentors ? findMentor(mentors, help) : [];
   const classes = useStyles();
   return myMentor ? (
-    <div>
+    <Box mt={3}>
       <Typography variant="h4"> Your mentor is </Typography>
       <Card variant="outlined" className={classes.root}>
         <Typography className={cx(classes.root, classes.media)} variant="h5">
@@ -83,7 +84,7 @@ const MatchWithMentor = () => {
         <Link to={`/contact/${myMentor["NO_ID_FIELD"]}`}>
           <Button
             className={cx(classes.media, classes.root)}
-            style={{ width: "90%" }}
+            style={{ width: "80%" }}
             m={2}
             variant="contained"
             color="primary"
@@ -93,7 +94,7 @@ const MatchWithMentor = () => {
         </Link>
         <Button
           className={cx(classes.media, classes.root)}
-          style={{ width: "90%" }}
+          style={{ width: "80%" }}
           m={2}
           variant="contained"
           color="primary"
@@ -107,7 +108,7 @@ const MatchWithMentor = () => {
           </Link>
         </p>
       </Card>
-    </div>
+    </Box>
   ) : (
     <h1>No Mentors...</h1>
   );

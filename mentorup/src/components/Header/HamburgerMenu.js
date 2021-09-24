@@ -74,11 +74,6 @@ function HamburgerMenu() {
                 </Link>
               </ListItem>
             )}
-            <ListItem>
-              <Link to="/user-profile" style={{ textDecoration: "none" }}>
-                <Button>My Profile details</Button>
-              </Link>
-            </ListItem>
 
             <ListItem>
               <Link to="/user-profile" style={{ textDecoration: "none" }}>

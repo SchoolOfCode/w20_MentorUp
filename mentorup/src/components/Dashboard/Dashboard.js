@@ -8,7 +8,9 @@ import { useFirestore, useUser, useFirestoreCollectionData } from "reactfire";
 const Dashboard = () => {
   const { data: user } = useUser();
   const firestore = useFirestore();
-  const userRef = firestore.collection("userData").where("authenticationID", "==", user.uid);
+  const userRef = firestore
+    .collection("userData")
+    .where("authenticationID", "==", user.uid);
   const { data: currentUserObject } = useFirestoreCollectionData(userRef);
   //the user is in an Array, this removes it if it's there
   const currentUser = currentUserObject ? currentUserObject[0] : null;
@@ -37,14 +39,24 @@ const Dashboard = () => {
   console.log("My Mentors: ", sortedMentors);
 
   return (
-    <div data-testid="container-div">
-      <Typography variant="h3" m={2}>
-        {"Welcome \n"}
-        {user?.displayName ? user.displayName : "Loading Name..."}!
-      </Typography>
-      <Typography variant="h4" m={2}>
-        {mentors?.length > 0 ? " Your mentors" : "No Mentors..."}
-      </Typography>
+    <Box
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      mt={5}
+      component="div"
+      data-testid="container-div"
+    >
+      <Box mb={2}>
+        <Typography variant="h4" gutterBottom>
+          {"Welcome, "}
+          {user?.displayName ? user.displayName : "Loading Name..."}!
+        </Typography>
+        <Typography variant="h5" gutterBottom>
+          {mentors?.length > 0 ? " Here are your mentors" : "No Mentors..."}
+        </Typography>
+      </Box>
+
       {mentors ? (
         <Grid
           container
@@ -52,15 +64,31 @@ const Dashboard = () => {
           justifyContent="center"
           alignItems="center"
           spacing={4}
+          sm={8}
+          xs={6}
         >
           {sortedMentors?.map((mentor, index) => {
             if (index > 2) return null;
             return (
-              <Grid item xs={3} key={index}>
-                <Link to={`/contact/${mentor["NO_ID_FIELD"]}`}>
+              <Grid item xs={12} sm={4} md={3} key={index}>
+                <Link
+                  style={{ textDecoration: "none" }}
+                  to={`/contact/${mentor["NO_ID_FIELD"]}`}
+                >
                   <Paper>
-                    <img src={mentor.avatar} alt="Mentor"></img>
-                    <Typography variant="h6">{mentor.username}</Typography>
+                    <Box
+                      display="flex"
+                      flexDirection="column"
+                      flexWrap="wrap"
+                      alignContent="center"
+                    >
+                      <img
+                        style={{ maxWidth: "150px", maxHeight: "150px" }}
+                        src={mentor.avatar}
+                        alt="Mentor"
+                      />
+                      <Typography variant="h6">{mentor.username}</Typography>
+                    </Box>
                   </Paper>
                 </Link>
               </Grid>
@@ -77,7 +105,7 @@ const Dashboard = () => {
           </Button>
         </Link>
       </Box>
-    </div>
+    </Box>
   );
 };
 

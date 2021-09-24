@@ -56,7 +56,6 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     width: "150px",
     height: "150px",
-    border: "2px solid #383838",
   },
   // "@global": {
   //   // You should target [class*="MuiButton-root"] instead if you nest themes.
