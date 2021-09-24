@@ -65,18 +65,23 @@ const Dashboard = () => {
           alignItems="center"
           spacing={4}
           sm={8}
-          style={{ backgroundColor: "red" }}
+          xs={6}
         >
           {sortedMentors?.map((mentor, index) => {
             if (index > 2) return null;
             return (
-              <Grid item xs={12} sm={3} key={index} maxWidth="250px">
+              <Grid item xs={12} sm={4} md={3} key={index}>
                 <Link
                   style={{ textDecoration: "none" }}
                   to={`/contact/${mentor["NO_ID_FIELD"]}`}
                 >
-                  <Paper p={2} maxWidth="250px">
-                    <Box display="flex" flexDirection="column" flexWrap="wrap">
+                  <Paper>
+                    <Box
+                      display="flex"
+                      flexDirection="column"
+                      flexWrap="wrap"
+                      alignContent="center"
+                    >
                       <img
                         style={{ maxWidth: "150px", maxHeight: "150px" }}
                         src={mentor.avatar}
