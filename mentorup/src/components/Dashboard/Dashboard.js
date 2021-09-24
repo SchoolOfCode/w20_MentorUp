@@ -8,7 +8,9 @@ import { useFirestore, useUser, useFirestoreCollectionData } from "reactfire";
 const Dashboard = () => {
   const { data: user } = useUser();
   const firestore = useFirestore();
-  const userRef = firestore.collection("userData").where("authenticationID", "==", user.uid);
+  const userRef = firestore
+    .collection("userData")
+    .where("authenticationID", "==", user.uid);
   const { data: currentUserObject } = useFirestoreCollectionData(userRef);
   //the user is in an Array, this removes it if it's there
   const currentUser = currentUserObject ? currentUserObject[0] : null;
@@ -37,14 +39,23 @@ const Dashboard = () => {
   console.log("My Mentors: ", sortedMentors);
 
   return (
-    <div data-testid="container-div">
-      <Typography variant="h3" m={2}>
-        {"Welcome \n"}
-        {user?.displayName ? user.displayName : "Loading Name..."}!
-      </Typography>
-      <Typography variant="h4" m={2}>
-        {mentors?.length > 0 ? " Your mentors" : "No Mentors..."}
-      </Typography>
+    <Box
+      display="flex"
+      flexDirection="column"
+      mt={3}
+      component="div"
+      data-testid="container-div"
+    >
+      <Box mb={2}>
+        <Typography variant="h3" gutterBottom>
+          {"Welcome, "}
+          {user?.displayName ? user.displayName : "Loading Name..."}!
+        </Typography>
+        <Typography variant="h4" gutterBottom>
+          {mentors?.length > 0 ? " Your mentors" : "No Mentors..."}
+        </Typography>
+      </Box>
+
       {mentors ? (
         <Grid
           container
@@ -77,7 +88,7 @@ const Dashboard = () => {
           </Button>
         </Link>
       </Box>
-    </div>
+    </Box>
   );
 };
 
