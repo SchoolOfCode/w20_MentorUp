@@ -1,0 +1,13 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "deploy",
+      "path": "cloud-functions/functions/",
+      "problemMatcher": [],
+      "label": "npm: deploy - cloud-functions/functions",
+      "detail": "firebase deploy --only functions"
+    }
+  ]
+}
