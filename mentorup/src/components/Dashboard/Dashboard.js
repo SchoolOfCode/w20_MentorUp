@@ -68,7 +68,10 @@ const Dashboard = () => {
             if (index > 2) return null;
             return (
               <Grid item xs={3} key={index}>
-                <Link to={`/contact/${mentor["NO_ID_FIELD"]}`}>
+                <Link
+                  style={{ textDecoration: "none" }}
+                  to={`/contact/${mentor["NO_ID_FIELD"]}`}
+                >
                   <Paper>
                     <img src={mentor.avatar} alt="Mentor"></img>
                     <Typography variant="h6">{mentor.username}</Typography>
