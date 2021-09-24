@@ -72,9 +72,11 @@ const Dashboard = () => {
                   style={{ textDecoration: "none" }}
                   to={`/contact/${mentor["NO_ID_FIELD"]}`}
                 >
-                  <Paper>
-                    <img src={mentor.avatar} alt="Mentor"></img>
-                    <Typography variant="h6">{mentor.username}</Typography>
+                  <Paper p={2}>
+                    <Box display="flex" flexDirection="column" flexWrap="wrap">
+                      <img src={mentor.avatar} alt="Mentor"></img>
+                      <Typography variant="h6">{mentor.username}</Typography>
+                    </Box>
                   </Paper>
                 </Link>
               </Grid>
