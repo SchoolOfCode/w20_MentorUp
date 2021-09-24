@@ -206,7 +206,7 @@ function UserDetails() {
     setActiveSteps((previousStep) => previousStep - 1);
   };
   return (
-    <div style={{ padding: "16px" }}>
+    <Box mt={5} p={2}>
       <form onSubmit={handleSubmit}>
         <Grid
           container
@@ -350,7 +350,7 @@ function UserDetails() {
           }
         />
       </div>
-    </div>
+    </Box>
   );
 }
 

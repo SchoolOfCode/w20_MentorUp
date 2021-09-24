@@ -43,17 +43,17 @@ const Dashboard = () => {
       display="flex"
       flexDirection="column"
       alignItems="center"
-      mt={3}
+      mt={5}
       component="div"
       data-testid="container-div"
     >
       <Box mb={2}>
-        <Typography variant="h3" gutterBottom>
+        <Typography variant="h4" gutterBottom>
           {"Welcome, "}
           {user?.displayName ? user.displayName : "Loading Name..."}!
         </Typography>
-        <Typography variant="h4" gutterBottom>
-          {mentors?.length > 0 ? " Your mentors" : "No Mentors..."}
+        <Typography variant="h5" gutterBottom>
+          {mentors?.length > 0 ? " Here are your mentors" : "No Mentors..."}
         </Typography>
       </Box>
 
