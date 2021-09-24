@@ -6,9 +6,10 @@ import Divider from "@material-ui/core/Divider";
 import Box from "@material-ui/core/Box";
 import { makeStyles } from "@material-ui/core";
 import heroImage from "../../assets/heroimage.jpg";
-import dummy1 from "../../assets/undraw_fall_thyk.svg";
-import dummy2 from "../../assets/undraw_my_app_re_gxtj.svg";
-import dummy3 from "../../assets/undraw_step_to_the_sun_nxqq.svg";
+
+import signup from "../../assets/signup.png";
+import form from "../../assets/form.png";
+import matched from "../../assets/matched.png";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -54,9 +55,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 const howItWorksSteps = [
-  { step: 1, text: "Sign up", image: dummy1 },
-  { step: 2, text: "Fill out form", image: dummy2 },
-  { step: 3, text: "Match with mentor!", image: dummy3 },
+  { step: 1, text: "Sign up", image: signup },
+  { step: 2, text: "Fill out the form", image: form },
+  { step: 3, text: "Match with mentor!", image: matched },
 ];
 function HomePage() {
   const classes = useStyles();
