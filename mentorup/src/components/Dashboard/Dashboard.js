@@ -42,6 +42,7 @@ const Dashboard = () => {
     <Box
       display="flex"
       flexDirection="column"
+      alignItems="center"
       mt={3}
       component="div"
       data-testid="container-div"
@@ -63,18 +64,24 @@ const Dashboard = () => {
           justifyContent="center"
           alignItems="center"
           spacing={4}
+          sm={8}
+          style={{ backgroundColor: "red" }}
         >
           {sortedMentors?.map((mentor, index) => {
             if (index > 2) return null;
             return (
-              <Grid item xs={3} key={index}>
+              <Grid item xs={12} sm={3} key={index} maxWidth="250px">
                 <Link
                   style={{ textDecoration: "none" }}
                   to={`/contact/${mentor["NO_ID_FIELD"]}`}
                 >
-                  <Paper p={2}>
+                  <Paper p={2} maxWidth="250px">
                     <Box display="flex" flexDirection="column" flexWrap="wrap">
-                      <img src={mentor.avatar} alt="Mentor"></img>
+                      <img
+                        style={{ maxWidth: "150px", maxHeight: "150px" }}
+                        src={mentor.avatar}
+                        alt="Mentor"
+                      />
                       <Typography variant="h6">{mentor.username}</Typography>
                     </Box>
                   </Paper>
