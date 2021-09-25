@@ -27,6 +27,12 @@ Our Presentation will be here very soon
 
 ### Dashboard
 
+Dashboard looks at firebase messages, and see's which ones the user is involved in. Then it finds the corresponding Mentor, and displays this on the Dashboard. Clicking on the Mentor will take you to the contact page to contact them. Clicking on the Match with Mentor button will take you to the match with mentor page.
+
 ### Contact
 
 ### Match With Mentor
+
+Match with Mentor pulls down all the mentors which match your help requests, then picks one from random. If any mentor matches your industry, then they are priorotised. You can click the refresh mentor button to see if any other mentors for your help are available. To change the help that you need, press the link at the bottom which will take you to change your details. Press Contact Mentor to contact the current Mentor which is available.
+
+## Stacks Used
