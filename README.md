@@ -1,4 +1,4 @@
-# Welcome to MentorUp, team H's final project for SOC Bootcamp 6
+# Welcome to MentorUp, team H's final project for SOC Bootcamp 6 
 
 MentorUp is a collective work created by the Dreamer team AKA Muna Fidow, Clarisse Leduc and Toby Smith.
 
@@ -36,3 +36,4 @@ Dashboard looks at firebase messages, and see's which ones the user is involved 
 Match with Mentor pulls down all the mentors which match your help requests, then picks one from random. If any mentor matches your industry, then they are priorotised. You can click the refresh mentor button to see if any other mentors for your help are available. To change the help that you need, press the link at the bottom which will take you to change your details. Press Contact Mentor to contact the current Mentor which is available.
 
 ## Stacks Used
+
