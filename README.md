@@ -5,49 +5,35 @@ MentorUp is a collective work created by the Dreamer team AKA Muna Fidow, Claris
 MentorUp is an app that connects aspiring entrepreneurs to existing entrepreneurs so that they can mentored on their topic of need.
 MentorUp aims to provide equal opportunities to access a mentor regardless of gender, age, ethnicity, accessibility needs.
 
-# Getting Started with Create React App
+## Our Brief
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+How can we help people to launch successful startup companies?
 
-## Available Scripts
+## Our Solution
 
-In the project directory, you can run:
+We created MentorUp, this is a place where everyone has an equal chance to get a Mentor, without any bias. Users are able to sign up, pick what topics they need help with, along with other requirements such as a Language Translator. Then they will be automaticaly matched up with a Mentor based on their needs and if possible, the industry. Our goal was to make the app as accessable as possible, to allow anyone to be able to use it, and benifit from it.
 
-### `npm start`
+### View the Application
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Our site will be deployed on Netlify Soon
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Demo Day Presentation
 
-### `npm test`
+Our Presentation will be here very soon
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features
 
-### `npm run build`
+### Sign In Page
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Dashboard
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Dashboard looks at firebase messages, and see's which ones the user is involved in. Then it finds the corresponding Mentor, and displays this on the Dashboard. Clicking on the Mentor will take you to the contact page to contact them. Clicking on the Match with Mentor button will take you to the match with mentor page.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Contact
 
-### `npm run eject`
+### Match With Mentor
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Match with Mentor pulls down all the mentors which match your help requests, then picks one from random. If any mentor matches your industry, then they are priorotised. You can click the refresh mentor button to see if any other mentors for your help are available. To change the help that you need, press the link at the bottom which will take you to change your details. Press Contact Mentor to contact the current Mentor which is available.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Stacks Used
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
