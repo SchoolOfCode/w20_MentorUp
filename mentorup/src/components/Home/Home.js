@@ -77,8 +77,10 @@ function HomePage() {
                 Kickstart your startup with a kickass mentor
               </Typography>
               <Typography variant="h6">
-                Get an experienced mentor in your same field of business! Get an
-                experienced mentor in your same field of business!
+                Get an experienced mentor in your same field of business! <br />
+                Tell us what topics you need help with and what your business is
+                about and we will make sure to match you with a mentor that will
+                be able to help you out.
               </Typography>
 
               <Box
